@@ -1,42 +1,116 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* shadcn token vars */
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 20% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Typography defaults */
+  h1 {
+    @apply text-3xl font-semibold tracking-tight;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold tracking-tight;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+  }
+
+  p {
+    @apply leading-7;
+  }
+
+  a {
+    @apply underline underline-offset-4;
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+@layer components {
+  /* Site system (layout primitives) */
+  .shell {
+    @apply min-h-dvh;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  .container {
+    @apply mx-auto w-full max-w-3xl px-5;
+  }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  .header {
+    @apply border-b bg-background/80 backdrop-blur;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  .headerInner {
+    @apply flex flex-col gap-4 py-6 md:flex-row md:items-end md:justify-between;
+  }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  .brand {
+    @apply no-underline;
+  }
+
+  .brandMark {
+    @apply block text-base font-semibold;
+  }
+
+  .brandSub {
+    @apply mt-1 block text-sm text-muted-foreground;
+  }
+
+  .nav {
+    @apply flex gap-4 text-sm;
+  }
+
+  .nav a {
+    @apply no-underline text-muted-foreground hover:text-foreground;
+  }
+
+  .main {
+    @apply py-10;
+  }
+
+  .footer {
+    @apply mt-16 border-t py-10;
+  }
+
+  .footerLinks {
+    @apply flex flex-wrap gap-4 text-sm;
+  }
+
+  .small {
+    @apply mt-4 text-xs text-muted-foreground;
   }
 }

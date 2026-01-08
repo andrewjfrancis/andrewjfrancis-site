@@ -1,66 +1,121 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="mx-auto w-full max-w-3xl px-6 py-12 sm:py-16">
+      {/* HERO */}
+      <header className="space-y-4">
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          Andrew J. Francis
+        </h1>
+
+        <p className="text-base leading-7 text-muted-foreground sm:text-lg">
+          Human-centered systems & decision architecture. Writing about how
+          structure shapes execution.
+        </p>
+      </header>
+
+      <div className="mt-10 space-y-10 sm:mt-12">
+        <Separator />
+
+        {/* NOW */}
+        <section className="space-y-4">
+          <div className="space-y-1">
+            <h2 className="text-xl font-semibold tracking-tight">Now</h2>
+            <p className="text-sm text-muted-foreground">
+              A living snapshot — updated as priorities change.
+            </p>
+          </div>
+
+          <Card className="p-6">
+            <p className="text-base leading-7">
+              Building Aira and a durable writing system. Shipping under
+              constraints. Keeping it boring and correct.
+            </p>
+
+            <div className="mt-4">
+              <Link
+                href="/now"
+                className="text-sm font-medium underline underline-offset-4"
+              >
+                Read the Now page
+              </Link>
+            </div>
+          </Card>
+        </section>
+
+        <Separator />
+
+        {/* WRITING */}
+        <section className="space-y-4">
+          <div className="space-y-1">
+            <h2 className="text-xl font-semibold tracking-tight">Writing</h2>
+            <p className="text-sm text-muted-foreground">
+              Articles live here, with links out to Medium when relevant.
+            </p>
+          </div>
+
+          <Card className="p-6">
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <p className="text-sm text-muted-foreground">Latest</p>
+                <p className="text-base leading-7">
+                  No posts here yet — this section will list the most recent
+                  articles once we add MDX.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/writing"
+                  className="text-sm font-medium underline underline-offset-4"
+                >
+                  Browse all writing
+                </Link>
+
+                <a
+                  href="https://medium.com/@andrewjfrancis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium underline underline-offset-4"
+                >
+                  Read on Medium
+                </a>
+              </div>
+            </div>
+          </Card>
+        </section>
+
+        <Separator />
+
+        {/* WORK */}
+        <section className="space-y-4">
+          <div className="space-y-1">
+            <h2 className="text-xl font-semibold tracking-tight">Work</h2>
+            <p className="text-sm text-muted-foreground">
+              What I build, what I care about, and what I avoid.
+            </p>
+          </div>
+
+          <Card className="p-6">
+            <p className="text-base leading-7">
+              This will become a compact “what I do / how I work” section with
+              clear non-goals.
+            </p>
+
+            <div className="mt-4">
+              <Link
+                href="/about"
+                className="text-sm font-medium underline underline-offset-4"
+              >
+                Read the About page
+              </Link>
+            </div>
+          </Card>
+        </section>
+      </div>
+    </main>
   );
 }
