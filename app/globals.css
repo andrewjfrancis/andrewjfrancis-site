@@ -90,6 +90,18 @@
     @apply mt-1 block text-sm text-muted-foreground;
   }
 
+  a {
+    @apply underline underline-offset-4 text-foreground;
+  }
+
+  a:visited {
+    @apply text-muted-foreground;
+  }
+
+  a:hover {
+    @apply text-foreground;
+  }
+
   .nav {
     @apply flex gap-4 text-sm;
   }
@@ -98,12 +110,16 @@
     @apply no-underline text-muted-foreground hover:text-foreground;
   }
 
+  .hero {
+    @apply relative w-full overflow-hidden py-12 md:py-16;
+  }
+
   .main {
     @apply py-10;
   }
 
   .footer {
-    @apply mt-16 border-t py-10;
+    @apply mt-10 border-t py-10;
   }
 
   .footerLinks {

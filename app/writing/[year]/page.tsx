@@ -1,27 +1,32 @@
-import Link from "next/link";
 import PageShell from "../../_components/PageShell";
 import YearsNav from "../_components/YearsNav";
-import { getArticlesByYear, getYears } from "../_data/articles";
+import { ArticlesList } from "../_components/ArticlesList";
+import { Pager } from "../_components/Pager";
+import {
+  getArticlesByYear,
+  getPagedArticles,
+  getTotalPages,
+  getYears,
+} from "../_data/articles";
 
-function formatDate(iso: string) {
-  const d = new Date(iso + "T00:00:00");
-  return d.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "short",
-    day: "2-digit",
-  });
-}
-
-export default function WritingYearPage({
+export default async function WritingYearPage({
   params,
 }: {
-  params: { year: string };
+  params: Promise<{ year: string }>;
 }) {
-  const yearNum = Number(params.year);
-  const year = Number.isFinite(yearNum) ? yearNum : 2026;
+  const { year: yearParam } = await params;
+
+  const yearNum = Number(yearParam);
+  const year = Number.isFinite(yearNum) ? yearNum : new Date().getFullYear();
 
   const years = getYears();
-  const items = getArticlesByYear(year);
+  const allForYear = getArticlesByYear(year);
+
+  const totalPages = getTotalPages(allForYear.length);
+  const items = getPagedArticles(allForYear, 1);
+
+  const hrefForPage = (p: number) =>
+    p <= 1 ? `/writing/${year}` : `/writing/${year}/page/${p}`;
 
   return (
     <PageShell>
@@ -30,8 +35,8 @@ export default function WritingYearPage({
           Writing — {year}
         </h1>
         <p className="text-base text-muted-foreground">
-          Year archive. The main “Writing” page stays stable; years are a
-          filter.
+          Articles and notes. Mostly links out to Medium, organized here so the
+          archive stays coherent.
         </p>
       </header>
 
@@ -39,49 +44,21 @@ export default function WritingYearPage({
 
       <YearsNav years={years} mode="year" />
 
-      <ul className="mt-6 space-y-4">
-        {items.length === 0 ? (
-          <li className="rounded-lg border p-6">
-            <p className="text-base font-semibold">No articles yet.</p>
-            <p className="mt-3 text-base leading-7 text-muted-foreground">
-              This archive will fill automatically as you publish.
-            </p>
-          </li>
-        ) : (
-          items.map((a) => (
-            <li key={`${a.date}-${a.title}`} className="rounded-lg border p-6">
-              <p className="text-base font-semibold">
-                {a.source === "medium" && a.externalUrl ? (
-                  <a
-                    className="underline underline-offset-4"
-                    href={a.externalUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {a.title}
-                  </a>
-                ) : (
-                  <Link
-                    className="underline underline-offset-4"
-                    href={`/writing/${a.year}/${a.slug}`}
-                  >
-                    {a.title}
-                  </Link>
-                )}
-              </p>
+      <Pager
+        className="my-6"
+        currentPage={1}
+        totalPages={totalPages}
+        hrefForPage={hrefForPage}
+      />
 
-              <p className="mt-2 text-sm text-muted-foreground">
-                {formatDate(a.date)} ·{" "}
-                {a.source === "medium" ? "Medium" : "Local"}
-              </p>
+      <ArticlesList items={items} />
 
-              <p className="mt-3 text-base leading-7 text-muted-foreground">
-                {a.excerpt}
-              </p>
-            </li>
-          ))
-        )}
-      </ul>
+      <Pager
+        className="my-6"
+        currentPage={1}
+        totalPages={totalPages}
+        hrefForPage={hrefForPage}
+      />
     </PageShell>
   );
 }

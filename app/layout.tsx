@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import * as React from "react";
+import type { ComponentPropsWithoutRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { NavLink } from "./_components/NavLink";
 import "./globals.css";
 
@@ -15,16 +18,30 @@ const NAV = [
   { href: "/about", label: "About" },
 ];
 
+type ExternalLinkProps = ComponentPropsWithoutRef<"a"> & {
+  href: string;
+};
+
 function ExternalLink({
   href,
+  className = "",
   children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
+  ...props
+}: ExternalLinkProps) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
-      {children}
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center gap-1 no-underline hover:opacity-90 ${className}`}
+      {...props}
+    >
+      <span className="text-foreground">{children}</span>
+      <ArrowUpRight
+        className="h-4 w-4 text-muted-foreground opacity-70"
+        aria-hidden="true"
+      />
+      <span className="sr-only">(opens in a new tab)</span>
     </a>
   );
 }
@@ -40,11 +57,14 @@ export default function RootLayout({
         <div className="shell">
           <header className="border-b">
             <div className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
-              <Link href="/" className="text-lg font-semibold tracking-tight">
+              <Link
+                href="/"
+                className="text-base font-semibold tracking-tight no-underline hover:opacity-80"
+              >
                 Andrew J. Francis
               </Link>
 
-              <nav className="flex items-center gap-6" aria-label="Primary">
+              <nav className="nav" aria-label="Primary">
                 {NAV.map((item) => (
                   <NavLink key={item.href} href={item.href}>
                     {item.label}

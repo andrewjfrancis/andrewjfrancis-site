@@ -90,7 +90,7 @@ This produces the route:
 Use the same logic already used for `/writing/page/[page]`.
 
 ```ts
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 3;
 
 const pageNum = Number(params.page ?? "1");
 const page = Number.isFinite(pageNum) && pageNum > 0 ? pageNum : 1;

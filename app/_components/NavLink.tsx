@@ -22,11 +22,12 @@ export function NavLink({
       href={href}
       aria-current={isActive ? "page" : undefined}
       className={[
-        "text-sm",
         "underline-offset-4",
         isActive
-          ? "font-semibold underline"
-          : "text-muted-foreground hover:underline",
+          ? "text-foreground font-semibold text-base" // active: darker + slightly bigger
+          : "text-sm text-muted-foreground hover:text-foreground hover:underline", // inactive: smaller + hover affordance
+        // prevent visited styling from doing weird shit in nav
+        "visited:text-inherit",
       ].join(" ")}
     >
       {children}

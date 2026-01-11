@@ -1,0 +1,83 @@
+import PageShell from "../../../../_components/PageShell";
+import YearsNav from "../../../_components/YearsNav";
+import { ArticlesList } from "../../../_components/ArticlesList";
+import { Pager } from "../../../_components/Pager";
+import { redirect } from "next/navigation";
+import {
+  getArticlesByYear,
+  getPagedArticles,
+  getTotalPages,
+  getYears,
+} from "../../../_data/articles";
+
+export default async function WritingYearPagedPage({
+  params,
+}: {
+  params: Promise<{ year: string; page: string }>;
+}) {
+  const { year: yearParam, page: pageParam } = await params;
+
+  // (Optional) This logs in your terminal (server), not the browser console.
+  // console.log("HIT /writing/[year]/page/[page]", { year: yearParam, page: pageParam });
+
+  const yearNum = Number(yearParam);
+  const year = Number.isFinite(yearNum) ? yearNum : new Date().getFullYear();
+
+  const years = getYears();
+
+  const allForYear = getArticlesByYear(year);
+  const totalPages = getTotalPages(allForYear.length);
+
+  // If this year fits on one page, this route should not exist.
+  if (totalPages <= 1) redirect(`/writing/${year}`);
+
+  const rawPage = Number(pageParam);
+
+  // Never allow /page/1 (or garbage)
+  if (!Number.isFinite(rawPage) || rawPage < 2) redirect(`/writing/${year}`);
+
+  // Clamp too-large pages to last page
+  const safePage = Math.min(rawPage, totalPages);
+
+  // If clamped, redirect so URL matches content
+  if (safePage !== rawPage) redirect(`/writing/${year}/page/${safePage}`);
+
+  const items = getPagedArticles(allForYear, safePage);
+
+  const hrefForPage = (p: number) =>
+    p <= 1 ? `/writing/${year}` : `/writing/${year}/page/${p}`;
+
+  return (
+    <PageShell>
+      <header className="space-y-3">
+        <h1 className="text-3xl font-semibold tracking-tight">
+          Writing — {year}
+        </h1>
+        <p className="text-base text-muted-foreground">
+          Articles and notes. Mostly links out to Medium, organized here so the
+          archive stays coherent.
+        </p>
+      </header>
+
+      <hr className="my-10" />
+
+      <YearsNav years={years} mode="year" />
+
+      <Pager
+        className="my-6"
+        currentPage={safePage}
+        totalPages={totalPages}
+        hrefForPage={hrefForPage}
+      />
+
+      <ArticlesList items={items} />
+
+      <Pager
+        className="my-6"
+        currentPage={safePage}
+        totalPages={totalPages}
+        hrefForPage={hrefForPage}
+      />
+    </PageShell>
+  );
+}

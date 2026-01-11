@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <main className="mx-auto w-full max-w-3xl px-6 py-12 sm:py-16">
       {/* HERO */}
-      <header className="space-y-4">
+      <header className="hero">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
           Andrew J. Francis
         </h1>
