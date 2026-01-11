@@ -1,3 +1,5 @@
+import type { Tag } from "./tags";
+
 export type ArticleSource = "medium" | "local";
 
 export type Article = {
@@ -10,10 +12,13 @@ export type Article = {
 
   externalUrl?: string;
   slug?: string;
-  tags?: string[];
+  tags?: Tag[];
+
+  pinned?: boolean; // optional legacy convenience
+  pinOrder?: number; // real control
 };
 
-export const PAGE_SIZE = 3; // pick your number (10 is great)
+export const PAGE_SIZE = 3;
 
 export const ARTICLES: Article[] = [
   {
@@ -26,6 +31,8 @@ export const ARTICLES: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/most-strategy-fails-before-execution-even-starts-1033992be80e",
+    pinned: false,
+    tags: ["Systems Thinking", "Decision Architecture"],
   },
   {
     id: "2028-02-20-01",
@@ -279,6 +286,9 @@ export const ARTICLES: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/most-strategy-fails-before-execution-even-starts-1033992be80e",
+    pinned: true,
+    pinOrder: 2,
+    tags: ["Systems Thinking", "Decision Architecture"],
   },
   {
     id: "2026-01-07-01",
@@ -290,6 +300,8 @@ export const ARTICLES: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/most-strategy-fails-before-execution-even-starts-1033992be80e",
+    pinned: false,
+    tags: ["Systems Thinking", "Decision Architecture"],
   },
   {
     id: "2026-01-06-01",
@@ -301,6 +313,9 @@ export const ARTICLES: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/most-strategy-fails-before-execution-even-starts-1033992be80e",
+    pinned: true,
+    pinOrder: 1,
+    tags: ["Systems Thinking", "Decision Architecture"],
   },
 ];
 
@@ -308,21 +323,25 @@ export const ARTICLES: Article[] = [
 
 export function getAllArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => {
+    // --- pinned first, ordered by pinOrder when present ---
+    const aPinned = typeof a.pinOrder === "number" || a.pinned === true;
+    const bPinned = typeof b.pinOrder === "number" || b.pinned === true;
+
+    if (aPinned !== bPinned) return aPinned ? -1 : 1;
+
+    if (aPinned && bPinned) {
+      const ao = typeof a.pinOrder === "number" ? a.pinOrder : 9999;
+      const bo = typeof b.pinOrder === "number" ? b.pinOrder : 9999;
+      if (ao !== bo) return ao - bo;
+    }
+
     // date desc
     if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+
     // stable tie-breakers
     if (a.title !== b.title) return a.title.localeCompare(b.title);
     return a.id.localeCompare(b.id);
   });
-}
-
-export function getYears(): number[] {
-  const years = new Set(getAllArticles().map((a) => a.year));
-  return Array.from(years).sort((a, b) => b - a);
-}
-
-export function getArticlesByYear(year: number): Article[] {
-  return getAllArticles().filter((a) => a.year === year);
 }
 
 export function getTotalPages(count: number): number {
@@ -333,4 +352,13 @@ export function getPagedArticles<T>(items: T[], page: number): T[] {
   const safePage = Math.max(1, Math.floor(page));
   const start = (safePage - 1) * PAGE_SIZE;
   return items.slice(start, start + PAGE_SIZE);
+}
+
+export function getYears(): number[] {
+  const years = new Set(getAllArticles().map((a) => a.year));
+  return Array.from(years).sort((a, b) => b - a);
+}
+
+export function getArticlesByYear(year: number): Article[] {
+  return getAllArticles().filter((a) => a.year === year);
 }

@@ -44,6 +44,7 @@ export default function WritingIndexPage() {
       />
 
       <ArticlesList items={items} />
+      {/* <ArticlesList items={items} showTagsLegend /> */}
 
       <Pager
         className="my-6"

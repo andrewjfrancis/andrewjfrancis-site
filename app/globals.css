@@ -129,4 +129,21 @@
   .small {
     @apply mt-4 text-xs text-muted-foreground;
   }
+  /* Hide scrollbar but keep scroll */
+  .pagerNumbers {
+    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .pagerNumbers::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  /* Hide scrollbars but keep scrolling */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE/Edge legacy */
+    scrollbar-width: none; /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
 }

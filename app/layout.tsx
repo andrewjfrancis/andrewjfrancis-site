@@ -59,7 +59,7 @@ export default function RootLayout({
             <div className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
               <Link
                 href="/"
-                className="text-base font-semibold tracking-tight no-underline hover:opacity-80"
+                className="text-foreground visited:text-foreground hover:text-foreground/80 no-underline"
               >
                 Andrew J. Francis
               </Link>

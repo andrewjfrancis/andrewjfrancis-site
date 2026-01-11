@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Article } from "../_data/articles";
+import { TAGS, type Tag } from "../_data/tags";
 
 function formatDate(iso: string) {
   const d = new Date(iso + "T00:00:00");
@@ -10,14 +11,22 @@ function formatDate(iso: string) {
   });
 }
 
+function uniq<T>(arr: T[]) {
+  return Array.from(new Set(arr));
+}
+
 export function ArticlesList({
   items,
   emptyTitle = "No articles yet.",
   emptyBody = "This archive will fill automatically as you publish.",
+  showTagsLegend = false,
 }: {
   items: Article[];
   emptyTitle?: string;
   emptyBody?: string;
+
+  // Optional: show canonical tags list (with disabled states) under the cards.
+  showTagsLegend?: boolean;
 }) {
   if (items.length === 0) {
     return (
@@ -32,47 +41,114 @@ export function ArticlesList({
     );
   }
 
+  // Compute which canonical tags are actually used in this render set
+  // (so you can intentionally leave some tags off and see “disabled”.)
+  const used = new Set<Tag>();
+  for (const a of items) {
+    for (const t of a.tags ?? []) used.add(t);
+  }
+
   return (
-    <ul className="mt-6 space-y-4">
-      {items.map((a, i) => {
-        // Use index as a tie-breaker because you intentionally duplicate items for pagination testing.
-        // (React keys must be unique per list render.)
-        const stable =
-          a.externalUrl ?? (a.slug ? `/writing/${a.year}/${a.slug}` : a.title);
+    <div className="mt-6 space-y-6">
+      <ul className="space-y-4">
+        {items.map((a) => {
+          const isPinned = Boolean(a.pinned);
 
-        return (
-          <li key={a.id} className="rounded-lg border p-6">
-            <p className="text-base font-semibold">
-              {a.source === "medium" && a.externalUrl ? (
-                <a
-                  className="underline underline-offset-4"
-                  href={a.externalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {a.title}
-                </a>
-              ) : (
-                <Link
-                  className="underline underline-offset-4"
-                  href={`/writing/${a.year}/${a.slug}`}
-                >
-                  {a.title}
-                </Link>
-              )}
-            </p>
+          return (
+            <li
+              key={a.id}
+              className="rounded-lg border p-6 transition-colors hover:bg-muted/40"
+            >
+              {/* Top row: title + pinned badge */}
+              <div className="flex items-start justify-between gap-4">
+                <p className="text-base font-semibold">
+                  {a.source === "medium" && a.externalUrl ? (
+                    <a
+                      className="underline underline-offset-4"
+                      href={a.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {a.title}
+                    </a>
+                  ) : (
+                    <Link
+                      className="underline underline-offset-4"
+                      href={`/writing/${a.year}/${a.slug}`}
+                    >
+                      {a.title}
+                    </Link>
+                  )}
+                </p>
 
-            <p className="mt-2 text-sm text-muted-foreground">
-              {formatDate(a.date)} ·{" "}
-              {a.source === "medium" ? "Medium" : "Local"}
-            </p>
+                {isPinned ? (
+                  <span className="shrink-0 rounded-full border px-3 py-1 text-xs font-medium text-foreground/80">
+                    Pinned
+                  </span>
+                ) : null}
+              </div>
 
-            <p className="mt-3 text-base leading-7 text-foreground/70">
-              {a.excerpt}
-            </p>
-          </li>
-        );
-      })}
-    </ul>
+              {/* Meta row */}
+              <p className="mt-2 text-sm text-foreground/70">
+                {formatDate(a.date)} ·{" "}
+                {a.source === "medium" ? "Medium" : "Local"}
+              </p>
+
+              {/* Excerpt */}
+              <p className="mt-3 text-base leading-7 text-foreground/80">
+                {a.excerpt}
+              </p>
+
+              {/* Tags row (horizontal scroll) */}
+              {a.tags && a.tags.length > 0 ? (
+                <ul className="mt-4 flex gap-2 overflow-x-auto whitespace-nowrap no-scrollbar">
+                  {a.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="rounded-full border px-3 py-1 text-sm text-muted-foreground"
+                      title={TAGS.find((t) => t.id === tag)?.description ?? tag}
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </li>
+          );
+        })}
+      </ul>
+
+      {/* Canonical tags list (enabled/disabled) */}
+      {showTagsLegend ? (
+        <section className="rounded-lg border p-5">
+          <p className="text-sm font-semibold text-foreground">Tags</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Canonical tag set for the archive. Disabled tags aren’t used (yet).
+          </p>
+
+          <ul className="mt-4 flex gap-2 overflow-x-auto whitespace-nowrap no-scrollbar">
+            {TAGS.map((t) => {
+              const enabled = used.has(t.id);
+
+              return (
+                <li key={t.id}>
+                  <span
+                    title={t.description}
+                    className={
+                      "inline-flex items-center rounded-full border px-3 py-1 text-sm " +
+                      (enabled
+                        ? "text-foreground/80"
+                        : "text-muted-foreground opacity-50")
+                    }
+                  >
+                    {t.id}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ) : null}
+    </div>
   );
 }
