@@ -1,3 +1,5 @@
+// app/layout.tsx
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import * as React from "react";
@@ -7,9 +9,10 @@ import { NavLink } from "./_components/NavLink";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://andrewjfrancis.com"),
   title: "Andrew J. Francis — Systems, Structure, Decision Architecture",
   description:
-    "Writing about organizational structure, decision-making, and how systems shape work.",
+    "Writing about organizational structure, decision-making and how systems shape work.",
 };
 
 const NAV = [

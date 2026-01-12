@@ -18,7 +18,7 @@ export type Article = {
   pinOrder?: number; // real control
 };
 
-export const PAGE_SIZE = 3;
+export const PAGE_SIZE = 5;
 
 export const ARTICLES_REAL: Article[] = [
   {
