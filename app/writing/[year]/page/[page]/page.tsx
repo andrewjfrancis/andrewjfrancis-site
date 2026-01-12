@@ -53,9 +53,14 @@ export default async function WritingYearPagedPage({
         <h1 className="text-3xl font-semibold tracking-tight">
           Writing — {year}
         </h1>
-        <p className="text-base text-muted-foreground">
-          Articles and notes. Mostly links out to Medium, organized here so the
-          archive stays coherent.
+        <p className="text-base leading-7 text-muted-foreground">
+          These essays examine how organizations actually function under
+          pressure — how decisions are ordered, how authority is assigned, and
+          how responsibility is distributed. The focus is structural rather than
+          personal: systems, incentives, and design choices that shape behavior
+          regardless of intent. The goal is not to offer solutions or
+          frameworks, but to make patterns visible so they can be recognized for
+          what they are.
         </p>
       </header>
 

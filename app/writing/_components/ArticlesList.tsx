@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Article } from "../_data/articles";
 import { TAGS, type Tag } from "../_data/tags";
+import { Pin } from "lucide-react";
 
 function formatDate(iso: string) {
   const d = new Date(iso + "T00:00:00");
@@ -60,7 +61,7 @@ export function ArticlesList({
               className="rounded-lg border p-6 transition-colors hover:bg-muted/40"
             >
               {/* Top row: title + pinned badge */}
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center justify-between gap-4">
                 <p className="text-base font-semibold">
                   {a.source === "medium" && a.externalUrl ? (
                     <a
@@ -82,8 +83,9 @@ export function ArticlesList({
                 </p>
 
                 {isPinned ? (
-                  <span className="shrink-0 rounded-full border px-3 py-1 text-xs font-medium text-foreground/80">
-                    Pinned
+                  <span className="shrink-0 inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs text-muted-foreground">
+                    <Pin className="h-3.5 w-3.5" aria-hidden="true" />
+                    <span>Pinned</span>
                   </span>
                 ) : null}
               </div>

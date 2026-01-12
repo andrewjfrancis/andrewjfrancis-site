@@ -1,13 +1,17 @@
 import PageShell from "../_components/PageShell";
+import { ArrowUpRight } from "lucide-react";
 
 export default function AboutPage() {
   return (
     <PageShell>
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight">About</h1>
-        <p className="text-base text-muted-foreground">
-          Placeholder for now — we’ll paste your finalized “About” copy here and
-          tune the structure without over-designing it.
+        <p className="text-base leading-7 font-semibold text-muted-foreground">
+          This is not a personal bio.
+        </p>
+        <p className="text-base leading-7 text-muted-foreground">
+          It’s a statement of intent about the work collected here and the lens
+          through which it’s written.
         </p>
       </header>
 
@@ -51,12 +55,26 @@ export default function AboutPage() {
 
         <p>
           If these essays resonate, it’s likely because you’ve lived inside the
-          structures being described. <em>Recognition is the goal.</em> Agreement is optional.
+          structures being described. <em>Recognition is the goal.</em>{" "}
+          Agreement is optional.
         </p>
 
         <p>
           If you want to follow along or see what I’m thinking about between
-          essays, I’m on LinkedIn.
+          essays, I’m on{" "}
+          <a
+            href="https://www.linkedin.com/in/YOUR-LINKEDIN-HERE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 underline underline-offset-4"
+          >
+            LinkedIn
+            <ArrowUpRight
+              className="relative top-[1px] h-4 w-4 opacity-60"
+              aria-hidden="true"
+            />
+          </a>
+          .
         </p>
       </div>
     </PageShell>
