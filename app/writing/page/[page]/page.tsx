@@ -68,11 +68,11 @@ export default async function WritingPagedIndex({
         <h1 className="text-3xl font-semibold tracking-tight">Writing</h1>
         <p className="text-base leading-7 text-muted-foreground">
           These essays examine how organizations function under pressure — how
-          decisions are ordered, how authority is assigned and how
-          responsibility is distributed. The focus is structural, not personal:
-          systems, incentives and design choices that shape behavior regardless
-          of intent. The goal is not to offer solutions or frameworks, but to
-          make patterns visible so they can be recognized.
+          decisions are ordered, authority is assigned and responsibility is
+          distributed. The focus is structural rather than personal: systems,
+          incentives and design choices that shape behavior regardless of
+          intent. The goal is not to offer solutions or frameworks, but to make
+          patterns visible so they can be recognized for what they are.
         </p>
       </header>
 
