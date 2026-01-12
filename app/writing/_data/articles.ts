@@ -1,4 +1,4 @@
-import { TAGS, type Tag } from "./tags";
+import { TAGS, type Tag, type TagSlug } from "./tags";
 
 export type ArticleSource = "medium" | "local";
 
@@ -273,7 +273,7 @@ export const ARTICLES_TEST: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/most-strategy-fails-before-execution-even-starts-1033992be80e",
-    tags: ["Strategy", "Decision Architecture"],
+    tags: ["Decision Architecture"],
   },
   {
     id: "TEST-2027-01-25-01",
@@ -333,7 +333,7 @@ export const ARTICLES_TEST: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/most-strategy-fails-before-execution-even-starts-1033992be80e",
-    tags: ["Strategy", "Decision Architecture"],
+    tags: ["Decision Architecture"],
   },
   {
     id: "TEST-2026-01-10-01",
@@ -450,6 +450,26 @@ export function getTagById(tag: Tag) {
 
 export function getArticlesByTag(tag: Tag): Article[] {
   return getAllArticles().filter((a) => a.tags?.includes(tag));
+}
+
+export function getTagCounts(): Map<TagSlug, number> {
+  const slugById = new Map<Tag, TagSlug>(
+    TAGS.map((t) => [t.id, t.slug] as [Tag, TagSlug])
+  );
+
+  const counts = new Map<TagSlug, number>(
+    TAGS.map((t) => [t.slug, 0] as [TagSlug, number])
+  );
+
+  for (const a of getAllArticles()) {
+    for (const id of a.tags ?? []) {
+      const slug = slugById.get(id);
+      if (!slug) continue;
+      counts.set(slug, (counts.get(slug) ?? 0) + 1);
+    }
+  }
+
+  return counts;
 }
 
 export function getYears(): number[] {

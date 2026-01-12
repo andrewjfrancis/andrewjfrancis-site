@@ -1,16 +1,21 @@
+// app/writing/page.tsx
+
 import PageShell from "../_components/PageShell";
 import YearsNav from "./_components/YearsNav";
 import { ArticlesList } from "./_components/ArticlesList";
 import { Pager } from "./_components/Pager";
+import TagPills from "./_components/TagPills";
+
 import {
   getAllArticles,
   getPagedArticles,
+  getTagCounts,
   getTotalPages,
   getYears,
 } from "./_data/articles";
 
 export default function WritingIndexPage() {
-  console.log("HIT /writing (page.tsx)");
+  const counts = getTagCounts();
 
   const all = getAllArticles();
   const years = getYears();
@@ -37,9 +42,27 @@ export default function WritingIndexPage() {
         </p>
       </header>
 
-      <hr className="my-10" />
+      <hr className="my-6" />
 
-      <YearsNav years={years} mode="all" />
+      <section className="space-y-5">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Browse by tag
+          </p>
+          <TagPills
+            counts={counts}
+            totalArticles={all.length}
+            className="pt-2"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Browse by year
+          </p>
+          <YearsNav years={years} mode="all" />
+        </div>
+      </section>
 
       <Pager
         className="my-6"
@@ -49,7 +72,6 @@ export default function WritingIndexPage() {
       />
 
       <ArticlesList items={items} />
-      {/* <ArticlesList items={items} showTagsLegend /> */}
 
       <Pager
         className="my-6"

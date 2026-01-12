@@ -25,12 +25,13 @@ export default function YearsNav({
       )}
 
       {years.map((y, idx) => {
-        const isActive = pathname === `/writing/${y}`;
+        const base = `/writing/${y}`;
+        const isActive = pathname === base || pathname.startsWith(`${base}/`);
 
         return (
           <span key={y}>
             <Link
-              href={`/writing/${y}`}
+              href={base}
               className={
                 isActive
                   ? "font-semibold text-foreground"

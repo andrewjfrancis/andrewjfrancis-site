@@ -4,12 +4,15 @@ import { notFound } from "next/navigation";
 import PageShell from "../../../_components/PageShell";
 import { ArticlesList } from "../../_components/ArticlesList";
 import { Pager } from "../../_components/Pager";
+import TagPills from "../../_components/TagPills";
 
 import { tagFromSlug, getTagMeta } from "../../_data/tags";
 import {
+  getAllArticles,
   getArticlesByTag,
   getPagedArticles,
   getTotalPages,
+  getTagCounts,
 } from "../../_data/articles";
 
 type Props = {
@@ -24,11 +27,18 @@ export default async function TagDetailPage({ params }: Props) {
   const tag = tagFromSlug(tagSlug);
   if (!tag) notFound();
 
+  const meta = getTagMeta(tag);
+  const activeSlug = meta.slug;
+
+  // Counts for tag nav (global, across all years)
+  const counts = getTagCounts();
+
+  // Current tag page data (page 1)
+  const totalArticles = getAllArticles().length;
   const all = getArticlesByTag(tag);
   const currentPage = 1;
   const totalPages = getTotalPages(all.length);
   const items = getPagedArticles(all, currentPage);
-  const meta = getTagMeta(tag);
 
   const hrefForPage = (p: number) =>
     p <= 1 ? `/writing/tags/${tagSlug}` : `/writing/tags/${tagSlug}/page/${p}`;
@@ -36,7 +46,9 @@ export default async function TagDetailPage({ params }: Props) {
   return (
     <PageShell>
       <header className="space-y-4">
-        <h1 className="text-3xl font-semibold tracking-tight">{meta.id}</h1>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          Writing — {meta.id}
+        </h1>
 
         {meta.description ? (
           <p className="text-base leading-7 text-muted-foreground">
@@ -45,7 +57,14 @@ export default async function TagDetailPage({ params }: Props) {
         ) : null}
       </header>
 
-      <hr className="my-10" />
+      <hr className="my-6" />
+
+      <TagPills
+        counts={counts}
+        totalArticles={totalArticles}
+        activeSlug={activeSlug}
+        className="pt-2"
+      />
 
       <Pager
         className="my-6"

@@ -11,8 +11,8 @@ export type Tag =
   | "Systems Thinking"
   | "Organizational Design"
   | "Decision Architecture"
-  | "Strategy"
   | "Authority & Accountability"
+  | "Strategy"
   | "Governance"
   | "Work"
   | "Complexity";
@@ -21,8 +21,8 @@ export type TagSlug =
   | "systems-thinking"
   | "organizational-design"
   | "decision-architecture"
-  | "strategy"
   | "authority-accountability"
+  | "strategy"
   | "governance"
   | "work"
   | "complexity";
@@ -51,16 +51,16 @@ export const TAGS: {
       "How decisions are framed, constrained, and ordered upstream — long before execution makes the consequences visible.",
   },
   {
-    id: "Strategy",
-    slug: "strategy",
-    description:
-      "Strategy understood as the ordering of decisions — not a plan, a vision statement or a set of goals.",
-  },
-  {
     id: "Authority & Accountability",
     slug: "authority-accountability",
     description:
       "How authority and accountability are aligned — or separated — and what happens when responsibility is assigned without control.",
+  },
+  {
+    id: "Strategy",
+    slug: "strategy",
+    description:
+      "Strategy understood as the ordering of decisions — not a plan, a vision statement or a set of goals.",
   },
   {
     id: "Governance",

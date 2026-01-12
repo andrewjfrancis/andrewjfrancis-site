@@ -4,11 +4,14 @@ import { notFound } from "next/navigation";
 import PageShell from "../../../../../_components/PageShell";
 import { ArticlesList } from "../../../../_components/ArticlesList";
 import { Pager } from "../../../../_components/Pager";
+import TagPills from "../../../../_components/TagPills";
 
 import { tagFromSlug, getTagMeta } from "../../../../_data/tags";
 import {
+  getAllArticles,
   getArticlesByTag,
   getPagedArticles,
+  getTagCounts,
   getTotalPages,
 } from "../../../../_data/articles";
 
@@ -26,15 +29,22 @@ export default async function TagPagePaginated({ params }: Props) {
   if (!tag) notFound();
 
   const pageNum = Number(page);
-  if (!Number.isInteger(pageNum) || pageNum < 2) notFound(); // <-- NOTE: 2+ only
+  if (!Number.isInteger(pageNum) || pageNum < 2) notFound(); // 2+ only
 
+  // Tag meta (safe, canonical slug lives here)
+  const meta = getTagMeta(tag);
+  const activeSlug = meta.slug;
+
+  // Tag nav counts + total articles for the "All" pill
+  const counts = getTagCounts();
+  const totalArticles = getAllArticles().length;
+
+  // Page data
   const all = getArticlesByTag(tag);
   const totalPages = getTotalPages(all.length);
-
   if (pageNum > totalPages) notFound();
 
   const items = getPagedArticles(all, pageNum);
-  const meta = getTagMeta(tag);
 
   const hrefForPage = (p: number) =>
     p <= 1 ? `/writing/tags/${tagSlug}` : `/writing/tags/${tagSlug}/page/${p}`;
@@ -42,7 +52,9 @@ export default async function TagPagePaginated({ params }: Props) {
   return (
     <PageShell>
       <header className="space-y-4">
-        <h1 className="text-3xl font-semibold tracking-tight">{meta.id}</h1>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          Writing — {meta.id}
+        </h1>
 
         {meta.description ? (
           <p className="text-base leading-7 text-muted-foreground">
@@ -51,7 +63,14 @@ export default async function TagPagePaginated({ params }: Props) {
         ) : null}
       </header>
 
-      <hr className="my-10" />
+      <hr className="my-6" />
+
+      <TagPills
+        counts={counts}
+        totalArticles={totalArticles}
+        activeSlug={activeSlug}
+        className="pt-2"
+      />
 
       <Pager
         className="my-6"
