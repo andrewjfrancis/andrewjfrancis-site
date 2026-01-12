@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import PageShell from "../_components/PageShell";
 import { ArrowUpRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About — Andrew J. Francis",
+  description:
+    "How I think about organizations, structure and decision-making, and why this writing exists.",
+};
 
 export default function AboutPage() {
   return (
@@ -22,10 +29,10 @@ export default function AboutPage() {
 
         <p>
           Most writing about work focuses on people — motivation, behavior,
-          leadership style, culture. This work focuses on systems instead: how
-          decisions are ordered, how authority is assigned, how responsibility
-          is distributed, and how those choices shape what people can
-          realistically do.
+          leadership style and culture. This work focuses on systems instead:
+          how decisions are ordered, how authority is assigned, how
+          responsibility is distributed and how those choices shape what people
+          can realistically do.
         </p>
 
         <p>
@@ -49,7 +56,7 @@ export default function AboutPage() {
         <p>
           This is not a blog about productivity or leadership tips. It is an
           archive of patterns: how organizations behave under pressure, how
-          decisions create downstream consequences, and why capable people fail
+          decisions create downstream consequences and why capable people fail
           inside poorly designed systems.
         </p>
 
@@ -63,7 +70,7 @@ export default function AboutPage() {
           If you want to follow along or see what I’m thinking about between
           essays, I’m on{" "}
           <a
-            href="https://www.linkedin.com/in/YOUR-LINKEDIN-HERE"
+            href="https://www.linkedin.com/in/andrewjfrancis"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 underline underline-offset-4"

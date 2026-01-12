@@ -1,14 +1,38 @@
+// app/writing/page/[page]/page.tsx
+
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 import PageShell from "../../../_components/PageShell";
 import YearsNav from "../../_components/YearsNav";
+import TagPills from "../../_components/TagPills";
 import { ArticlesList } from "../../_components/ArticlesList";
 import { Pager } from "../../_components/Pager";
+
 import {
   getAllArticles,
   getPagedArticles,
+  getTagCounts,
   getTotalPages,
   getYears,
 } from "../../_data/articles";
+
+// Optional but nice: dynamic title per page
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ page: string }>;
+}): Promise<Metadata> {
+  const { page } = await params;
+  const n = Number(page);
+
+  return {
+    title: Number.isFinite(n)
+      ? `Writing — Page ${n} — Andrew J. Francis`
+      : "Writing — Andrew J. Francis",
+    description:
+      "Essays on organizational structure, decision-making and how systems shape work under pressure.",
+  };
+}
 
 export default async function WritingPagedIndex({
   params,
@@ -16,8 +40,10 @@ export default async function WritingPagedIndex({
   params: Promise<{ page: string }>;
 }) {
   const { page } = await params;
+
   const all = getAllArticles();
   const years = getYears();
+  const counts = getTagCounts();
 
   const totalPages = getTotalPages(all.length);
 
@@ -41,19 +67,37 @@ export default async function WritingPagedIndex({
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight">Writing</h1>
         <p className="text-base leading-7 text-muted-foreground">
-          These essays examine how organizations actually function under
-          pressure — how decisions are ordered, how authority is assigned, and
-          how responsibility is distributed. The focus is structural rather than
-          personal: systems, incentives, and design choices that shape behavior
-          regardless of intent. The goal is not to offer solutions or
-          frameworks, but to make patterns visible so they can be recognized for
-          what they are.
+          These essays examine how organizations function under pressure — how
+          decisions are ordered, how authority is assigned and how
+          responsibility is distributed. The focus is structural, not personal:
+          systems, incentives and design choices that shape behavior regardless
+          of intent. The goal is not to offer solutions or frameworks, but to
+          make patterns visible so they can be recognized.
         </p>
       </header>
 
-      <hr className="my-10" />
+      {/* Keep spacing consistent with /writing */}
+      <hr className="my-6" />
 
-      <YearsNav years={years} mode="all" />
+      <section className="space-y-5">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Browse by tag
+          </p>
+          <TagPills
+            counts={counts}
+            totalArticles={all.length}
+            className="pt-2"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Browse by year
+          </p>
+          <YearsNav years={years} mode="all" />
+        </div>
+      </section>
 
       <Pager
         className="my-6"

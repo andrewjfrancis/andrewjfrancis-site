@@ -1,14 +1,36 @@
+// app/writing/[year]/page/[page]/page.tsx
+
+import type { Metadata } from "next";
+import { notFound, redirect } from "next/navigation";
 import PageShell from "../../../../_components/PageShell";
 import YearsNav from "../../../_components/YearsNav";
 import { ArticlesList } from "../../../_components/ArticlesList";
 import { Pager } from "../../../_components/Pager";
-import { redirect } from "next/navigation";
 import {
   getArticlesByYear,
   getPagedArticles,
   getTotalPages,
   getYears,
 } from "../../../_data/articles";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ year: string; page: string }>;
+}): Promise<Metadata> {
+  const { year, page } = await params;
+  const y = Number(year);
+  const p = Number(page);
+
+  return {
+    title:
+      Number.isInteger(y) && Number.isInteger(p)
+        ? `Writing — ${y} — Page ${p} — Andrew J. Francis`
+        : "Writing — Andrew J. Francis",
+    description:
+      "Essays on organizational structure, decision-making, and how systems shape work under pressure.",
+  };
+}
 
 export default async function WritingYearPagedPage({
   params,
@@ -17,24 +39,28 @@ export default async function WritingYearPagedPage({
 }) {
   const { year: yearParam, page: pageParam } = await params;
 
-  // (Optional) This logs in your terminal (server), not the browser console.
-  // console.log("HIT /writing/[year]/page/[page]", { year: yearParam, page: pageParam });
-
   const yearNum = Number(yearParam);
-  const year = Number.isFinite(yearNum) ? yearNum : new Date().getFullYear();
+
+  // Invalid year -> go back to Writing index.
+  if (!Number.isInteger(yearNum)) redirect("/writing");
 
   const years = getYears();
+
+  // Unknown year -> 404.
+  if (!years.includes(yearNum)) notFound();
+
+  const year = yearNum;
 
   const allForYear = getArticlesByYear(year);
   const totalPages = getTotalPages(allForYear.length);
 
-  // If this year fits on one page, this route should not exist.
+  // If the year fits on one page, this route should not exist.
   if (totalPages <= 1) redirect(`/writing/${year}`);
 
   const rawPage = Number(pageParam);
 
   // Never allow /page/1 (or garbage)
-  if (!Number.isFinite(rawPage) || rawPage < 2) redirect(`/writing/${year}`);
+  if (!Number.isInteger(rawPage) || rawPage < 2) redirect(`/writing/${year}`);
 
   // Clamp too-large pages to last page
   const safePage = Math.min(rawPage, totalPages);
@@ -54,10 +80,10 @@ export default async function WritingYearPagedPage({
           Writing — {year}
         </h1>
         <p className="text-base leading-7 text-muted-foreground">
-          These essays examine how organizations actually function under
-          pressure — how decisions are ordered, how authority is assigned, and
-          how responsibility is distributed. The focus is structural rather than
-          personal: systems, incentives, and design choices that shape behavior
+          These essays examine how organizations function under pressure — how
+          decisions are ordered, how authority is assigned and how
+          responsibility is distributed. The focus is structural rather than
+          personal: systems, incentives and design choices that shape behavior
           regardless of intent. The goal is not to offer solutions or
           frameworks, but to make patterns visible so they can be recognized for
           what they are.

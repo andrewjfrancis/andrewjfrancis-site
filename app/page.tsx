@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { ArrowUpRight } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -12,8 +13,12 @@ export default function HomePage() {
         </h1>
 
         <p className="text-base leading-7 text-muted-foreground sm:text-lg">
-          Human-centered systems & decision architecture. Writing about how
-          structure shapes execution.
+          Human-centered systems and decision architecture. Writing about how
+          structure shapes execution.{" "}
+          <em>
+            Making organizational structure visible — especially where it
+            quietly fails.
+          </em>
         </p>
       </header>
 
@@ -31,8 +36,8 @@ export default function HomePage() {
 
           <Card className="p-6">
             <p className="text-base leading-7">
-              Building Aira and a durable writing system. Shipping under
-              constraints. Keeping it boring and correct.
+              Building a durable writing system and a personal writing practice.
+              Shipping under constraints. Keeping it boring and correct.
             </p>
 
             <div className="mt-4">
@@ -53,7 +58,7 @@ export default function HomePage() {
           <div className="space-y-1">
             <h2 className="text-xl font-semibold tracking-tight">Writing</h2>
             <p className="text-sm text-muted-foreground">
-              Articles live here, with links out to Medium when relevant.
+              Writing lives here. Most essays link out to Medium.
             </p>
           </div>
 
@@ -62,8 +67,22 @@ export default function HomePage() {
               <div className="space-y-1">
                 <p className="text-sm text-muted-foreground">Latest</p>
                 <p className="text-base leading-7">
-                  No posts here yet — this section will list the most recent
-                  articles once we add MDX.
+                  <a
+                    href="https://medium.com/@andrewjfrancis/when-responsibility-is-assigned-without-authority-bc716b305531"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold inline-flex items-center gap-1 underline underline-offset-4"
+                  >
+                    When responsibility is assigned without authority
+                    <ArrowUpRight
+                      className="relative top-[1px] h-4 w-4 opacity-60"
+                      aria-hidden="true"
+                    />
+                  </a>
+                  <br></br>
+                  Organizations routinely assign responsibility without granting
+                  authority, creating accountability that appears rigorous but
+                  is structurally impossible to fulfill.
                 </p>
               </div>
 
@@ -73,15 +92,18 @@ export default function HomePage() {
                   className="text-sm font-medium underline underline-offset-4"
                 >
                   Browse all writing
-                </Link>
-
+                </Link>{" "}
                 <a
                   href="https://medium.com/@andrewjfrancis"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium underline underline-offset-4"
+                  className="text-sm font-medium inline-flex items-center gap-1 underline underline-offset-4"
                 >
-                  Read on Medium
+                  Medium
+                  <ArrowUpRight
+                    className="relative top-[1px] h-4 w-4 opacity-60"
+                    aria-hidden="true"
+                  />
                 </a>
               </div>
             </div>
@@ -90,19 +112,21 @@ export default function HomePage() {
 
         <Separator />
 
-        {/* WORK */}
+        {/* ABOUT */}
         <section className="space-y-4">
           <div className="space-y-1">
-            <h2 className="text-xl font-semibold tracking-tight">Work</h2>
+            <h2 className="text-xl font-semibold tracking-tight">About</h2>
             <p className="text-sm text-muted-foreground">
-              What I build, what I care about, and what I avoid.
+              A brief orientation to how I think about organizations, structure
+              and why this writing exists.
             </p>
           </div>
 
           <Card className="p-6">
             <p className="text-base leading-7">
-              This will become a compact “what I do / how I work” section with
-              clear non-goals.
+              How I think about systems, structure and work — and why this
+              writing exists. Not a résumé. Not a list of services. A statement
+              of perspective and boundaries.
             </p>
 
             <div className="mt-4">

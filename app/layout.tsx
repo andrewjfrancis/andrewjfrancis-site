@@ -7,8 +7,9 @@ import { NavLink } from "./_components/NavLink";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Andrew J. Francis",
-  description: "Personal site for writing and systems thinking.",
+  title: "Andrew J. Francis — Systems, Structure, Decision Architecture",
+  description:
+    "Writing about organizational structure, decision-making, and how systems shape work.",
 };
 
 const NAV = [

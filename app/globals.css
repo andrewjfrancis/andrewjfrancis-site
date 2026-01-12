@@ -119,7 +119,7 @@
   }
 
   .footer {
-    @apply mt-10 border-t py-10;
+    @apply border-t py-10;
   }
 
   .footerLinks {

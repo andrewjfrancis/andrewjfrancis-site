@@ -1,5 +1,6 @@
 // app/writing/tags/[tag]/page.tsx
 
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PageShell from "../../../_components/PageShell";
 import { ArticlesList } from "../../_components/ArticlesList";
@@ -16,10 +17,29 @@ import {
 } from "../../_data/articles";
 
 type Props = {
-  params: Promise<{
-    tag: string;
-  }>;
+  params: Promise<{ tag: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ tag: string }>;
+}): Promise<Metadata> {
+  const { tag: tagSlug } = await params;
+  const tag = tagFromSlug(tagSlug);
+
+  if (!tag) {
+    return {
+      title: "Writing — Andrew J. Francis",
+    };
+  }
+
+  const meta = getTagMeta(tag);
+
+  return {
+    title: `Writing — ${meta.id} — Andrew J. Francis`,
+  };
+}
 
 export default async function TagDetailPage({ params }: Props) {
   const { tag: tagSlug } = await params;

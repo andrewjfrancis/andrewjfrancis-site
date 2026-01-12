@@ -1,5 +1,6 @@
 // app/writing/page.tsx
 
+import type { Metadata } from "next";
 import PageShell from "../_components/PageShell";
 import YearsNav from "./_components/YearsNav";
 import { ArticlesList } from "./_components/ArticlesList";
@@ -13,6 +14,12 @@ import {
   getTotalPages,
   getYears,
 } from "./_data/articles";
+
+export const metadata: Metadata = {
+  title: "Writing — Andrew J. Francis",
+  description:
+    "Essays on organizational structure, decision-making and how systems shape work under pressure.",
+};
 
 export default function WritingIndexPage() {
   const counts = getTagCounts();
@@ -32,13 +39,12 @@ export default function WritingIndexPage() {
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight">Writing</h1>
         <p className="text-base leading-7 text-muted-foreground">
-          These essays examine how organizations actually function under
-          pressure — how decisions are ordered, how authority is assigned, and
-          how responsibility is distributed. The focus is structural rather than
-          personal: systems, incentives, and design choices that shape behavior
-          regardless of intent. The goal is not to offer solutions or
-          frameworks, but to make patterns visible so they can be recognized for
-          what they are.
+          These essays examine how organizations function under pressure — how
+          decisions are ordered, authority is assigned and responsibility is
+          distributed. The focus is structural rather than personal: systems,
+          incentives and design choices that shape behavior regardless of
+          intent. The goal is not to offer solutions or frameworks, but to make
+          patterns visible so they can be recognized for what they are.
         </p>
       </header>
 

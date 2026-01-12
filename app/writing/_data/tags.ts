@@ -36,19 +36,19 @@ export const TAGS: {
     id: "Systems Thinking",
     slug: "systems-thinking",
     description:
-      "A lens for understanding how outcomes emerge from interactions, feedback loops, and incentives — not from individual actions in isolation.",
+      "A lens for understanding how outcomes emerge from interactions, feedback loops and incentives — not from individual actions in isolation.",
   },
   {
     id: "Organizational Design",
     slug: "organizational-design",
     description:
-      "How structure, authority, and decision flow shape behavior — independent of culture, intent or personality.",
+      "How structure, authority and decision flow shape behavior — independent of culture, intent or personality.",
   },
   {
     id: "Decision Architecture",
     slug: "decision-architecture",
     description:
-      "How decisions are framed, constrained, and ordered upstream — long before execution makes the consequences visible.",
+      "How decisions are framed, constrained and ordered upstream — long before execution makes the consequences visible.",
   },
   {
     id: "Authority & Accountability",
@@ -66,7 +66,7 @@ export const TAGS: {
     id: "Governance",
     slug: "governance",
     description:
-      "The formal and informal rules — escalation paths, controls, and constraints — that determine how organizations behave under pressure.",
+      "The formal and informal rules — escalation paths, controls and constraints — that determine how organizations behave under pressure.",
   },
   {
     id: "Work",
@@ -78,7 +78,7 @@ export const TAGS: {
     id: "Complexity",
     slug: "complexity",
     description:
-      "Acknowledging non-linearity, ambiguity, and why simple solutions routinely fail in complex systems.",
+      "Acknowledging non-linearity, ambiguity and why simple solutions routinely fail in complex systems.",
   },
 ];
 
