@@ -86,11 +86,13 @@ export const TAGS: {
 
 // Use the canonical slug table (do NOT derive slugs from tag text)
 export function tagToSlug(tag: Tag): TagSlug {
-  return (TAGS.find((t) => t.id === tag)?.slug ??
-    "systems-thinking") as TagSlug;
+  const found = TAGS.find((t) => t.id === tag);
+  if (!found) throw new Error(`Unknown tag: ${tag}`);
+  return found.slug;
 }
 
-export function tagFromSlug(slug: string): Tag | null {
+export function tagFromSlug(slug: string | undefined | null): Tag | null {
+  if (!slug) return null;
   const norm = slug.trim().toLowerCase();
   const found = TAGS.find((t) => t.slug === norm);
   return found ? found.id : null;
@@ -98,11 +100,6 @@ export function tagFromSlug(slug: string): Tag | null {
 
 export function getTagMeta(tag: Tag) {
   const found = TAGS.find((t) => t.id === tag);
-  return (
-    found ?? {
-      id: tag,
-      slug: tagToSlug(tag),
-      description: "",
-    }
-  );
+  if (!found) throw new Error(`Missing tag meta for: ${tag}`);
+  return found;
 }

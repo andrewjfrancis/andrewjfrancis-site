@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageShell from "../../_components/PageShell";
 import { TAGS } from "../_data/tags";
+import { getArticlesByTag } from "../_data/articles";
 
 export default function TagsIndexPage() {
   return (
@@ -24,19 +25,27 @@ export default function TagsIndexPage() {
       <hr className="my-10" />
 
       <ul className="space-y-6">
-        {TAGS.map((t) => (
-          <li key={t.slug} className="space-y-1">
-            <Link
-              href={`/writing/tags/${t.slug}`}
-              className="text-base font-semibold underline underline-offset-4"
-            >
-              {t.id}
-            </Link>
-            <p className="text-sm leading-6 text-muted-foreground">
-              {t.description}
-            </p>
-          </li>
-        ))}
+        {TAGS.map((t) => {
+          const count = getArticlesByTag(t.id).length;
+
+          return (
+            <li key={t.slug} className="space-y-1">
+              <Link
+                href={`/writing/tags/${t.slug}`}
+                className="text-base font-semibold underline underline-offset-4"
+              >
+                {t.id}{" "}
+                <span className="font-normal text-muted-foreground">
+                  ({count})
+                </span>
+              </Link>
+
+              <p className="text-sm leading-6 text-muted-foreground">
+                {t.description}
+              </p>
+            </li>
+          );
+        })}
       </ul>
     </PageShell>
   );
