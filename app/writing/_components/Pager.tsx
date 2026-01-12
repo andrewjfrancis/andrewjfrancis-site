@@ -85,7 +85,7 @@ export function Pager({
       */}
       <div className="grid grid-cols-2 items-center gap-3 sm:grid-cols-[auto,1fr,auto]">
         {/* Numbers */}
-        <div className="pageNumbers no-scrollbar col-span-2 -mx-2 px-2 flex items-center gap-1 justify-start overflow-x-auto whitespace-nowrap sm:col-span-1 sm:col-start-2 sm:justify-center">
+        <div className="pageNumbers no-scrollbar col-span-2 -mx-2 px-2 flex items-center gap-1 justify-center overflow-x-auto whitespace-nowrap sm:col-span-1 sm:col-start-2 sm:justify-center">
           {windowPages.map((p, idx) => {
             const prev = windowPages[idx - 1];
             const needsDots = prev !== undefined && p - prev > 1;
