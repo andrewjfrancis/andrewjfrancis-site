@@ -1,7 +1,6 @@
 // app/writing/page/[page]/page.tsx
 
 import { redirect } from "next/navigation";
-import type { Metadata } from "next";
 import PageShell from "../../../_components/PageShell";
 import YearsNav from "../../_components/YearsNav";
 import TagPills from "../../_components/TagPills";
@@ -15,24 +14,6 @@ import {
   getTotalPages,
   getYears,
 } from "../../_data/articles";
-
-// Optional but nice: dynamic title per page
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ page: string }>;
-}): Promise<Metadata> {
-  const { page } = await params;
-  const n = Number(page);
-
-  return {
-    title: Number.isFinite(n)
-      ? `Writing — Page ${n} — Andrew J. Francis`
-      : "Writing — Andrew J. Francis",
-    description:
-      "Essays on organizational structure, decision-making and how systems shape work under pressure.",
-  };
-}
 
 export default async function WritingPagedIndex({
   params,

@@ -1,6 +1,5 @@
 // app/writing/page.tsx
 
-import type { Metadata } from "next";
 import PageShell from "../_components/PageShell";
 import YearsNav from "./_components/YearsNav";
 import { ArticlesList } from "./_components/ArticlesList";
@@ -14,12 +13,6 @@ import {
   getTotalPages,
   getYears,
 } from "./_data/articles";
-
-export const metadata: Metadata = {
-  title: "Writing — Andrew J. Francis",
-  description:
-    "Essays on organizational structure, decision-making and how systems shape work under pressure.",
-};
 
 export default function WritingIndexPage() {
   const counts = getTagCounts();
