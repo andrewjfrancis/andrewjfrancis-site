@@ -1,6 +1,5 @@
 // app/writing/[year]/page.tsx
 
-import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import PageShell from "../../_components/PageShell";
 import YearsNav from "../_components/YearsNav";
@@ -12,23 +11,6 @@ import {
   getTotalPages,
   getYears,
 } from "../_data/articles";
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ year: string }>;
-}): Promise<Metadata> {
-  const { year } = await params;
-  const y = Number(year);
-
-  return {
-    title: Number.isInteger(y)
-      ? `Writing — ${y} — Andrew J. Francis`
-      : "Writing — Andrew J. Francis",
-    description:
-      "Essays on organizational structure, decision-making, and how systems shape work under pressure.",
-  };
-}
 
 export default async function WritingYearPage({
   params,

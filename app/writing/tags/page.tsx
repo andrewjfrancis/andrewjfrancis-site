@@ -1,16 +1,9 @@
 // app/writing/tags/page.tsx
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "../../_components/PageShell";
 import { TAGS } from "../_data/tags";
 import { getArticlesByTag } from "../_data/articles";
-
-export const metadata: Metadata = {
-  title: "Writing — Tags — Andrew J. Francis",
-  description:
-    "Tags that organize essays by structural patterns: systems, decision-making, authority and how work behaves under pressure.",
-};
 
 export default function TagsIndexPage() {
   return (

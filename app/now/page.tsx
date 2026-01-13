@@ -1,12 +1,5 @@
-import type { Metadata } from "next";
 import PageShell from "../_components/PageShell";
 import { Card } from "@/components/ui/card";
-
-export const metadata: Metadata = {
-  title: "Now — Andrew J. Francis",
-  description:
-    "A living snapshot of current focus, working constraints and non-goals.",
-};
 
 export default function NowPage() {
   return (

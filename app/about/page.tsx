@@ -1,12 +1,5 @@
-import type { Metadata } from "next";
 import PageShell from "../_components/PageShell";
 import { ArrowUpRight } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "About — Andrew J. Francis",
-  description:
-    "How I think about organizations, structure and decision-making, and why this writing exists.",
-};
 
 export default function AboutPage() {
   return (
