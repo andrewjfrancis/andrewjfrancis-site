@@ -12,7 +12,7 @@ export default function YearsNav({
   const pathname = usePathname();
 
   return (
-    <div className="text-sm text-muted-foreground">
+    <div className="text-base text-muted-foreground">
       {mode === "year" ? (
         <>
           <Link className="underline underline-offset-4" href="/writing">
