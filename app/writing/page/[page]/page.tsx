@@ -66,14 +66,6 @@ export default async function WritingPagedIndex({
     <PageShell>
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight">Writing</h1>
-        <p className="text-base leading-7 text-muted-foreground">
-          These essays examine how organizations function under pressure — how
-          decisions are ordered, authority is assigned and responsibility is
-          distributed. The focus is structural rather than personal: systems,
-          incentives and design choices that shape behavior regardless of
-          intent. The goal is not to offer solutions or frameworks, but to make
-          patterns visible so they can be recognized for what they are.
-        </p>
       </header>
 
       {/* Keep spacing consistent with /writing */}
