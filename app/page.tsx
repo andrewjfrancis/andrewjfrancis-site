@@ -12,7 +12,7 @@ export default function HomePage() {
         {/* Watermark (icon.svg, big + faint) */}
         <div className="pointer-events-none absolute -right-10 -top-10 rotate-12 opacity-[0.08]">
           <Image
-            src="/brand/icon.svg"
+            src="/icon.svg"
             alt=""
             width={420}
             height={420}
@@ -25,7 +25,7 @@ export default function HomePage() {
           {/* Small logo badge (like your screenshot) */}
           <div className="shrink-0 rounded-xl bg-primary-foreground/10 p-3 -ml-3 ring-1 ring-primary-foreground/15">
             <Image
-              src="/brand/icon.svg"
+              src="icon.svg"
               alt="AJF"
               width={44}
               height={44}
