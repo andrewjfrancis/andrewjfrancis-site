@@ -1,25 +1,54 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ArrowUpRight } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-6 py-12 sm:py-16">
+    <main className="mx-auto w-full max-w-3xl px-6 pt-8 pb-12 sm:pt-10 sm:pb-16">
       {/* HERO */}
-      <header className="hero">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Andrew J. Francis
-        </h1>
+      <header className="relative overflow-hidden rounded-2xl bg-[#0B1E2D] text-white px-6 py-10 sm:px-10 sm:py-12">
+        {/* Watermark (icon.svg, big + faint) */}
+        <div className="pointer-events-none absolute -right-10 -top-10 rotate-12 opacity-[0.08]">
+          <Image
+            src="/brand/icon.svg"
+            alt=""
+            width={420}
+            height={420}
+            className="h-64 w-64 sm:h-80 sm:w-80"
+            priority
+          />
+        </div>
 
-        <p className="text-base leading-7 text-muted-foreground sm:text-lg">
-          Human-centered systems and decision architecture. Writing about how
-          structure shapes execution.{" "}
-          <em>
-            Making organizational structure visible — especially where it
-            quietly fails.
-          </em>
-        </p>
+        <div className="relative flex items-start gap-4">
+          {/* Small logo badge (like your screenshot) */}
+          <div className="shrink-0 rounded-xl bg-primary-foreground/10 p-3 -ml-3 ring-1 ring-primary-foreground/15">
+            <Image
+              src="/brand/icon.svg"
+              alt="AJF"
+              width={44}
+              height={44}
+              className="h-11 w-11"
+              priority
+            />
+          </div>
+
+          <div className="space-y-3">
+            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              Andrew J. Francis
+            </h1>
+
+            <p className="text-base leading-7 font-medium text-primary-foreground/85 sm:text-lg">
+              Human-centered systems and decision architecture. Writing about
+              how structure shapes execution.{" "}
+              <em className="text-primary-foreground">
+                Making organizational structure visible — especially where it
+                quietly fails.
+              </em>
+            </p>
+          </div>
+        </div>
       </header>
 
       <div className="mt-10 space-y-10 sm:mt-12">

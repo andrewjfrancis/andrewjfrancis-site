@@ -4,30 +4,72 @@
 
 @layer base {
   :root {
-    /* shadcn token vars */
-    --background: 210 20% 98%;
-    --foreground: 222 47% 11%;
+    /* --- Aira light theme (brand-aligned) --- */
+    --background: 210 20% 98%; /* #F9FAFB Soft Off-White */
+    --foreground: 213 28% 17%; /* #1F2A37 Charcoal Blue */
+
+    /* surfaces */
+    --card: 210 20% 98%; /* keep calm; no bright white panels by default */
+    --card-foreground: 213 28% 17%;
+
+    --popover: 210 20% 98%;
+    --popover-foreground: 213 28% 17%;
+
+    /* action */
+    --primary: 221 83% 53%; /* #2563EB Desaturated Blue */
+    --primary-foreground: 0 0% 100%;
+
+    /* subtle UI */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 213 28% 17%;
 
     --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted-foreground: 220 9% 46%; /* #6B7280 Muted Slate */
 
     --accent: 210 20% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent-foreground: 213 28% 17%;
 
+    /* destructive */
+    --destructive: 0 72% 51%; /* #DC2626 Muted Red */
+    --destructive-foreground: 0 0% 100%;
+
+    /* borders + focus */
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 221 83% 53%;
+    --ring: 221 83% 53%; /* align ring to primary */
 
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 20% 98%;
+    --radius: 0.5rem;
+  }
 
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 222 47% 11%;
+  /* --- Dark theme: placeholder until Aira dark palette is specified --- */
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 20% 98%;
 
-    --destructive: 0 84% 60%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 210 20% 98%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 63% 31%;
     --destructive-foreground: 210 20% 98%;
 
-    --radius: 0.75rem;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 212 27% 84%;
   }
 
   * {
