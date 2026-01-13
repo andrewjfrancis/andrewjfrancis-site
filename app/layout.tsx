@@ -4,8 +4,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import * as React from "react";
 import type { ComponentPropsWithoutRef } from "react";
+import Script from "next/script";
 import { ArrowUpRight } from "lucide-react";
 import { NavLink } from "./_components/NavLink";
+import JumpToTop from "./_components/JumpToTop";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -57,6 +59,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Script
+        src="https://plausible.io/js/pa-ZDlKsw_UIVm6qSC-RqZXn.js"
+        strategy="afterInteractive"
+      />
+      <Script id="plausible-init" strategy="afterInteractive">
+        {`
+          window.plausible=window.plausible||function(){
+            (plausible.q=plausible.q||[]).push(arguments)
+          };
+          plausible.init=plausible.init||function(i){plausible.o=i||{}};
+          plausible.init();
+        `}
+      </Script>
+
       <body>
         <div className="shell">
           <header className="border-b">
@@ -100,6 +116,7 @@ export default function RootLayout({
             </div>
           </footer>
         </div>
+        <JumpToTop />
       </body>
     </html>
   );

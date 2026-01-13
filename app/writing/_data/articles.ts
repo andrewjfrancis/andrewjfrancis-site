@@ -1,3 +1,5 @@
+// app/writing/_data/articles.ts
+
 import { TAGS, type Tag, type TagSlug } from "./tags";
 
 export type ArticleSource = "medium" | "local";
@@ -22,6 +24,19 @@ export const PAGE_SIZE = 5;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-01-13-01",
+    title: "This site is an archive, not a feed",
+    date: "2026-01-13",
+    year: 2026,
+    excerpt:
+      "A short orientation to how this writing works — and what it avoids.",
+    source: "local",
+    slug: "this-site-is-an-archive-not-a-feed",
+    pinned: true,
+    pinOrder: 0,
+    tags: ["Work"],
+  },
+  {
     id: "2026-01-09-01",
     title: "When responsibility is assigned without authority",
     date: "2026-01-09",
@@ -31,8 +46,6 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/when-responsibility-is-assigned-without-authority-bc716b305531",
-    pinned: true,
-    pinOrder: 1,
     tags: [
       "Authority & Accountability",
       "Organizational Design",
@@ -84,8 +97,19 @@ export const ARTICLES_REAL: Article[] = [
 
 export const ARTICLES_TEST: Article[] = [
   {
+    id: "2026-01-13-TEST",
+    title: "Markdown Kitchen Sink (Styling Test)",
+    date: "2026-01-13",
+    year: 2026,
+    excerpt:
+      "This is a large, faded subhead used to test how the excerpt renders and wraps on mobile.",
+    source: "local",
+    slug: "markdown-kitchen-sink",
+    tags: ["Work"],
+  },
+  {
     id: "TEST-2028-02-21-01",
-    title: "11 - 2028",
+    title: "This is the latest article — fake headline",
     date: "2028-02-21",
     year: 2028,
     excerpt:
@@ -402,8 +426,8 @@ export const ARTICLES_TEST: Article[] = [
 ];
 
 // Choose active dataset (flip this line whenever you want)
-export const ARTICLES: Article[] = ARTICLES_TEST;
-//export const ARTICLES: Article[] = ARTICLES_REAL;
+export const ARTICLES: Article[] = ARTICLES_REAL;
+//export const ARTICLES: Article[] = ARTICLES_TEST;
 
 // ---------- helpers (deterministic, boring, correct)
 
@@ -428,6 +452,17 @@ export function getAllArticles(): Article[] {
     if (a.title !== b.title) return a.title.localeCompare(b.title);
     return a.id.localeCompare(b.id);
   });
+}
+
+export function getLatestArticle() {
+  const all = getAllArticles();
+
+  // exclude pinned from "Latest" on home
+  const nonPinned = all.filter((a) => !a.pinned);
+
+  // pick most recent (assumes your data already sorts newest-first;
+  // if not, we can sort by date)
+  return nonPinned[0] ?? null;
 }
 
 export function getTotalPages(count: number): number {
@@ -479,4 +514,16 @@ export function getYears(): number[] {
 
 export function getArticlesByYear(year: number): Article[] {
   return getAllArticles().filter((a) => a.year === year);
+}
+
+export function getArticleHref(a: Article): string {
+  if (a.source === "local") {
+    if (!a.slug) return "/writing";
+    return `/writing/essays/${a.slug}`;
+  }
+  return a.externalUrl ?? "#";
+}
+
+export function isExternalArticle(a: Article): boolean {
+  return a.source !== "local";
 }

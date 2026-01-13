@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { getLatestArticle } from "./writing/_data/articles";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ArrowUpRight } from "lucide-react";
 
 export default function HomePage() {
+  const latest = getLatestArticle();
+
   return (
     <main className="mx-auto w-full max-w-3xl px-6 pt-8 pb-12 sm:pt-10 sm:pb-16">
       {/* HERO */}
@@ -93,27 +96,28 @@ export default function HomePage() {
 
           <Card className="p-6">
             <div className="space-y-4">
-              <div className="space-y-1">
-                <p className="text-sm text-muted-foreground">Latest</p>
-                <p className="text-base leading-7">
-                  <a
-                    href="https://medium.com/@andrewjfrancis/when-responsibility-is-assigned-without-authority-bc716b305531"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold inline-flex items-center gap-1 underline underline-offset-4"
-                  >
-                    When responsibility is assigned without authority
-                    <ArrowUpRight
-                      className="relative top-[1px] h-4 w-4 opacity-60"
-                      aria-hidden="true"
-                    />
-                  </a>
-                  <br></br>
-                  Organizations routinely assign responsibility without granting
-                  authority, creating accountability that appears rigorous but
-                  is structurally impossible to fulfill.
-                </p>
-              </div>
+              {latest ? (
+                <div className="space-y-1">
+                  <p className="text-sm text-muted-foreground">Latest</p>
+
+                  <p className="text-base leading-7">
+                    <a
+                      href={latest.externalUrl} // or whatever your link field is
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold underline underline-offset-4"
+                    >
+                      {latest.title}{" "}
+                      <ArrowUpRight
+                        className="inline-block align-baseline relative top-[1px] h-4 w-4 opacity-60"
+                        aria-hidden="true"
+                      />
+                    </a>
+                    <br />
+                    {latest.excerpt}
+                  </p>
+                </div>
+              ) : null}
 
               <div className="flex flex-wrap gap-3">
                 <Link

@@ -1,7 +1,13 @@
+// app/writing/_components/ArticlesList.tsx
+
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { Article } from "../_data/articles";
+import { getArticleHref, isExternalArticle } from "../_data/articles";
 import { TAGS, type Tag } from "../_data/tags";
-import { Pin } from "lucide-react";
+import { ArrowUpRight, Pin } from "lucide-react";
 
 function formatDate(iso: string) {
   const d = new Date(iso + "T00:00:00");
@@ -10,10 +16,6 @@ function formatDate(iso: string) {
     month: "short",
     day: "2-digit",
   });
-}
-
-function uniq<T>(arr: T[]) {
-  return Array.from(new Set(arr));
 }
 
 export function ArticlesList({
@@ -25,10 +27,10 @@ export function ArticlesList({
   items: Article[];
   emptyTitle?: string;
   emptyBody?: string;
-
-  // Optional: show canonical tags list (with disabled states) under the cards.
   showTagsLegend?: boolean;
 }) {
+  const pathname = usePathname();
+
   if (items.length === 0) {
     return (
       <ul className="mt-6 space-y-4">
@@ -42,8 +44,7 @@ export function ArticlesList({
     );
   }
 
-  // Compute which canonical tags are actually used in this render set
-  // (so you can intentionally leave some tags off and see “disabled”.)
+  // Compute which canonical tags are used in this render set
   const used = new Set<Tag>();
   for (const a of items) {
     for (const t of a.tags ?? []) used.add(t);
@@ -54,6 +55,13 @@ export function ArticlesList({
       <ul className="space-y-4">
         {items.map((a) => {
           const isPinned = Boolean(a.pinned);
+          const href = getArticleHref(a);
+          const external = isExternalArticle(a);
+
+          // Only attach "from" for internal essays
+          const internalHref = !external
+            ? `${href}?from=${encodeURIComponent(pathname)}`
+            : href;
 
           return (
             <li
@@ -63,19 +71,24 @@ export function ArticlesList({
               {/* Top row: title + pinned badge */}
               <div className="flex items-center justify-between gap-4">
                 <p className="text-base font-semibold">
-                  {a.source === "medium" && a.externalUrl ? (
+                  {external ? (
                     <a
-                      className="underline underline-offset-4"
-                      href={a.externalUrl}
+                      className="inline-flex items-center gap-1 underline underline-offset-4"
+                      href={href}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       {a.title}
+                      <ArrowUpRight
+                        className="relative top-[1px] h-4 w-4 text-muted-foreground opacity-70"
+                        aria-hidden="true"
+                      />
+                      <span className="sr-only">(opens in a new tab)</span>
                     </a>
                   ) : (
                     <Link
                       className="underline underline-offset-4"
-                      href={`/writing/${a.year}/${a.slug}`}
+                      href={internalHref}
                     >
                       {a.title}
                     </Link>
@@ -93,7 +106,7 @@ export function ArticlesList({
               {/* Meta row */}
               <p className="mt-2 text-sm text-foreground/70">
                 {formatDate(a.date)} ·{" "}
-                {a.source === "medium" ? "Medium" : "Local"}
+                {a.source === "medium" ? "Medium" : "Essay"}
               </p>
 
               {/* Excerpt */}
@@ -101,7 +114,7 @@ export function ArticlesList({
                 {a.excerpt}
               </p>
 
-              {/* Tags row (horizontal scroll) */}
+              {/* Tags row */}
               {a.tags && a.tags.length > 0 ? (
                 <ul className="mt-4 flex gap-2 overflow-x-auto whitespace-nowrap no-scrollbar">
                   {a.tags.map((tag) => (

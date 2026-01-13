@@ -171,6 +171,13 @@
   .small {
     @apply mt-4 text-xs text-muted-foreground;
   }
+
+  @layer base {
+    :focus-visible {
+      @apply ring-2 ring-muted ring-offset-2 ring-offset-background;
+    }
+  }
+
   /* Hide scrollbar but keep scroll */
   .pagerNumbers {
     -ms-overflow-style: none; /* IE/Edge */

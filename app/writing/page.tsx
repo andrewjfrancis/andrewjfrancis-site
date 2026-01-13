@@ -55,12 +55,14 @@ export default function WritingIndexPage() {
           />
         </div>
 
+        {/*
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Browse by year
           </p>
           <YearsNav years={years} mode="all" />
         </div>
+        */}
       </section>
 
       <Pager

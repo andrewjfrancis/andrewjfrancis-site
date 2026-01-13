@@ -1,0 +1,63 @@
+---
+id: 2026-01-13-TEST
+title: Markdown Kitchen Sink (Styling Test)
+date: 2026-01-13
+year: 2026
+tags:
+  - Work
+source: local
+excerpt: >
+  This is a large, faded subhead used to test how the excerpt renders and wraps on mobile.
+---
+
+## Section heading (H2)
+
+A normal paragraph with **bold**, _italic_, and **_bold italic_**.
+
+A link to an external site: [Medium](https://medium.com).
+
+A link that should stay on-site: [Writing index](/writing).
+
+---
+
+## Lists
+
+### Bulleted
+
+- One point
+- Another point
+  - Nested point
+  - Another nested point
+
+### Numbered
+
+1. First
+2. Second
+3. Third
+
+### Task list (GFM)
+
+- [x] Done item
+- [ ] Not done item
+
+---
+
+## Blockquote
+
+> This is a blockquote.
+> It should look calm and readable.
+> Line breaks matter.
+
+---
+
+## Code
+
+Inline code looks like `const x = 1;`.
+
+```ts
+type Article = {
+  id: string;
+  title: string;
+  source: "medium" | "local";
+};
+```

@@ -66,11 +66,11 @@ export default function AboutPage() {
             href="https://www.linkedin.com/in/andrewjfrancis"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 underline underline-offset-4"
+            className="underline underline-offset-4"
           >
-            LinkedIn
+            LinkedIn{" "}
             <ArrowUpRight
-              className="relative top-[1px] h-4 w-4 opacity-60"
+              className="inline-block align-baseline relative top-[1px] h-4 w-4 opacity-60"
               aria-hidden="true"
             />
           </a>
