@@ -73,16 +73,19 @@ export function ArticlesList({
                 <p className="text-base font-semibold">
                   {external ? (
                     <a
-                      className="inline-flex items-center gap-1 underline underline-offset-4"
+                      className="underline underline-offset-4"
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       {a.title}
-                      <ArrowUpRight
-                        className="relative top-[1px] h-4 w-4 text-muted-foreground opacity-70"
-                        aria-hidden="true"
-                      />
+                      <span className="whitespace-nowrap">
+                        {"\u00A0"}
+                        <ArrowUpRight
+                          className="inline-block h-4 w-4 text-muted-foreground opacity-70 align-text-bottom"
+                          aria-hidden="true"
+                        />
+                      </span>
                       <span className="sr-only">(opens in a new tab)</span>
                     </a>
                   ) : (

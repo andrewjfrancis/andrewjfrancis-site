@@ -12,14 +12,16 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://andrewjfrancis.com"),
+
+  // Keep title/description stable for SEO + the browser tab.
   title: "Andrew J. Francis — Systems, Structure, Decision Architecture",
   description:
     "Writing about organizational structure, decision-making and how systems shape work.",
 
+  // Make the OG *headline* clearly include your name (iMessage usually uses this).
   openGraph: {
-    title: "Andrew J. Francis — Systems, Structure, Decision Architecture",
-    description:
-      "Writing about organizational structure, decision-making and how systems shape work.",
+    title: "Andrew J. Francis",
+    description: "Systems, Structure, Decision Architecture",
     url: "https://andrewjfrancis.com",
     siteName: "Andrew J. Francis",
     type: "website",
@@ -32,12 +34,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+
+  // You don't care about Twitter, but this keeps it consistent.
   twitter: {
     card: "summary_large_image",
-    title: "Andrew J. Francis — Systems, Structure, Decision Architecture",
-    description:
-      "Writing about organizational structure, decision-making and how systems shape work.",
-    images: ["/opengraph-image.png"], // <-- FIXED
+    title: "Andrew J. Francis",
+    description: "Systems, Structure, Decision Architecture",
+    images: ["/opengraph-image.png"],
   },
 };
 
@@ -83,7 +86,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
+      <body>
+        {/* Plausible (App Router-safe): put Scripts inside body */}
         <Script
           src="https://plausible.io/js/pa-ZDlKsw_UIVm6qSC-RqZXn.js"
           strategy="afterInteractive"
@@ -97,9 +101,7 @@ export default function RootLayout({
             plausible.init();
           `}
         </Script>
-      </head>
 
-      <body>
         <div className="shell">
           <header className="border-b">
             <div className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
@@ -142,6 +144,7 @@ export default function RootLayout({
             </div>
           </footer>
         </div>
+
         <JumpToTop />
       </body>
     </html>
