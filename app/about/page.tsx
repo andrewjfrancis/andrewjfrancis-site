@@ -61,7 +61,7 @@ export default function AboutPage() {
 
         <p>
           If you want to follow along or see what I’m thinking about between
-          essays, I’m on{" "}
+          essays, visit me on{" "}
           <a
             href="https://www.linkedin.com/in/andrewjfrancis"
             target="_blank"
