@@ -13,6 +13,32 @@ type Props = {
   searchParams?: Promise<{ from?: string }>;
 };
 
+function formatDate(value: unknown) {
+  let iso: string | null = null;
+
+  if (typeof value === "string") iso = value;
+  else if (value instanceof Date) iso = value.toISOString().slice(0, 10);
+
+  if (!iso) return null;
+
+  const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!m) return null;
+
+  const year = Number(m[1]);
+  const month = Number(m[2]);
+  const day = Number(m[3]);
+
+  const dt = new Date(Date.UTC(year, month - 1, day));
+  if (Number.isNaN(dt.getTime())) return null;
+
+  return dt.toLocaleDateString(undefined, {
+    timeZone: "UTC",
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+}
+
 export default async function EssayPage({ params, searchParams }: Props) {
   const { slug } = await params;
   const sp = (await searchParams) ?? {};
@@ -39,7 +65,8 @@ export default async function EssayPage({ params, searchParams }: Props) {
 
   return (
     <PageShell>
-      <div className="mb-6">
+      {/* Back link (top) */}
+      <div className="mb-8">
         <Link
           href={from}
           className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
@@ -49,8 +76,9 @@ export default async function EssayPage({ params, searchParams }: Props) {
         </Link>
       </div>
 
+      {/* Header */}
       <header className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight">
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
           {frontmatter.title}
         </h1>
 
@@ -59,13 +87,22 @@ export default async function EssayPage({ params, searchParams }: Props) {
             {frontmatter.excerpt}
           </p>
         ) : null}
+
+        {(() => {
+          const label = formatDate(frontmatter.date);
+          return label ? (
+            <p className="text-sm text-muted-foreground">{label} · Essay</p>
+          ) : null;
+        })()}
       </header>
 
-      <hr className="my-6" />
+      <hr className="my-8" />
 
-      <article className="space-y-4 text-base leading-7">{rendered}</article>
+      {/* MDX body */}
+      <article className="essay">{rendered}</article>
 
-      <div className="mt-10">
+      {/* Back link (bottom) */}
+      <div className="mt-12">
         <Link
           href={from}
           className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"

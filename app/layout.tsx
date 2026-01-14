@@ -15,6 +15,30 @@ export const metadata: Metadata = {
   title: "Andrew J. Francis — Systems, Structure, Decision Architecture",
   description:
     "Writing about organizational structure, decision-making and how systems shape work.",
+
+  openGraph: {
+    title: "Andrew J. Francis — Systems, Structure, Decision Architecture",
+    description:
+      "Writing about organizational structure, decision-making and how systems shape work.",
+    url: "https://andrewjfrancis.com",
+    siteName: "Andrew J. Francis",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Andrew J. Francis",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Andrew J. Francis — Systems, Structure, Decision Architecture",
+    description:
+      "Writing about organizational structure, decision-making and how systems shape work.",
+    images: ["/opengraph-image.png"], // <-- FIXED
+  },
 };
 
 const NAV = [
@@ -59,19 +83,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Script
-        src="https://plausible.io/js/pa-ZDlKsw_UIVm6qSC-RqZXn.js"
-        strategy="afterInteractive"
-      />
-      <Script id="plausible-init" strategy="afterInteractive">
-        {`
-          window.plausible=window.plausible||function(){
-            (plausible.q=plausible.q||[]).push(arguments)
-          };
-          plausible.init=plausible.init||function(i){plausible.o=i||{}};
-          plausible.init();
-        `}
-      </Script>
+      <head>
+        <Script
+          src="https://plausible.io/js/pa-ZDlKsw_UIVm6qSC-RqZXn.js"
+          strategy="afterInteractive"
+        />
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`
+            window.plausible=window.plausible||function(){
+              (plausible.q=plausible.q||[]).push(arguments)
+            };
+            plausible.init=plausible.init||function(i){plausible.o=i||{}};
+            plausible.init();
+          `}
+        </Script>
+      </head>
 
       <body>
         <div className="shell">

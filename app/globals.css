@@ -195,4 +195,69 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none; /* Chrome/Safari */
   }
+
+  @layer components {
+    .essay {
+      @apply text-base leading-7;
+    }
+
+    /* spacing between blocks */
+    .essay > * + * {
+      @apply mt-5;
+    }
+
+    /* headings */
+    .essay h2 {
+      @apply mt-10 text-2xl font-semibold tracking-tight;
+    }
+
+    .essay h3 {
+      @apply mt-8 text-xl font-semibold tracking-tight;
+    }
+
+    /* links */
+    .essay a {
+      @apply underline underline-offset-4;
+    }
+
+    .essay a:hover {
+      @apply opacity-90;
+    }
+
+    /* lists */
+    .essay ul {
+      @apply list-disc pl-6;
+    }
+
+    .essay ol {
+      @apply list-decimal pl-6;
+    }
+
+    .essay li + li {
+      @apply mt-2;
+    }
+
+    /* blockquotes */
+    .essay blockquote {
+      @apply border-l-2 pl-4 text-muted-foreground;
+    }
+
+    /* code */
+    .essay code {
+      @apply rounded bg-muted px-1.5 py-0.5 text-sm;
+    }
+
+    .essay pre {
+      @apply overflow-x-auto rounded-lg border bg-muted p-4 text-sm;
+    }
+
+    .essay pre code {
+      @apply bg-transparent p-0;
+    }
+
+    /* horizontal rule inside mdx if you use it */
+    .essay hr {
+      @apply my-8;
+    }
+  }
 }
