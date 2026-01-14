@@ -46,14 +46,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/when-responsibility-is-assigned-without-authority-bc716b305531",
-    tags: [
-      "Authority & Accountability",
-      "Organizational Design",
-      "Systems Thinking",
-      "Decision Architecture",
-      "Governance",
-      "Work",
-    ],
+    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
   },
   {
     id: "2026-01-08-01",
@@ -65,14 +58,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/urgency-is-not-a-strategy-95671798f0ac",
-    tags: [
-      "Systems Thinking",
-      "Decision Architecture",
-      "Strategy",
-      "Organizational Design",
-      "Work",
-      "Complexity",
-    ],
+    tags: ["Systems Thinking", "Organizational Design", "Complexity"],
   },
   {
     id: "2026-01-05-01",
@@ -84,14 +70,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/most-strategy-fails-before-execution-even-starts-1033992be80e",
-    tags: [
-      "Systems Thinking",
-      "Decision Architecture",
-      "Strategy",
-      "Organizational Design",
-      "Work",
-      "Complexity",
-    ],
+    tags: ["Systems Thinking", "Decision Architecture", "Strategy"],
   },
 ];
 
