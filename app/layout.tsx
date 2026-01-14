@@ -20,8 +20,9 @@ export const metadata: Metadata = {
 
   // Make the OG *headline* clearly include your name (iMessage usually uses this).
   openGraph: {
-    title: "Andrew J. Francis",
-    description: "Systems, Structure, Decision Architecture",
+    title: "Andrew J. Francis — Systems, Structure, Decision Architecture",
+    description:
+      "Most writing about work focuses on people — motivation, behavior, leadership style and culture.",
     url: "https://andrewjfrancis.com",
     siteName: "Andrew J. Francis",
     type: "website",
@@ -38,8 +39,9 @@ export const metadata: Metadata = {
   // You don't care about Twitter, but this keeps it consistent.
   twitter: {
     card: "summary_large_image",
-    title: "Andrew J. Francis",
-    description: "Systems, Structure, Decision Architecture",
+    title: "Andrew J. Francis — Systems, Structure, Decision Architecture",
+    description:
+      "Most writing about work focuses on people — motivation, behavior, leadership style and culture.",
     images: ["/opengraph-image.png"],
   },
 };
