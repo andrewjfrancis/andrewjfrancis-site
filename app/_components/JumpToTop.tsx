@@ -8,7 +8,7 @@ export default function JumpToTop() {
 
   useEffect(() => {
     const onScroll = () => {
-      setShow(window.scrollY > 300);
+      setShow(window.scrollY > 200);
     };
 
     onScroll();
@@ -27,7 +27,7 @@ export default function JumpToTop() {
       title="Jump to top"
     >
       <ArrowUp className="h-4 w-4" aria-hidden="true" />
-      <span className="hidden sm:inline">Top</span>
+      <span className="hidden sm:inline">Back to top</span>
     </button>
   );
 }
