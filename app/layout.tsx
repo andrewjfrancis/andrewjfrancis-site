@@ -5,10 +5,15 @@ import Link from "next/link";
 import * as React from "react";
 import type { ComponentPropsWithoutRef } from "react";
 import Script from "next/script";
+import type { Viewport } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { NavLink } from "./_components/NavLink";
 import JumpToTop from "./_components/JumpToTop";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://andrewjfrancis.com"),
@@ -23,7 +28,6 @@ export const metadata: Metadata = {
 
   // ✅ Manifest + theme color
   manifest: "/site.webmanifest",
-  themeColor: "#ffffff",
 
   // ✅ Icons (served from /public)
   icons: {
