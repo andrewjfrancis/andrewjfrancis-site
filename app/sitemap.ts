@@ -39,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/`, lastModified: latest },
     { url: `${SITE}/now`, lastModified: latest },
     { url: `${SITE}/writing`, lastModified: latest },
+    { url: `${SITE}/writing/tags`, lastModified: latest },
     { url: `${SITE}/about`, lastModified: latest },
   ];
 

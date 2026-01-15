@@ -1,24 +1,33 @@
 // app/writing/tags/page.tsx
 
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "../../_components/PageShell";
 import { TAGS } from "../_data/tags";
 import { getArticlesByTag } from "../_data/articles";
+import { pageMetadata } from "../../_lib/pageMetadata";
+
+const title = "Writing Tags"; // <- no name
+const description =
+  "Browse the writing archive by tag — recurring structural patterns across organizations, systems and decision-making.";
+const url = "/writing/tags";
+
+export const metadata: Metadata = pageMetadata({ title, description, url });
 
 export default function TagsIndexPage() {
   return (
     <PageShell>
       <header className="space-y-4">
-        <h1 className="text-3xl font-semibold tracking-tight">
-          Writing — Tags — Andrew J. Francis
+        <h1 className="text-4xl font-semibold tracking-tight leading-tight">
+          Writing Tags
         </h1>
 
-        <p className="text-base leading-7 text-muted-foreground">
+        <p className="text-base font-medium leading-8 text-muted-foreground">
           These tags describe structural patterns that recur across the writing
           — conditions that shape how work functions inside organizations.
         </p>
 
-        <p className="text-base leading-7 text-muted-foreground">
+        <p className="text-base font-medium leading-8 text-muted-foreground">
           Navigate by recognition rather than interest. Each tag surfaces essays
           that examine the same dynamics from different angles.
         </p>
@@ -42,7 +51,7 @@ export default function TagsIndexPage() {
                 </span>
               </Link>
 
-              <p className="text-sm leading-6 text-muted-foreground">
+              <p className="text-base leading-7 text-muted-foreground">
                 {t.description}
               </p>
             </li>

@@ -1,10 +1,12 @@
 // app/writing/page.tsx
 
+import type { Metadata } from "next";
 import PageShell from "../_components/PageShell";
 import YearsNav from "./_components/YearsNav";
 import { ArticlesList } from "./_components/ArticlesList";
 import { Pager } from "./_components/Pager";
 import TagPills from "./_components/TagPills";
+import { pageMetadata } from "../_lib/pageMetadata";
 
 import {
   getAllArticles,
@@ -13,6 +15,13 @@ import {
   getTotalPages,
   getYears,
 } from "./_data/articles";
+
+const title = "Writing"; // IMPORTANT: no "— Andrew J. Francis"
+const description =
+  "An archive of essays on systems, structure, and decision architecture — organized by tags and years.";
+const url = "/writing";
+
+export const metadata: Metadata = pageMetadata({ title, description, url });
 
 export default function WritingIndexPage() {
   const counts = getTagCounts();
@@ -30,8 +39,10 @@ export default function WritingIndexPage() {
   return (
     <PageShell>
       <header className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight">Writing</h1>
-        <p className="text-base leading-7 text-muted-foreground">
+        <h1 className="text-4xl font-semibold tracking-tight leading-tight">
+          Writing
+        </h1>
+        <p className="text-base font-medium leading-8 text-muted-foreground">
           These essays examine how organizations function under pressure — how
           decisions are ordered, authority is assigned and responsibility is
           distributed. The focus is structural rather than personal: systems,
@@ -55,14 +66,12 @@ export default function WritingIndexPage() {
           />
         </div>
 
-        {/*
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Browse by year
           </p>
           <YearsNav years={years} mode="all" />
         </div>
-        */}
       </section>
 
       <Pager

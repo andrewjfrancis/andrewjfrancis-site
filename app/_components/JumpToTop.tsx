@@ -8,7 +8,7 @@ export default function JumpToTop() {
 
   useEffect(() => {
     const onScroll = () => {
-      setShow(window.scrollY > 600);
+      setShow(window.scrollY > 300);
     };
 
     onScroll();

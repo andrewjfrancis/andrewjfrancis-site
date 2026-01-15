@@ -1,9 +1,18 @@
+// app/not-found.tsx
+
+"use client";
+
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function NotFound() {
+  useEffect(() => {
+    document.title = "Page not found — Andrew J. Francis";
+  }, []);
+
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
-      <h1 className="text-3xl font-semibold tracking-tight">
+      <h1 className="text-4xl font-semibold tracking-tight leading-tight">
         This page does not exist.
       </h1>
 

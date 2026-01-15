@@ -1,11 +1,13 @@
 // app/writing/tags/[tag]/page/[page]/page.tsx
 
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PageShell from "../../../../../_components/PageShell";
 import { ArticlesList } from "../../../../_components/ArticlesList";
 import { Pager } from "../../../../_components/Pager";
 import TagPills from "../../../../_components/TagPills";
 
+import { pageMetadata } from "../../../../../_lib/pageMetadata";
 import { tagFromSlug, getTagMeta } from "../../../../_data/tags";
 import {
   getAllArticles,
@@ -22,6 +24,32 @@ type Props = {
   }>;
 };
 
+// Page 2+ only
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { tag: tagSlug, page } = await params;
+
+  const tag = tagFromSlug(tagSlug);
+  if (!tag) return {};
+
+  const pageNum = Number(page);
+  if (!Number.isInteger(pageNum) || pageNum < 2) return {};
+
+  const meta = getTagMeta(tag);
+
+  // Optional safety: if page is out of range, don't emit metadata.
+  const all = getArticlesByTag(tag);
+  const totalPages = getTotalPages(all.length);
+  if (pageNum > totalPages) return {};
+
+  const title = `Writing — ${meta.id} (Page ${pageNum})`;
+  const description =
+    meta.description ??
+    "Essays organized by recurring structural patterns, navigable by tag.";
+  const url = `/writing/tags/${meta.slug}/page/${pageNum}`;
+
+  return pageMetadata({ title, description, url, type: "website" });
+}
+
 export default async function TagPagePaginated({ params }: Props) {
   const { tag: tagSlug, page } = await params;
 
@@ -29,17 +57,14 @@ export default async function TagPagePaginated({ params }: Props) {
   if (!tag) notFound();
 
   const pageNum = Number(page);
-  if (!Number.isInteger(pageNum) || pageNum < 2) notFound(); // 2+ only
+  if (!Number.isInteger(pageNum) || pageNum < 2) notFound();
 
-  // Tag meta (safe, canonical slug lives here)
   const meta = getTagMeta(tag);
   const activeSlug = meta.slug;
 
-  // Tag nav counts + total articles for the "All" pill
   const counts = getTagCounts();
   const totalArticles = getAllArticles().length;
 
-  // Page data
   const all = getArticlesByTag(tag);
   const totalPages = getTotalPages(all.length);
   if (pageNum > totalPages) notFound();
@@ -47,17 +72,19 @@ export default async function TagPagePaginated({ params }: Props) {
   const items = getPagedArticles(all, pageNum);
 
   const hrefForPage = (p: number) =>
-    p <= 1 ? `/writing/tags/${tagSlug}` : `/writing/tags/${tagSlug}/page/${p}`;
+    p <= 1
+      ? `/writing/tags/${activeSlug}`
+      : `/writing/tags/${activeSlug}/page/${p}`;
 
   return (
     <PageShell>
       <header className="space-y-4">
-        <h1 className="text-3xl font-semibold tracking-tight">
+        <h1 className="text-4xl font-semibold tracking-tight leading-tight">
           Writing — {meta.id}
         </h1>
 
         {meta.description ? (
-          <p className="text-base leading-7 text-muted-foreground">
+          <p className="text-base font-medium leading-8 text-muted-foreground">
             {meta.description}
           </p>
         ) : null}

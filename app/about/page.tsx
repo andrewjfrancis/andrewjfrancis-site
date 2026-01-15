@@ -1,15 +1,28 @@
+// app/about/page.tsx
+
+import type { Metadata } from "next";
 import PageShell from "../_components/PageShell";
 import { ArrowUpRight } from "lucide-react";
+import { pageMetadata } from "../_lib/pageMetadata";
+
+const title = "About";
+const description =
+  "This is a statement of intent about the work collected here and the lens through which it’s written.";
+const url = "/now";
+
+export const metadata: Metadata = pageMetadata({ title, description, url });
 
 export default function AboutPage() {
   return (
     <PageShell>
       <header className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight">About</h1>
+        <h1 className="text-4xl font-semibold tracking-tight leading-tight">
+          About
+        </h1>
         <p className="text-base leading-7 font-semibold text-muted-foreground">
           This is not a personal bio.
         </p>
-        <p className="text-base leading-7 text-muted-foreground">
+        <p className="text-base font-medium leading-8 text-muted-foreground">
           It’s a statement of intent about the work collected here and the lens
           through which it’s written.
         </p>

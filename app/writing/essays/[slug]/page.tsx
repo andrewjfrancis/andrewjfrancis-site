@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import PageShell from "../../../_components/PageShell";
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { readEssaySource } from "../../_lib/essays";
 import { ArrowLeft } from "lucide-react";
+import { pageMetadata } from "../../../_lib/pageMetadata";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -39,8 +41,42 @@ function formatDate(value: unknown) {
   });
 }
 
+// ✅ Dynamic metadata for each essay page — using helper
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+
+  const data = readEssaySource(slug);
+  if (!data) {
+    // Page will 404 — keep metadata minimal.
+    // IMPORTANT: do NOT add "— Andrew J. Francis" here; layout template appends it.
+    return { title: "Essay" };
+  }
+
+  const { frontmatter } = data;
+
+  const title =
+    typeof frontmatter.title === "string" && frontmatter.title.trim()
+      ? frontmatter.title.trim()
+      : "Essay";
+
+  const description =
+    typeof frontmatter.excerpt === "string" && frontmatter.excerpt.trim()
+      ? frontmatter.excerpt.trim()
+      : "Essay in the writing archive.";
+
+  const url = `/writing/essays/${slug}`;
+
+  return pageMetadata({
+    title,
+    description,
+    url,
+    type: "article",
+  });
+}
+
 export default async function EssayPage({ params, searchParams }: Props) {
   const { slug } = await params;
+
   const sp = (await searchParams) ?? {};
   const from =
     typeof sp.from === "string" && sp.from.startsWith("/")
@@ -78,7 +114,7 @@ export default async function EssayPage({ params, searchParams }: Props) {
 
       {/* Header */}
       <header className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h1 className="text-4xl font-semibold tracking-tight leading-tight">
           {frontmatter.title}
         </h1>
 

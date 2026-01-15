@@ -1,12 +1,25 @@
+// app/now/page.tsx
+
+import type { Metadata } from "next";
 import PageShell from "../_components/PageShell";
 import { Card } from "@/components/ui/card";
+import { pageMetadata } from "../_lib/pageMetadata";
+
+const title = "Now";
+const description =
+  "A current snapshot: what I’m focused on, what I’m building, and what I’m thinking about right now.";
+const url = "/now";
+
+export const metadata: Metadata = pageMetadata({ title, description, url });
 
 export default function NowPage() {
   return (
     <PageShell>
       <header className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight">Now</h1>
-        <p className="text-base text-muted-foreground">
+        <h1 className="text-4xl font-semibold tracking-tight leading-tight">
+          Now
+        </h1>
+        <p className="text-base font-medium leading-8 text-muted-foreground">
           Right now I’m building a durable writing practice and the simplest
           systems around it. The goal is steady output under constraint —
           correct, low-maintenance and repeatable.

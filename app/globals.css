@@ -137,7 +137,7 @@
   }
 
   a:visited {
-    @apply text-muted-foreground;
+    color: inherit;
   }
 
   a:hover {
@@ -223,6 +223,12 @@
     .essay a:hover {
       @apply opacity-90;
     }
+
+    /* If you ever want essay links to show visited
+    .essay-link:visited {
+      color: theme(colors.muted.foreground);
+    }
+    */
 
     /* lists */
     .essay ul {
