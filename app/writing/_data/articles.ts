@@ -24,6 +24,18 @@ export const PAGE_SIZE = 5;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-01-15-01",
+    title: "Governance is how organizations decide who decides",
+    date: "2026-01-15",
+    year: 2026,
+    excerpt:
+      "Governance is not oversight or bureaucracy — it is the system that determines who has authority to decide and what happens when decisions collide.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/governance-is-how-organizations-decide-who-decides-50f81fb8cb62",
+    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+  },
+  {
     id: "2026-01-13-01",
     title: "This site is an archive, not a feed",
     date: "2026-01-13",
