@@ -21,7 +21,40 @@ export const metadata: Metadata = {
   description:
     "Writing about organizational structure, decision-making and how systems shape work.",
 
-  // ✅ Site-wide default OG (iMessage often uses title + description + domain)
+  // ✅ Manifest + theme color
+  manifest: "/site.webmanifest",
+  themeColor: "#ffffff",
+
+  // ✅ Icons (served from /public)
+  icons: {
+    icon: [
+      // Universal fallback first
+      { url: "/favicon.ico" },
+
+      // Helpful explicit sizes
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+
+      // SVG favicon (some browsers use it, some ignore it)
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+        color: "#000000",
+      },
+    ],
+  },
+
+  // ✅ Windows tile support
+  other: {
+    "msapplication-config": "/browserconfig.xml",
+  },
+
+  // ✅ Site-wide default OG
   openGraph: {
     title: "Andrew J. Francis",
     description: "Systems, Structure, Decision Architecture",
@@ -89,7 +122,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* Plausible (App Router-safe): Scripts inside body */}
+        {/* Plausible analytics */}
         <Script
           src="https://plausible.io/js/pa-ZDlKsw_UIVm6qSC-RqZXn.js"
           strategy="afterInteractive"

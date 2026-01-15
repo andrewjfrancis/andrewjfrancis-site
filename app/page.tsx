@@ -5,6 +5,15 @@ import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ArrowUpRight } from "lucide-react";
 
+function formatDate(iso: string) {
+  const d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+}
+
 export default function HomePage() {
   const latest = getLatestArticle();
 
@@ -97,23 +106,30 @@ export default function HomePage() {
           <Card className="p-6">
             <div className="space-y-4">
               {latest ? (
-                <div className="space-y-1">
+                <div className="space-y-3">
                   <p className="text-sm text-muted-foreground">Latest</p>
-
-                  <p className="text-base leading-7">
+                  <div className="space-y-2">
                     <a
-                      href={latest.externalUrl} // or whatever your link field is
+                      href={latest.externalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold underline underline-offset-4"
+                      className="block font-semibold underline underline-offset-4"
                     >
                       {latest.title}{" "}
                       <ArrowUpRight
                         className="inline-block align-baseline relative top-[1px] h-4 w-4 opacity-60"
                         aria-hidden="true"
                       />
+                      <span className="sr-only">(opens in a new tab)</span>
                     </a>
-                    <br />
+
+                    {/* 👇 breathing room */}
+                    <p className="text-sm text-muted-foreground">
+                      {formatDate(latest.date)} ·{" "}
+                      {latest.source === "medium" ? "Medium" : "Essay"}
+                    </p>
+                  </div>
+                  <p className="text-base leading-7 text-muted-foreground">
                     {latest.excerpt}
                   </p>
                 </div>
