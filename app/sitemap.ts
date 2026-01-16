@@ -7,99 +7,131 @@ import {
   getYears,
   getArticlesByYear,
   getTagCounts,
+  getPagedArticles,
+  getArticlesByTag,
 } from "./writing/_data/articles";
+import { tagFromSlug } from "./writing/_data/tags";
+import { STATIC_LASTMOD, toUTCDate } from "./_lib/staticLastmod";
 
 const SITE = "https://andrewjfrancis.com";
 
-function toUTCDate(iso: string): Date {
-  // iso = YYYY-MM-DD
-  const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!m) return new Date(0);
-  const y = Number(m[1]);
-  const mo = Number(m[2]);
-  const d = Number(m[3]);
-  return new Date(Date.UTC(y, mo - 1, d));
+function maxIso(items: { date: string }[]): string | null {
+  if (items.length === 0) return null;
+  let max = items[0]?.date ?? null;
+  for (const it of items) {
+    if (!max || it.date > max) max = it.date;
+  }
+  return max;
 }
 
-function getLatestContentDate(): Date {
-  const all = getAllArticles();
-  const maxIso = all.reduce<string | null>((acc, a) => {
-    if (!acc) return a.date;
-    return a.date > acc ? a.date : acc;
-  }, null);
-
-  return maxIso ? toUTCDate(maxIso) : new Date();
+function pageLastMod(items: { date: string }[]): Date {
+  const iso = maxIso(items);
+  return iso ? toUTCDate(iso) : new Date(0);
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const latest = getLatestContentDate();
+  const routes: MetadataRoute.Sitemap = [];
 
-  // ---- Core pages (don’t "change" on every deploy) ----
-  const routes: MetadataRoute.Sitemap = [
-    { url: `${SITE}/`, lastModified: latest },
-    { url: `${SITE}/now`, lastModified: latest },
-    { url: `${SITE}/writing`, lastModified: latest },
-    { url: `${SITE}/writing/tags`, lastModified: latest },
-    { url: `${SITE}/about`, lastModified: latest },
-  ];
-
-  // ---- Writing index pagination (/writing/page/[page]) ----
+  // ---------- Static pages ----------
+  // Home changes when either:
+  // - you edit the home page content (STATIC_LASTMOD.home), OR
+  // - the "latest" article shown on home changes (newest article overall)
   const all = getAllArticles();
-  const totalWritingPages = getTotalPages(all.length);
+  const latestArticleDate = pageLastMod(all);
+  const homeStaticDate = toUTCDate(STATIC_LASTMOD.home);
+  const homeLastMod =
+    latestArticleDate.getTime() > homeStaticDate.getTime()
+      ? latestArticleDate
+      : homeStaticDate;
 
+  routes.push({ url: `${SITE}/`, lastModified: homeLastMod });
+  routes.push({
+    url: `${SITE}/now`,
+    lastModified: toUTCDate(STATIC_LASTMOD.now),
+  });
+  routes.push({
+    url: `${SITE}/about`,
+    lastModified: toUTCDate(STATIC_LASTMOD.about),
+  });
+
+  // ---------- Writing index ----------
+  // /writing (page 1)
+  routes.push({
+    url: `${SITE}/writing`,
+    lastModified: pageLastMod(getPagedArticles(all, 1)),
+  });
+
+  // /writing/page/[page] (page 2+)
+  const totalWritingPages = getTotalPages(all.length);
   for (let page = 2; page <= totalWritingPages; page++) {
     routes.push({
       url: `${SITE}/writing/page/${page}`,
-      lastModified: latest,
+      lastModified: pageLastMod(getPagedArticles(all, page)),
     });
   }
 
-  // ---- Year pages (/writing/[year] and /writing/[year]/page/[page]) ----
+  // ---------- Tags index ----------
+  // This page lists counts across the whole archive, so it changes when any article set changes.
+  routes.push({
+    url: `${SITE}/writing/tags`,
+    lastModified: pageLastMod(all),
+  });
+
+  // ---------- Year pages ----------
   for (const year of getYears()) {
     const yearItems = getArticlesByYear(year);
     const yearPages = getTotalPages(yearItems.length);
 
+    // /writing/[year] (page 1)
     routes.push({
       url: `${SITE}/writing/${year}`,
-      lastModified: latest,
+      lastModified: pageLastMod(getPagedArticles(yearItems, 1)),
     });
 
+    // /writing/[year]/page/[page] (page 2+)
     for (let page = 2; page <= yearPages; page++) {
       routes.push({
         url: `${SITE}/writing/${year}/page/${page}`,
-        lastModified: latest,
+        lastModified: pageLastMod(getPagedArticles(yearItems, page)),
       });
     }
   }
 
-  // ---- Tag pages (/writing/tags/[tag] and /writing/tags/[tag]/page/[page]) ----
-  // getTagCounts() returns TagSlug -> count
-  const tagCounts = getTagCounts();
+  // ---------- Tag pages ----------
+  const tagCounts = getTagCounts(); // Map<tagSlug, count>
   for (const [tagSlug, count] of tagCounts.entries()) {
     if (count <= 0) continue;
 
-    const tagPages = getTotalPages(count);
+    const tagId = tagFromSlug(tagSlug);
+    if (!tagId) continue;
 
+    const tagItems = getArticlesByTag(tagId);
+    const tagPages = getTotalPages(tagItems.length);
+
+    // /writing/tags/[tag] (page 1)
     routes.push({
       url: `${SITE}/writing/tags/${tagSlug}`,
-      lastModified: latest,
+      lastModified: pageLastMod(getPagedArticles(tagItems, 1)),
     });
 
+    // /writing/tags/[tag]/page/[page] (page 2+)
     for (let page = 2; page <= tagPages; page++) {
       routes.push({
         url: `${SITE}/writing/tags/${tagSlug}/page/${page}`,
-        lastModified: latest,
+        lastModified: pageLastMod(getPagedArticles(tagItems, page)),
       });
     }
   }
 
-  // ---- Local essays (/writing/essays/[slug]) ----
-  const localEssays = ARTICLES.filter(
-    (a) => a.source === "local" && a.slug
-  ).map((a) => ({
-    url: `${SITE}/writing/essays/${a.slug}`,
-    lastModified: toUTCDate(a.date),
-  }));
+  // ---------- Local essays ----------
+  for (const a of ARTICLES) {
+    if (a.source !== "local" || !a.slug) continue;
 
-  return [...routes, ...localEssays];
+    routes.push({
+      url: `${SITE}/writing/essays/${a.slug}`,
+      lastModified: toUTCDate(a.date),
+    });
+  }
+
+  return routes;
 }
