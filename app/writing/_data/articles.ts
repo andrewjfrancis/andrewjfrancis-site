@@ -24,6 +24,18 @@ export const PAGE_SIZE = 5;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-01-17-01",
+    title: "Escalation is how unclear authority reveals itself",
+    date: "2026-01-17",
+    year: 2026,
+    excerpt:
+      "Escalation is rarely a people problem — it is the predictable behavior of a system where decision authority is unclear, unstable or unsafe to use.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/escalation-is-how-unclear-authority-reveals-itself-754ec45bd3ab",
+    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+  },
+  {
     id: "2026-01-15-01",
     title: "Governance is how organizations decide who decides",
     date: "2026-01-15",
@@ -480,11 +492,11 @@ export function getArticlesByTag(tag: Tag): Article[] {
 
 export function getTagCounts(): Map<TagSlug, number> {
   const slugById = new Map<Tag, TagSlug>(
-    TAGS.map((t) => [t.id, t.slug] as [Tag, TagSlug])
+    TAGS.map((t) => [t.id, t.slug] as [Tag, TagSlug]),
   );
 
   const counts = new Map<TagSlug, number>(
-    TAGS.map((t) => [t.slug, 0] as [TagSlug, number])
+    TAGS.map((t) => [t.slug, 0] as [TagSlug, number]),
   );
 
   for (const a of getAllArticles()) {
