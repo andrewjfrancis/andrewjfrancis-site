@@ -24,6 +24,18 @@ export const PAGE_SIZE = 5;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-01-19-01",
+    title: "The rule only existed after someone broke it",
+    date: "2026-01-19",
+    year: 2026,
+    excerpt:
+      "Governance often becomes visible only after failure, when decisions collide and authority has to be clarified retroactively.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/the-rule-only-existed-after-someone-broke-it-9c6408ba7de1",
+    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+  },
+  {
     id: "2026-01-17-01",
     title: "Escalation is how unclear authority reveals itself",
     date: "2026-01-17",
