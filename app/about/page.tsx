@@ -73,8 +73,7 @@ export default function AboutPage() {
         </p>
 
         <p>
-          If you want to follow along or see what I’m thinking about between
-          essays, visit me on{" "}
+          If you want to reach me,{" "}
           <a
             href="https://www.linkedin.com/in/andrewjfrancis"
             target="_blank"
@@ -86,8 +85,8 @@ export default function AboutPage() {
               className="inline-block align-baseline relative top-[1px] h-4 w-4 opacity-60"
               aria-hidden="true"
             />
-          </a>
-          .
+          </a>{" "}
+          is the easiest way.
         </p>
       </div>
     </PageShell>
