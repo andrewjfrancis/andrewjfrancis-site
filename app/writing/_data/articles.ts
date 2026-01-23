@@ -24,6 +24,18 @@ export const PAGE_SIZE = 5;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-01-23-01",
+    title: "Approval is not decision-making",
+    date: "2026-01-23",
+    year: 2026,
+    excerpt:
+      "Approval looks like governance, but it arrives too late to prevent decision conflict, so teams learn that movement is unsafe without permission.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/approval-is-not-decision-making-a2d62fd6a9de",
+    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+  },
+  {
     id: "2026-01-19-01",
     title: "The rule only existed after someone broke it",
     date: "2026-01-19",
