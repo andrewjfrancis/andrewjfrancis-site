@@ -24,6 +24,18 @@ export const PAGE_SIZE = 5;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-01-25-01",
+    title: "Closure is a system property",
+    date: "2026-01-25",
+    year: 2026,
+    excerpt:
+      "Decisions are not real because they were discussed — they are real because they hold, creating constraints other work can reliably build on.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/closure-is-a-system-property-3c7d2757928e",
+    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+  },
+  {
     id: "2026-01-23-01",
     title: "Approval is not decision-making",
     date: "2026-01-23",
