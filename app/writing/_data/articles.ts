@@ -24,6 +24,18 @@ export const PAGE_SIZE = 5;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-01-27-01",
+    title: "Alignment is a tax on missing authority",
+    date: "2026-01-27",
+    year: 2026,
+    excerpt:
+      "Alignment work expands when authority is unclear because coordination becomes the substitute for decision rights and closure.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/alignment-is-a-tax-on-missing-authority-7089fa64ee71",
+    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+  },
+  {
     id: "2026-01-25-01",
     title: "Closure is a system property",
     date: "2026-01-25",
