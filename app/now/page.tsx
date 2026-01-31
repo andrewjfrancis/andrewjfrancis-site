@@ -67,7 +67,7 @@ export default function NowPage() {
             <li>Small surface area.</li>
             <li>Durability over speed.</li>
             <li>Simple defaults; fewer knobs.</li>
-            <li>No “strategy theater.”</li>
+            <li>No strategy ceremony.</li>
           </ul>
         </Card>
 

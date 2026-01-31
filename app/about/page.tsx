@@ -73,7 +73,16 @@ export default function AboutPage() {
         </p>
 
         <p>
-          If you want to reach me,{" "}
+          The essays here do not offer solutions or frameworks. They clarify
+          what is structurally happening.
+        </p>
+
+        <p>
+          This site is primarily a writing archive, not a public advisory
+          offering, but thoughtful connection is always welcome.
+        </p>
+
+        <p>
           <a
             href="https://www.linkedin.com/in/andrewjfrancis"
             target="_blank"
@@ -86,7 +95,7 @@ export default function AboutPage() {
               aria-hidden="true"
             />
           </a>{" "}
-          is the easiest way.
+          is the easiest way to reach me.
         </p>
       </div>
     </PageShell>

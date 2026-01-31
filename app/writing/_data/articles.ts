@@ -20,9 +20,21 @@ export type Article = {
   pinOrder?: number; // real control
 };
 
-export const PAGE_SIZE = 5;
+export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
+  {
+    id: "2026-01-30-01",
+    title: "Incentives train behavior more than intent",
+    date: "2026-01-30",
+    year: 2026,
+    excerpt:
+      "People adapt to what the system punishes and protects, so an organization’s real values are revealed through consequences, not messaging.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/incentives-train-behavior-more-than-intent-38086b9fe7e6",
+    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+  },
   {
     id: "2026-01-27-01",
     title: "Alignment is a tax on missing authority",
@@ -33,6 +45,8 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/alignment-is-a-tax-on-missing-authority-7089fa64ee71",
+    pinned: true,
+    pinOrder: 4,
     tags: ["Organizational Design", "Authority & Accountability", "Governance"],
   },
   {
@@ -45,6 +59,8 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/closure-is-a-system-property-3c7d2757928e",
+    pinned: true,
+    pinOrder: 3,
     tags: ["Organizational Design", "Authority & Accountability", "Governance"],
   },
   {
@@ -57,6 +73,8 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/approval-is-not-decision-making-a2d62fd6a9de",
+    pinned: true,
+    pinOrder: 5,
     tags: ["Organizational Design", "Authority & Accountability", "Governance"],
   },
   {
@@ -93,6 +111,8 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/governance-is-how-organizations-decide-who-decides-50f81fb8cb62",
+    pinned: true,
+    pinOrder: 2,
     tags: ["Organizational Design", "Authority & Accountability", "Governance"],
   },
   {
@@ -106,7 +126,6 @@ export const ARTICLES_REAL: Article[] = [
     slug: "this-site-is-an-archive-not-a-feed",
     pinned: true,
     pinOrder: 0,
-    tags: ["Work"],
   },
   {
     id: "2026-01-09-01",
@@ -142,6 +161,8 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/most-strategy-fails-before-execution-even-starts-1033992be80e",
+    pinned: true,
+    pinOrder: 1,
     tags: ["Systems Thinking", "Decision Architecture", "Strategy"],
   },
 ];
