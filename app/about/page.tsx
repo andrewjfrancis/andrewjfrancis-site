@@ -78,8 +78,8 @@ export default function AboutPage() {
         </p>
 
         <p>
-          This site is primarily a writing archive, not a public advisory
-          offering, but thoughtful connection is always welcome.
+          This site is primarily a writing archive, not a public advisory space,
+          but thoughtful connection is always welcome.
         </p>
 
         <p>
