@@ -32,7 +32,7 @@ export const SERIES: Series[] = [
     title: "Decision Flow",
     slug: "decision-flow",
     description:
-      "How organizations create momentum when decision rights are clear, constraints are stable, and coordination becomes the result of structure—not the substitute for it.",
+      "How organizations create momentum when decision rights are clear, constraints are stable, and coordination becomes the result of structure — not the substitute for it.",
     status: "upcoming",
     showPill: true,
     essayIds: [],
@@ -111,4 +111,28 @@ export function getSeriesGroups() {
     inProgress: [...inProgress].sort(byNewest),
     complete: [...complete].sort(byNewest),
   };
+}
+
+export type SeriesRef = { slug: string; title: string };
+
+/**
+ * Derive series membership from SERIES -> essay IDs.
+ * - No duplicate seriesSlug stored on Article
+ * - Skips "upcoming" series
+ * - Assumes each essay belongs to at most one series
+ */
+export function getSeriesForArticleId(articleId: string): SeriesRef | null {
+  for (const s of SERIES) {
+    if (s.status === "upcoming") continue;
+
+    // Adjust this line to match your series shape:
+    // If your series stores essay IDs under `essays`, this is correct.
+    // If it's `items` or `essayIds`, change accordingly.
+    const ids = s.essayIds ?? [];
+    if (ids.includes(articleId)) {
+      return { slug: s.slug, title: s.title };
+    }
+  }
+
+  return null;
 }

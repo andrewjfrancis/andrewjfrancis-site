@@ -18,6 +18,7 @@ import {
 
 type Props = {
   params: Promise<{ series: string }>;
+  searchParams?: Promise<{ from?: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -32,22 +33,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-function BackToAllSeries({ className = "" }: { className?: string }) {
+function BackLink({
+  href,
+  label,
+  className = "",
+}: {
+  href: string;
+  label: string;
+  className?: string;
+}) {
   return (
     <div className={className}>
       <Link
-        href="/writing/series"
+        href={href}
         className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-        Back to all series
+        {label}
       </Link>
     </div>
   );
 }
 
-export default async function SeriesDetailPage({ params }: Props) {
+export default async function SeriesDetailPage({
+  params,
+  searchParams,
+}: Props) {
   const { series: slug } = await params;
+  const sp = (await searchParams) ?? {};
+
+  const fromRaw = sp.from ?? "";
+  const backHref = fromRaw.startsWith("/") ? fromRaw : "/writing/series";
+  const backLabel =
+    backHref === "/writing/series" ? "Back to all series" : "Back";
 
   const s = getSeriesBySlug(slug);
   if (!s || s.status === "upcoming") notFound();
@@ -58,7 +76,7 @@ export default async function SeriesDetailPage({ params }: Props) {
   return (
     <PageShell>
       {/* Top back link */}
-      <BackToAllSeries className="mb-8" />
+      <BackLink href={backHref} label={backLabel} className="mb-8" />
 
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight">
@@ -84,11 +102,10 @@ export default async function SeriesDetailPage({ params }: Props) {
 
       <hr className="my-6" />
 
-      {/* IMPORTANT: preserve series order; no pin badge here */}
       <ArticlesList items={items} showPinnedBadge={false} />
 
-      {/* Bottom back link (give it air) */}
-      <BackToAllSeries className="mt-12" />
+      {/* Bottom back link */}
+      <BackLink href={backHref} label={backLabel} className="mt-12" />
     </PageShell>
   );
 }

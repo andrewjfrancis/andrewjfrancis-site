@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Article } from "../_data/articles";
 import { getArticleHref, isExternalArticle } from "../_data/articles";
+import { getSeriesForArticleId } from "../_data/series";
 import { TAGS, type Tag } from "../_data/tags";
 import { ArrowUpRight, Pin } from "lucide-react";
 
@@ -65,6 +66,8 @@ export function ArticlesList({
             ? `${href}?from=${encodeURIComponent(pathname)}`
             : href;
 
+          const series = getSeriesForArticleId(a.id);
+
           return (
             <li
               key={a.id}
@@ -115,9 +118,22 @@ export function ArticlesList({
               </p>
 
               {/* Excerpt */}
-              <p className="mt-3 text-base leading-7 text-foreground/80">
+              <p className="mt-2 text-base leading-7 text-foreground/80">
                 {a.excerpt}
               </p>
+
+              {/* Orientation line: Series */}
+              {series ? (
+                <p className="mt-3 mb-4 text-sm text-muted-foreground">
+                  <span className="font-semibold">Series:</span>{" "}
+                  <Link
+                    href={`/writing/series/${series.slug}?from=${encodeURIComponent(pathname)}`}
+                    className="underline underline-offset-4 hover:text-foreground"
+                  >
+                    {series.title}
+                  </Link>
+                </p>
+              ) : null}
 
               {/* Tags row */}
               {a.tags && a.tags.length > 0 ? (

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getLatestArticle } from "./writing/_data/articles";
+import { getSeriesForArticleId } from "./writing/_data/series";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -16,6 +17,7 @@ function formatDate(iso: string) {
 
 export default function HomePage() {
   const latest = getLatestArticle();
+  const series = getSeriesForArticleId(latest.id);
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 pt-8 pb-12 sm:pt-10 sm:pb-16">
@@ -132,6 +134,17 @@ export default function HomePage() {
                   <p className="text-base leading-7 text-muted-foreground">
                     {latest.excerpt}
                   </p>
+                  {series ? (
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      <span className="font-semibold">Series:</span>{" "}
+                      <Link
+                        href={`/writing/series/${series.slug}?from=${encodeURIComponent("/")}`}
+                        className="underline underline-offset-4 hover:text-foreground"
+                      >
+                        {series.title}
+                      </Link>
+                    </p>
+                  ) : null}
                 </div>
               ) : null}
 
