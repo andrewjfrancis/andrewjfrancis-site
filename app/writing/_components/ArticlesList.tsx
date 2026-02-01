@@ -23,11 +23,13 @@ export function ArticlesList({
   emptyTitle = "No articles yet.",
   emptyBody = "This archive will fill automatically as you publish.",
   showTagsLegend = false,
+  showPinnedBadge = true,
 }: {
   items: Article[];
   emptyTitle?: string;
   emptyBody?: string;
   showTagsLegend?: boolean;
+  showPinnedBadge?: boolean;
 }) {
   const pathname = usePathname();
 
@@ -98,7 +100,7 @@ export function ArticlesList({
                   )}
                 </p>
 
-                {isPinned ? (
+                {isPinned && showPinnedBadge ? (
                   <span className="shrink-0 inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs text-muted-foreground">
                     <Pin className="h-3.5 w-3.5" aria-hidden="true" />
                     <span>Pinned</span>
@@ -119,17 +121,26 @@ export function ArticlesList({
 
               {/* Tags row */}
               {a.tags && a.tags.length > 0 ? (
-                <ul className="mt-4 flex gap-2 overflow-x-auto whitespace-nowrap no-scrollbar">
-                  {a.tags.map((tag) => (
-                    <li
-                      key={tag}
-                      className="rounded-full border px-3 py-1 text-sm text-muted-foreground"
-                      title={TAGS.find((t) => t.id === tag)?.description ?? tag}
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
+                <div className="relative mt-4">
+                  <div
+                    className="pointer-events-none absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-background to-transparent"
+                    aria-hidden="true"
+                  />
+                  <ul className="flex gap-2 overflow-x-auto whitespace-nowrap no-scrollbar pr-10">
+                    {a.tags.map((tag) => (
+                      <li
+                        key={tag}
+                        className="rounded-full border px-3 py-1 text-sm text-muted-foreground"
+                        title={
+                          TAGS.find((t) => t.id === tag)?.description ?? tag
+                        }
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                    <li className="shrink-0 w-10" aria-hidden="true" />
+                  </ul>
+                </div>
               ) : null}
             </li>
           );

@@ -81,7 +81,7 @@ export default async function WritingYearPage({ params }: Props) {
         hrefForPage={hrefForPage}
       />
 
-      <ArticlesList items={items} />
+      <ArticlesList items={items} showPinnedBadge={false} />
 
       <Pager
         className="my-6"

@@ -33,7 +33,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/incentives-train-behavior-more-than-intent-38086b9fe7e6",
-    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
     id: "2026-01-27-01",
@@ -45,9 +45,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/alignment-is-a-tax-on-missing-authority-7089fa64ee71",
-    pinned: true,
-    pinOrder: 4,
-    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
     id: "2026-01-25-01",
@@ -59,9 +57,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/closure-is-a-system-property-3c7d2757928e",
-    pinned: true,
-    pinOrder: 3,
-    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
     id: "2026-01-23-01",
@@ -73,9 +69,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/approval-is-not-decision-making-a2d62fd6a9de",
-    pinned: true,
-    pinOrder: 5,
-    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
     id: "2026-01-19-01",
@@ -87,7 +81,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/the-rule-only-existed-after-someone-broke-it-9c6408ba7de1",
-    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
     id: "2026-01-17-01",
@@ -99,7 +93,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/escalation-is-how-unclear-authority-reveals-itself-754ec45bd3ab",
-    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
     id: "2026-01-15-01",
@@ -111,9 +105,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/governance-is-how-organizations-decide-who-decides-50f81fb8cb62",
-    pinned: true,
-    pinOrder: 2,
-    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
     id: "2026-01-13-01",
@@ -137,7 +129,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/when-responsibility-is-assigned-without-authority-bc716b305531",
-    tags: ["Organizational Design", "Authority & Accountability", "Governance"],
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
     id: "2026-01-08-01",
@@ -149,7 +141,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/urgency-is-not-a-strategy-95671798f0ac",
-    tags: ["Systems Thinking", "Organizational Design", "Complexity"],
+    tags: ["Complexity", "Organizational Design", "Systems Thinking"],
   },
   {
     id: "2026-01-05-01",
@@ -161,9 +153,7 @@ export const ARTICLES_REAL: Article[] = [
     source: "medium",
     externalUrl:
       "https://medium.com/@andrewjfrancis/most-strategy-fails-before-execution-even-starts-1033992be80e",
-    pinned: true,
-    pinOrder: 1,
-    tags: ["Systems Thinking", "Decision Architecture", "Strategy"],
+    tags: ["Decision Architecture", "Strategy", "Systems Thinking"],
   },
 ];
 
@@ -537,6 +527,17 @@ export function getLatestArticle() {
   return nonPinned[0] ?? null;
 }
 
+export function getAllArticlesChronological(): Article[] {
+  return [...ARTICLES].sort((a, b) => {
+    // date desc
+    if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+
+    // stable tie-breakers
+    if (a.title !== b.title) return a.title.localeCompare(b.title);
+    return a.id.localeCompare(b.id);
+  });
+}
+
 export function getTotalPages(count: number): number {
   return Math.max(1, Math.ceil(count / PAGE_SIZE));
 }
@@ -556,7 +557,7 @@ export function getTagById(tag: Tag) {
 }
 
 export function getArticlesByTag(tag: Tag): Article[] {
-  return getAllArticles().filter((a) => a.tags?.includes(tag));
+  return getAllArticlesChronological().filter((a) => a.tags?.includes(tag));
 }
 
 export function getTagCounts(): Map<TagSlug, number> {
@@ -585,7 +586,7 @@ export function getYears(): number[] {
 }
 
 export function getArticlesByYear(year: number): Article[] {
-  return getAllArticles().filter((a) => a.year === year);
+  return getAllArticlesChronological().filter((a) => a.year === year);
 }
 
 export function getArticleHref(a: Article): string {

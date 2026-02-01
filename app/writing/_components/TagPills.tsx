@@ -26,67 +26,79 @@ export default function TagPills({
 
   return (
     <nav className={className}>
-      <ul className="flex gap-2 overflow-x-auto whitespace-nowrap no-scrollbar">
-        {showAll ? (
-          <li>
-            {/* Active when no activeSlug (i.e. you're on /writing “all essays”) */}
-            {!activeSlug ? (
-              <span className={`${base} ${activeCls}`}>
-                <span>All</span>
-                <span className={countCls}>{totalArticles}</span>
-              </span>
-            ) : (
-              <Link href={allHref} className={`${base} ${inactiveCls}`}>
-                <span>All</span>
-                <span className={countCls}>{totalArticles}</span>
-              </Link>
-            )}
-          </li>
-        ) : null}
+      {/* Wrapper adds a subtle right-edge fade so it "reads" as scrollable */}
+      <div className="relative">
+        {/* Fade overlay */}
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-background to-transparent"
+          aria-hidden="true"
+        />
 
-        {TAGS.map((t) => {
-          const count = counts.get(t.slug) ?? 0;
-          const isActive = t.slug === activeSlug;
-          const isDisabled = count === 0;
+        <ul className="flex gap-2 overflow-x-auto whitespace-nowrap no-scrollbar pr-10">
+          {showAll ? (
+            <li>
+              {/* Active when no activeSlug (i.e. you're on /writing “all essays”) */}
+              {!activeSlug ? (
+                <span className={`${base} ${activeCls}`}>
+                  <span>All</span>
+                  <span className={countCls}>{totalArticles}</span>
+                </span>
+              ) : (
+                <Link href={allHref} className={`${base} ${inactiveCls}`}>
+                  <span>All</span>
+                  <span className={countCls}>{totalArticles}</span>
+                </Link>
+              )}
+            </li>
+          ) : null}
 
-          const disabledCls =
-            "opacity-50 text-muted-foreground cursor-not-allowed";
+          {TAGS.map((t) => {
+            const count = counts.get(t.slug) ?? 0;
+            const isActive = t.slug === activeSlug;
+            const isDisabled = count === 0;
 
-          const pillClass =
-            base +
-            " " +
-            (isDisabled ? disabledCls : isActive ? activeCls : inactiveCls);
+            const disabledCls =
+              "opacity-50 text-muted-foreground cursor-not-allowed";
 
-          const label = (
-            <>
-              <span>{t.id}</span>
-              <span className={countCls}>{count}</span>
-            </>
-          );
+            const pillClass =
+              base +
+              " " +
+              (isDisabled ? disabledCls : isActive ? activeCls : inactiveCls);
 
-          if (isDisabled || isActive) {
+            const label = (
+              <>
+                <span>{t.id}</span>
+                <span className={countCls}>{count}</span>
+              </>
+            );
+
+            if (isDisabled || isActive) {
+              return (
+                <li key={t.slug}>
+                  <span className={pillClass} title={t.description}>
+                    {label}
+                  </span>
+                </li>
+              );
+            }
+
             return (
               <li key={t.slug}>
-                <span className={pillClass} title={t.description}>
+                <Link
+                  href={`/writing/tags/${t.slug}`}
+                  className={pillClass}
+                  title={t.description}
+                >
                   {label}
-                </span>
+                </Link>
               </li>
             );
-          }
+          })}
 
-          return (
-            <li key={t.slug}>
-              <Link
-                href={`/writing/tags/${t.slug}`}
-                className={pillClass}
-                title={t.description}
-              >
-                {label}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+          {/* Trailing spacer so the last pill doesn't feel like "the end" */}
+          <li className="shrink-0 w-10" aria-hidden="true" />
+        </ul>
+      </div>
     </nav>
   );
 }

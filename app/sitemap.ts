@@ -1,4 +1,5 @@
 // app/sitemap.ts
+import { SERIES, getSeriesLastModified } from "./writing/_data/series";
 import type { MetadataRoute } from "next";
 import {
   ARTICLES,
@@ -121,6 +122,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: pageLastMod(getPagedArticles(tagItems, page)),
       });
     }
+  }
+
+  // ---- Series pages (/writing/series and /writing/series/[series]) ----
+  // Index should change when the series list or any series content changes.
+  const seriesLastMods = SERIES.map((s) => getSeriesLastModified(s)).filter(
+    Boolean,
+  ) as string[];
+  const seriesIndexLast =
+    seriesLastMods.length > 0
+      ? toUTCDate(seriesLastMods.sort().at(-1)!)
+      : latestArticleDate;
+
+  routes.push({
+    url: `${SITE}/writing/series`,
+    lastModified: seriesIndexLast,
+  });
+
+  for (const s of SERIES) {
+    // Skip upcoming detail pages (not linked, not published)
+    if (s.status === "upcoming") continue;
+
+    const iso = getSeriesLastModified(s);
+    if (!iso) continue;
+
+    routes.push({
+      url: `${SITE}/writing/series/${s.slug}`,
+      lastModified: toUTCDate(iso),
+    });
   }
 
   // ---------- Local essays ----------

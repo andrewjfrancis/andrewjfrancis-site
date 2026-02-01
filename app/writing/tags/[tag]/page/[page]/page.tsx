@@ -108,6 +108,7 @@ export default async function TagPagePaginated({ params }: Props) {
 
       <ArticlesList
         items={items}
+        showPinnedBadge={false}
         emptyTitle="No essays for this tag yet."
         emptyBody="Writing in this area will appear here as it’s published."
       />

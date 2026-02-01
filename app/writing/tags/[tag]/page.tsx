@@ -97,6 +97,7 @@ export default async function TagDetailPage({ params }: Props) {
 
       <ArticlesList
         items={items}
+        showPinnedBadge={false}
         emptyTitle="No essays for this tag yet."
         emptyBody="Writing in this area will appear here as it’s published."
       />

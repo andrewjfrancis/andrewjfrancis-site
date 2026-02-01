@@ -1,6 +1,7 @@
 // app/writing/page.tsx
 
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageShell from "../_components/PageShell";
 import YearsNav from "./_components/YearsNav";
 import { ArticlesList } from "./_components/ArticlesList";
@@ -55,6 +56,34 @@ export default function WritingIndexPage() {
       <hr className="my-6" />
 
       <section className="space-y-5">
+        {/* Indexes */}
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Indexes
+          </p>
+
+          <div className="flex flex-wrap items-center gap-3 text-base">
+            <Link
+              href="/writing/series"
+              className="underline underline-offset-4 text-foreground/80 hover:text-foreground"
+            >
+              Series
+            </Link>
+
+            <span className="text-muted-foreground/60" aria-hidden="true">
+              •
+            </span>
+
+            <Link
+              href="/writing/tags"
+              className="underline underline-offset-4 text-foreground/80 hover:text-foreground"
+            >
+              Tags
+            </Link>
+          </div>
+        </div>
+
+        {/* Browse by tag */}
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Browse by tag
@@ -66,6 +95,7 @@ export default function WritingIndexPage() {
           />
         </div>
 
+        {/* Browse by year */}
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Browse by year

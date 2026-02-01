@@ -8,24 +8,24 @@
  */
 
 export type Tag =
-  | "Systems Thinking"
-  | "Organizational Design"
-  | "Decision Architecture"
   | "Authority & Accountability"
-  | "Strategy"
+  | "Complexity"
+  | "Decision Architecture"
   | "Governance"
-  | "Work"
-  | "Complexity";
+  | "Organizational Design"
+  | "Strategy"
+  | "Systems Thinking"
+  | "Work";
 
 export type TagSlug =
-  | "systems-thinking"
-  | "organizational-design"
-  | "decision-architecture"
   | "authority-accountability"
-  | "strategy"
+  | "complexity"
+  | "decision-architecture"
   | "governance"
-  | "work"
-  | "complexity";
+  | "organizational-design"
+  | "strategy"
+  | "systems-thinking"
+  | "work";
 
 export const TAGS: {
   id: Tag;
@@ -33,16 +33,16 @@ export const TAGS: {
   description: string;
 }[] = [
   {
-    id: "Systems Thinking",
-    slug: "systems-thinking",
+    id: "Authority & Accountability",
+    slug: "authority-accountability",
     description:
-      "A lens for understanding how outcomes emerge from interactions, feedback loops and incentives — not from individual actions in isolation.",
+      "How authority and accountability are aligned — or separated — and what happens when responsibility is assigned without control.",
   },
   {
-    id: "Organizational Design",
-    slug: "organizational-design",
+    id: "Complexity",
+    slug: "complexity",
     description:
-      "How structure, authority and decision flow shape behavior — independent of culture, intent or personality.",
+      "Acknowledging non-linearity, ambiguity and why simple solutions routinely fail in complex systems.",
   },
   {
     id: "Decision Architecture",
@@ -51,10 +51,16 @@ export const TAGS: {
       "How decisions are framed, constrained and ordered upstream — long before execution makes the consequences visible.",
   },
   {
-    id: "Authority & Accountability",
-    slug: "authority-accountability",
+    id: "Governance",
+    slug: "governance",
     description:
-      "How authority and accountability are aligned — or separated — and what happens when responsibility is assigned without control.",
+      "The formal and informal rules — escalation paths, controls and constraints — that determine how organizations behave under pressure.",
+  },
+  {
+    id: "Organizational Design",
+    slug: "organizational-design",
+    description:
+      "How structure, authority and decision flow shape behavior — independent of culture, intent or personality.",
   },
   {
     id: "Strategy",
@@ -63,22 +69,16 @@ export const TAGS: {
       "Strategy understood as the ordering of decisions — not a plan, a vision statement or a set of goals.",
   },
   {
-    id: "Governance",
-    slug: "governance",
+    id: "Systems Thinking",
+    slug: "systems-thinking",
     description:
-      "The formal and informal rules — escalation paths, controls and constraints — that determine how organizations behave under pressure.",
+      "A lens for understanding how outcomes emerge from interactions, feedback loops and incentives — not from individual actions in isolation.",
   },
   {
     id: "Work",
     slug: "work",
     description:
       "The lived reality of how work actually gets done — including the invisible effort required to compensate for unclear decisions and structure.",
-  },
-  {
-    id: "Complexity",
-    slug: "complexity",
-    description:
-      "Acknowledging non-linearity, ambiguity and why simple solutions routinely fail in complex systems.",
   },
 ];
 

@@ -2,9 +2,11 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import PageShell from "../../_components/PageShell";
 import { TAGS } from "../_data/tags";
 import { getArticlesByTag } from "../_data/articles";
+import { pluralize } from "../../_lib/pluralize";
 import { pageMetadata } from "../../_lib/pageMetadata";
 
 const title = "Writing Tags"; // <- no name
@@ -17,10 +19,23 @@ export const metadata: Metadata = pageMetadata({ title, description, url });
 export default function TagsIndexPage() {
   return (
     <PageShell>
+      <div className="mb-8">
+        <Link
+          href="/writing"
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+          Writing
+        </Link>
+      </div>
       <header className="space-y-4">
         <h1 className="text-4xl font-semibold tracking-tight leading-tight">
-          Writing Tags
+          Writing — Tags
         </h1>
+
+        <p className="text-base font-medium leading-8 text-muted-foreground">
+          Browse by tag.
+        </p>
 
         <p className="text-base font-medium leading-8 text-muted-foreground">
           These tags describe structural patterns that recur across the writing
@@ -45,12 +60,11 @@ export default function TagsIndexPage() {
                 href={`/writing/tags/${t.slug}`}
                 className="text-base font-semibold underline underline-offset-4"
               >
-                {t.id}{" "}
-                <span className="font-normal text-muted-foreground">
-                  • {count}
-                </span>
-              </Link>
-
+                {t.id}
+              </Link>{" "}
+              <span className="text-sm text-muted-foreground">
+                • {count} {pluralize(count, "Essay")}
+              </span>
               <p className="text-base leading-7 text-muted-foreground">
                 {t.description}
               </p>
@@ -58,6 +72,15 @@ export default function TagsIndexPage() {
           );
         })}
       </ul>
+      <div className="mt-12">
+        <Link
+          href="/writing"
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+          Writing
+        </Link>
+      </div>
     </PageShell>
   );
 }
