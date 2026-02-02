@@ -78,8 +78,8 @@ export default function AboutPage() {
         </p>
 
         <p>
-          This site is primarily a writing archive, not a public advisory space,
-          but thoughtful connection is always welcome.
+          This site is a writing archive, not a public advisory space, but
+          thoughtful connection is welcome.
         </p>
 
         <p>
@@ -95,7 +95,7 @@ export default function AboutPage() {
               aria-hidden="true"
             />
           </a>{" "}
-          is the easiest way to reach me.
+          is the most reliable way to reach me.
         </p>
       </div>
     </PageShell>
