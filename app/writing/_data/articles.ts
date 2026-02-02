@@ -24,6 +24,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-01-01",
+    title: "Momentum is a system property",
+    date: "2026-02-01",
+    year: 2026,
+    excerpt:
+      "Momentum is not effort or urgency — it is the downstream result of authority that holds and decisions that do not reopen.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/momentum-is-a-system-property-9d21dee959f4",
+    tags: [
+      "Authority & Accountability",
+      "Decision Architecture",
+      "Organizational Design",
+    ],
+  },
+  {
     id: "2026-01-30-01",
     title: "Incentives train behavior more than intent",
     date: "2026-01-30",

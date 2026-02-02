@@ -20,35 +20,27 @@ export type Series = {
 };
 
 export const SERIES: Series[] = [
-  // {
-  //   title: "Upcoming",
-  //   slug: "upcoming",
-  //   description: "Future series — not yet published, but already taking shape.",
-  //   status: "upcoming",
-  //   // showPill: true,
-  //   essayIds: [],
-  // },
   {
-    title: "Decision Flow",
-    slug: "decision-flow",
-    description:
-      "How organizations create momentum when decision rights are clear, constraints are stable, and coordination becomes the result of structure — not the substitute for it.",
+    title: "Upcoming",
+    slug: "upcoming",
+    description: "Future series — not yet published, but already taking shape.",
     status: "upcoming",
     showPill: true,
     essayIds: [],
   },
-  // {
-  //   title: "In Progress Test",
-  //   slug: "in-progress-test",
-  //   description: "This is just an in progress test.",
-  //   status: "in-progress",
-  //   essayIds: ["2026-01-13-01"],
-  // },
+  {
+    title: "Decision Flow",
+    slug: "decision-flow",
+    description:
+      "How organizations create momentum when decision rights are clear, constraints are stable and coordination becomes the result of structure — not the substitute for it.",
+    status: "in-progress",
+    essayIds: ["2026-02-01-01"],
+  },
   {
     title: "Authority & Closure",
     slug: "authority-and-closure",
     description:
-      "A structural foundation on how organizations decide, how authority holds, and why closure — not discussion — is the property that makes decisions real.",
+      "A structural foundation on how organizations decide, how authority holds and why closure — not discussion — is the property that makes decisions real.",
     status: "complete",
     essayIds: [
       "2026-01-05-01",
