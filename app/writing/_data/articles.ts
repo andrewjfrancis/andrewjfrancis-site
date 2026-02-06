@@ -24,6 +24,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-06-01",
+    title: "Coordination is what happens when decision flow breaks",
+    date: "2026-02-06",
+    year: 2026,
+    excerpt:
+      "Coordination is not a sign of alignment — it is the structural compensation that emerges when decisions do not hold and authority cannot enforce closure.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/coordination-is-what-happens-when-decision-flow-breaks-a7cf3e603723",
+    tags: [
+      "Authority & Accountability",
+      "Decision Architecture",
+      "Organizational Design",
+    ],
+  },
+  {
     id: "2026-02-01-01",
     title: "Momentum is a system property",
     date: "2026-02-01",
