@@ -24,6 +24,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-08-01",
+    title: "Decision rights are upstream infrastructure",
+    date: "2026-02-08",
+    year: 2026,
+    excerpt:
+      "Decision rights are not a leadership trait — they are upstream infrastructure that determines whether execution can safely proceed.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/decision-rights-are-upstream-infrastructure-de610a0c0178",
+    tags: [
+      "Authority & Accountability",
+      "Decision Architecture",
+      "Organizational Design",
+    ],
+  },
+  {
     id: "2026-02-06-01",
     title: "Coordination is what happens when decision flow breaks",
     date: "2026-02-06",

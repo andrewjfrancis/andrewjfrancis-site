@@ -34,7 +34,7 @@ export const SERIES: Series[] = [
     description:
       "How organizations create momentum when decision rights are clear, constraints are stable and coordination becomes the result of structure — not the substitute for it.",
     status: "in-progress",
-    essayIds: ["2026-02-01-01", "2026-02-06-01"],
+    essayIds: ["2026-02-01-01", "2026-02-06-01", "2026-02-08-01"],
   },
   {
     title: "Authority & Closure",
