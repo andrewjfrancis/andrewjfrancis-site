@@ -24,6 +24,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-10-01",
+    title: "Stable constraints create autonomy",
+    date: "2026-02-10",
+    year: 2026,
+    excerpt:
+      "Autonomy is not freedom from constraint — it is the downstream effect of constraints that are stable enough to act within without seeking permission.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/stable-constraints-create-autonomy-af1307187918",
+    tags: [
+      "Authority & Accountability",
+      "Decision Architecture",
+      "Organizational Design",
+    ],
+  },
+  {
     id: "2026-02-08-01",
     title: "Decision rights are upstream infrastructure",
     date: "2026-02-08",

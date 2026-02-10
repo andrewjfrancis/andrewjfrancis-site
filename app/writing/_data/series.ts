@@ -20,10 +20,19 @@ export type Series = {
 };
 
 export const SERIES: Series[] = [
+  // {
+  //   title: "Upcoming",
+  //   slug: "upcoming",
+  //   description: "Future series — not yet published, but already taking shape.",
+  //   status: "upcoming",
+  //   showPill: true,
+  //   essayIds: [],
+  // },
   {
-    title: "Upcoming",
-    slug: "upcoming",
-    description: "Future series — not yet published, but already taking shape.",
+    title: "What Systems Train",
+    slug: "what-systems-train",
+    description:
+      "How organizational structures shape behavior over time through constraints, incentives, and enforcement — independent of intent or culture.",
     status: "upcoming",
     showPill: true,
     essayIds: [],
@@ -34,7 +43,12 @@ export const SERIES: Series[] = [
     description:
       "How organizations create momentum when decision rights are clear, constraints are stable and coordination becomes the result of structure — not the substitute for it.",
     status: "in-progress",
-    essayIds: ["2026-02-01-01", "2026-02-06-01", "2026-02-08-01"],
+    essayIds: [
+      "2026-02-01-01",
+      "2026-02-06-01",
+      "2026-02-08-01",
+      "2026-02-10-01",
+    ],
   },
   {
     title: "Authority & Closure",
