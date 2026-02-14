@@ -161,6 +161,8 @@ export default function HomePage() {
           </Card>
         </section>
 
+        <Separator />
+
         {/* WORK */}
         <section className="space-y-4">
           <div className="space-y-1">
