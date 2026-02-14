@@ -91,6 +91,10 @@ export default async function EssayPage({ params, searchParams }: Props) {
   const { content: rendered } = await compileMDX({
     source: content,
     options: {
+      // ✅ v6: explicitly disable JS expressions inside MDX
+      // (prevents the class of RCE described in the advisory)
+      blockJS: true,
+
       mdxOptions: {
         remarkPlugins: [remarkGfm],
       },
