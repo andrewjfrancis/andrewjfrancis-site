@@ -24,6 +24,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-13-01",
+    title: "Execution is downstream of decision order",
+    date: "2026-02-13",
+    year: 2026,
+    excerpt:
+      "Execution exposes whether decisions were resolved in the right order.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/execution-is-downstream-of-decision-order-f23c06214c2c",
+    tags: [
+      "Authority & Accountability",
+      "Decision Architecture",
+      "Organizational Design",
+    ],
+  },
+  {
     id: "2026-02-10-01",
     title: "Stable constraints create autonomy",
     date: "2026-02-10",
