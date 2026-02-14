@@ -7,7 +7,7 @@ import { pageMetadata } from "../_lib/pageMetadata";
 
 const title = "Now";
 const description =
-  "A current snapshot: what I’m focused on, what I’m building, and what I’m thinking about right now.";
+  "A living snapshot of current priorities, projects and intellectual focus.";
 const url = "/now";
 
 export const metadata: Metadata = pageMetadata({ title, description, url });

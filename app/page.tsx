@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLatestArticle } from "./writing/_data/articles";
+import { getLatestArticle, getArticleHref } from "./writing/_data/articles";
 import { getSeriesForArticleId } from "./writing/_data/series";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
@@ -17,7 +17,7 @@ function formatDate(iso: string) {
 
 export default function HomePage() {
   const latest = getLatestArticle();
-  const series = getSeriesForArticleId(latest.id);
+  const series = latest ? getSeriesForArticleId(latest.id) : null;
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 pt-8 pb-12 sm:pt-10 sm:pb-16">
@@ -39,7 +39,7 @@ export default function HomePage() {
           {/* Small logo badge (like your screenshot) */}
           <div className="shrink-0 rounded-xl bg-primary-foreground/10 p-3 -ml-3 ring-1 ring-primary-foreground/15">
             <Image
-              src="icon.svg"
+              src="/icon.svg"
               alt="AJF"
               width={44}
               height={44}
@@ -68,40 +68,15 @@ export default function HomePage() {
       <div className="mt-10 space-y-10 sm:mt-12">
         <Separator />
 
-        {/* NOW */}
-        <section className="space-y-4">
-          <div className="space-y-1">
-            <h2 className="text-xl font-semibold tracking-tight">Now</h2>
-            <p className="text-sm text-muted-foreground">
-              A living snapshot — updated as priorities change.
-            </p>
-          </div>
-
-          <Card className="p-6">
-            <p className="text-base leading-7">
-              Building a durable writing system and a personal writing practice.
-              Shipping under constraints. Keeping it boring and correct.
-            </p>
-
-            <div className="mt-4">
-              <Link
-                href="/now"
-                className="text-sm font-medium underline underline-offset-4"
-              >
-                Read the Now page
-              </Link>
-            </div>
-          </Card>
-        </section>
-
-        <Separator />
-
         {/* WRITING */}
         <section className="space-y-4">
           <div className="space-y-1">
             <h2 className="text-xl font-semibold tracking-tight">Writing</h2>
             <p className="text-sm text-muted-foreground">
               Writing lives here. Most essays link out to Medium.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              This is the core work.
             </p>
           </div>
 
@@ -111,19 +86,33 @@ export default function HomePage() {
                 <div className="space-y-3">
                   <p className="text-sm text-muted-foreground">Latest</p>
                   <div className="space-y-2">
-                    <a
-                      href={latest.externalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block font-semibold underline underline-offset-4"
-                    >
-                      {latest.title}{" "}
-                      <ArrowUpRight
-                        className="inline-block align-baseline relative top-[1px] h-4 w-4 opacity-60"
-                        aria-hidden="true"
-                      />
-                      <span className="sr-only">(opens in a new tab)</span>
-                    </a>
+                    {(() => {
+                      const href = getArticleHref(latest);
+                      const isExternal = latest.source === "medium";
+
+                      return isExternal ? (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block font-semibold underline underline-offset-4"
+                        >
+                          {latest.title}{" "}
+                          <ArrowUpRight
+                            className="inline-block align-baseline relative top-[1px] h-4 w-4 opacity-60"
+                            aria-hidden="true"
+                          />
+                          <span className="sr-only">(opens in a new tab)</span>
+                        </a>
+                      ) : (
+                        <Link
+                          href={href}
+                          className="block font-semibold underline underline-offset-4"
+                        >
+                          {latest.title}
+                        </Link>
+                      );
+                    })()}
 
                     {/* 👇 breathing room */}
                     <p className="text-sm text-muted-foreground">
@@ -172,6 +161,33 @@ export default function HomePage() {
           </Card>
         </section>
 
+        {/* WORK */}
+        <section className="space-y-4">
+          <div className="space-y-1">
+            <h2 className="text-xl font-semibold tracking-tight">Work</h2>
+            <p className="text-sm text-muted-foreground">
+              Advisory work centered on decision order, durable constraints and
+              execution flow.
+            </p>
+          </div>
+
+          <Card className="p-6">
+            <p className="text-base leading-7">
+              Applied structural analysis for organizations experiencing slow
+              execution, coordination overload or unstable decision flow.
+            </p>
+
+            <div className="mt-4">
+              <Link
+                href="/work"
+                className="text-sm font-medium underline underline-offset-4"
+              >
+                Read the Work page
+              </Link>
+            </div>
+          </Card>
+        </section>
+
         <Separator />
 
         {/* ABOUT */}
@@ -186,9 +202,7 @@ export default function HomePage() {
 
           <Card className="p-6">
             <p className="text-base leading-7">
-              How I think about systems, structure and work — and why this
-              writing exists. Not a résumé. Not a list of services. A statement
-              of perspective and boundaries.
+              How I think about structure, authority and system design.
             </p>
 
             <div className="mt-4">

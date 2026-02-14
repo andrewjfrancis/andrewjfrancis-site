@@ -8,7 +8,7 @@ type PageMetaArgs = {
 };
 
 const DEFAULT_DESC =
-  "Writing about organizational structure, decision-making and how systems shape work.";
+  "Writing about organizational structure, decision flow and how authority and constraints shape execution.";
 
 const OG_IMAGE = {
   url: "/opengraph-image.png",

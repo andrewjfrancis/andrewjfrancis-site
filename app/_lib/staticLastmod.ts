@@ -6,9 +6,10 @@
  * Format: YYYY-MM-DD
  */
 export const STATIC_LASTMOD = {
-  home: "2026-01-30",
+  home: "2026-02-14",
+  work: "2026-02-14",
+  about: "2026-02-14",
   now: "2026-01-13",
-  about: "2026-02-02",
 } as const;
 
 export function toUTCDate(iso: string): Date {

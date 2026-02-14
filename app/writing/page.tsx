@@ -19,7 +19,7 @@ import {
 
 const title = "Writing"; // IMPORTANT: no "— Andrew J. Francis"
 const description =
-  "An archive of essays on systems, structure, and decision architecture — organized by tags and years.";
+  "An archive of essays on decision flow, authority, constraint durability and execution order.";
 const url = "/writing";
 
 export const metadata: Metadata = pageMetadata({ title, description, url });

@@ -7,8 +7,8 @@ import { pageMetadata } from "../_lib/pageMetadata";
 
 const title = "About";
 const description =
-  "This is a statement of intent about the work collected here and the lens through which it’s written.";
-const url = "/now";
+  "An orientation to the structural lens behind the writing: authority, decision order, constraints and execution.";
+const url = "/about";
 
 export const metadata: Metadata = pageMetadata({ title, description, url });
 
