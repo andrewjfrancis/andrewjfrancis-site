@@ -78,8 +78,8 @@ export default function AboutPage() {
         </p>
 
         <p>
-          This site is a writing archive, not a public advisory space, but
-          thoughtful connection is welcome.
+          This site documents structural analysis. In some cases, that work
+          continues through advisory engagements.
         </p>
 
         <p>

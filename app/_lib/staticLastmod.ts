@@ -8,7 +8,7 @@
 export const STATIC_LASTMOD = {
   home: "2026-02-14",
   work: "2026-02-14",
-  about: "2026-02-14",
+  about: "2026-02-15",
   now: "2026-01-13",
 } as const;
 
