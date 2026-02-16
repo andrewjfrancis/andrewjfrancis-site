@@ -34,6 +34,7 @@ export const SERIES: Series[] = [
     description:
       "How organizational structures shape behavior over time through constraints, incentives, and enforcement — independent of intent or culture.",
     status: "upcoming",
+    // status: "in-progress",
     showPill: true,
     essayIds: [],
   },
@@ -42,13 +43,14 @@ export const SERIES: Series[] = [
     slug: "decision-flow",
     description:
       "How organizations create momentum when decision rights are clear, constraints are stable and coordination becomes the result of structure — not the substitute for it.",
-    status: "in-progress",
+    status: "complete",
     essayIds: [
       "2026-02-01-01",
       "2026-02-06-01",
       "2026-02-08-01",
       "2026-02-10-01",
       "2026-02-13-01",
+      "2026-02-15-01",
     ],
   },
   {

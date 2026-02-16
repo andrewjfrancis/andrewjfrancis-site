@@ -24,6 +24,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-15-01",
+    title: "Organizations don’t move slowly — they move reversibly",
+    date: "2026-02-15",
+    year: 2026,
+    excerpt:
+      "Organizations appear slow when decisions reopen and reset accumulated work.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/organizations-dont-move-slowly-they-move-reversibly-4fdc2f89eb32",
+    tags: [
+      "Authority & Accountability",
+      "Decision Architecture",
+      "Organizational Design",
+    ],
+  },
+  {
     id: "2026-02-13-01",
     title: "Execution is downstream of decision order",
     date: "2026-02-13",
