@@ -24,6 +24,23 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-18-01",
+    title: "When authority is ambiguous, defensibility becomes the skill",
+    date: "2026-02-18",
+    year: 2026,
+    excerpt:
+      "When authority is unstable and decisions do not hold, individuals rationally optimize for defensibility rather than correctness.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/when-authority-is-ambiguous-defensibility-becomes-the-skill-febf846fd9ce",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Systems Thinking",
+    ],
+  },
+  {
     id: "2026-02-15-01",
     title: "Organizations don’t move slowly — they move reversibly",
     date: "2026-02-15",

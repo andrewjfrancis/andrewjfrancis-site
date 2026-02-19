@@ -20,23 +20,22 @@ export type Series = {
 };
 
 export const SERIES: Series[] = [
-  // {
-  //   title: "Upcoming",
-  //   slug: "upcoming",
-  //   description: "Future series — not yet published, but already taking shape.",
-  //   status: "upcoming",
-  //   showPill: true,
-  //   essayIds: [],
-  // },
+  {
+    title: "Upcoming",
+    slug: "upcoming",
+    description: "Future series — not yet published, but already taking shape.",
+    status: "upcoming",
+    showPill: true,
+    essayIds: [],
+  },
   {
     title: "What Systems Train",
     slug: "what-systems-train",
     description:
       "How organizational structures shape behavior over time through constraints, incentives, and enforcement — independent of intent or culture.",
-    status: "upcoming",
-    // status: "in-progress",
+    status: "in-progress",
     showPill: true,
-    essayIds: [],
+    essayIds: ["2026-02-18-01"],
   },
   {
     title: "Decision Flow",
