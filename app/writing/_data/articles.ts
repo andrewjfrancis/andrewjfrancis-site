@@ -24,6 +24,18 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-20-01",
+    title: "Incentives are enforcement, not motivation",
+    date: "2026-02-20",
+    year: 2026,
+    excerpt:
+      "Incentives are not tools for motivation — they are enforcement structures that shape behavior through consequence, regardless of stated values or intent.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/incentives-are-enforcement-not-motivation-6cbcdf0064e5",
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+  },
+  {
     id: "2026-02-18-01",
     title: "When authority is ambiguous, defensibility becomes the skill",
     date: "2026-02-18",
