@@ -24,6 +24,18 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-22-01",
+    title: "Constraints determine what becomes safe",
+    date: "2026-02-22",
+    year: 2026,
+    excerpt:
+      "Constraints do not limit behavior — they determine which behaviors are safe to repeat.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/constraints-determine-what-becomes-safe-cd9a36ebf044",
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+  },
+  {
     id: "2026-02-20-01",
     title: "Incentives are enforcement, not motivation",
     date: "2026-02-20",

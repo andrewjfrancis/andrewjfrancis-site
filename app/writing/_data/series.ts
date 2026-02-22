@@ -35,7 +35,7 @@ export const SERIES: Series[] = [
       "How organizational structures shape behavior over time through constraints, incentives, and enforcement — independent of intent or culture.",
     status: "in-progress",
     showPill: true,
-    essayIds: ["2026-02-18-01", "2026-02-20-01"],
+    essayIds: ["2026-02-18-01", "2026-02-20-01", "2026-02-22-01"],
   },
   {
     title: "Decision Flow",
