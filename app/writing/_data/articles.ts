@@ -24,6 +24,18 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-24-01",
+    title: "What survives enforcement becomes culture",
+    date: "2026-02-24",
+    year: 2026,
+    excerpt:
+      "Culture does not stabilize around what is declared — it stabilizes around what is consistently enforced.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/what-survives-enforcement-becomes-culture-84e2eb11fb44",
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+  },
+  {
     id: "2026-02-22-01",
     title: "Constraints determine what becomes safe",
     date: "2026-02-22",
