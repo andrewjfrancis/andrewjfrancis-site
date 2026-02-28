@@ -40,7 +40,7 @@ export default function WorkPage() {
             Not because people lack urgency, but because decisions do not hold.
           </p>
           <p>
-            Most breakdowns attributed to culture, talent, or communication are
+            Most breakdowns attributed to culture, talent or communication are
             structural. Authority is unclear. Constraints shift. Coordination
             expands to compensate for missing closure.
           </p>

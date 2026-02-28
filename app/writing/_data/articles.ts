@@ -24,6 +24,18 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-02-27-01",
+    title: "Escalation trains dependency",
+    date: "2026-02-27",
+    year: 2026,
+    excerpt:
+      "When escalation becomes the primary mechanism for resolving risk, organizations train people to transfer exposure upward rather than resolve uncertainty locally.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/escalation-trains-dependency-42facb9fd08d",
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+  },
+  {
     id: "2026-02-24-01",
     title: "What survives enforcement becomes culture",
     date: "2026-02-24",
