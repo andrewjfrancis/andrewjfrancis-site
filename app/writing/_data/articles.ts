@@ -24,6 +24,18 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-01-01",
+    title: "Alignment is often compensation",
+    date: "2026-03-01",
+    year: 2026,
+    excerpt:
+      "When decision boundaries are unstable, alignment expands not as collaboration but as a mechanism for diffusing exposure.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/alignment-is-often-compensation-5984d1ca2f7a",
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+  },
+  {
     id: "2026-02-27-01",
     title: "Escalation trains dependency",
     date: "2026-02-27",
