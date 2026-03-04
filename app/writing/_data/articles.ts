@@ -24,6 +24,23 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-03-01",
+    title: "Strategy without boundary change is narrative",
+    date: "2026-03-03",
+    year: 2026,
+    excerpt:
+      "Strategy alters behavior only when it changes boundaries. Without boundary change, strategy remains narrative.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/strategy-without-boundary-change-is-narrative-36fd9a20cab1",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Strategy",
+    ],
+  },
+  {
     id: "2026-03-01-01",
     title: "Alignment is often compensation",
     date: "2026-03-01",
