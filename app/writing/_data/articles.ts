@@ -24,6 +24,18 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-06-01",
+    title: "Clarity does not create authority",
+    date: "2026-03-06",
+    year: 2026,
+    excerpt:
+      "Clear communication cannot substitute for structural authority. When decision rights are ambiguous, organizations often attempt to compensate with better messaging, documentation and alignment — but clarity does not alter exposure.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/clarity-does-not-create-authority-71466dac2da2",
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+  },
+  {
     id: "2026-03-03-01",
     title: "Strategy without boundary change is narrative",
     date: "2026-03-03",
