@@ -24,6 +24,18 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-08-01",
+    title: "Protection changes exposure",
+    date: "2026-03-08",
+    year: 2026,
+    excerpt:
+      "Organizations train behavior not only through authority and incentives but through what they protect. When a person, initiative or narrative becomes protected, enforcement weakens around it. That shift alters exposure and behavior adapts accordingly.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/protection-changes-exposure-7df5a4fe092d",
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+  },
+  {
     id: "2026-03-06-01",
     title: "Clarity does not create authority",
     date: "2026-03-06",
