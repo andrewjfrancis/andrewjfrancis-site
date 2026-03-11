@@ -24,6 +24,18 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-10-01",
+    title: "Protection produces silence",
+    date: "2026-03-10",
+    year: 2026,
+    excerpt:
+      "Organizations often interpret silence as agreement or alignment. In reality silence frequently emerges as a form of protection. When speaking up increases exposure without increasing influence individuals learn that withholding critique is safer than offering it.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/protection-produces-silence-d46953b372e5",
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+  },
+  {
     id: "2026-03-08-01",
     title: "Protection changes exposure",
     date: "2026-03-08",
