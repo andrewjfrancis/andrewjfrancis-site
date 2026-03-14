@@ -24,6 +24,18 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-13-01",
+    title: "Decisions form before disagreement appears",
+    date: "2026-03-13",
+    year: 2026,
+    excerpt:
+      "In many organizations disagreement does not disappear. It simply arrives too late. Decisions often begin forming before they are exposed to meaningful challenge. By the time critique appears the structural momentum of the decision already exists.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/decisions-form-before-disagreement-appears-27bf4acbc3d2",
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+  },
+  {
     id: "2026-03-10-01",
     title: "Protection produces silence",
     date: "2026-03-10",
