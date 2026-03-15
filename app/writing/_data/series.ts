@@ -23,11 +23,20 @@ export const SERIES: Series[] = [
   {
     title: "Upcoming",
     slug: "upcoming",
-    description: "Future series — not yet published, but already taking shape.",
+    description:
+      "Future series — not yet on the horizon. What Systems Train is still unfolding.",
     status: "upcoming",
     showPill: true,
     essayIds: [],
   },
+  // {
+  //   title: "Upcoming",
+  //   slug: "upcoming",
+  //   description: "Future series — not yet published, but already taking shape.",
+  //   status: "upcoming",
+  //   showPill: true,
+  //   essayIds: [],
+  // },
   {
     title: "What Systems Train",
     slug: "what-systems-train",
@@ -47,6 +56,7 @@ export const SERIES: Series[] = [
       "2026-03-08-01",
       "2026-03-10-01",
       "2026-03-13-01",
+      "2026-03-15-01",
     ],
   },
   {

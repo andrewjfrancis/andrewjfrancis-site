@@ -24,6 +24,18 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-15-01",
+    title: "Authority determines who gets to frame the decision",
+    date: "2026-03-15",
+    year: 2026,
+    excerpt:
+      "Organizations often assume that decisions form through the strength of an argument or the clarity of a proposal. In reality the ability to frame a decision early depends heavily on authority. The same framing attempt can create momentum when it comes from one group and resistance when it comes from another.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/authority-determines-who-gets-to-frame-the-decision-5888ef66055c",
+    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+  },
+  {
     id: "2026-03-13-01",
     title: "Decisions form before disagreement appears",
     date: "2026-03-13",
