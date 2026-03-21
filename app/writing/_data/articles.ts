@@ -24,6 +24,23 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-20-01",
+    title: "When signaling becomes safer than progress",
+    date: "2026-03-20",
+    year: 2026,
+    excerpt:
+      "When outcomes are uncertain and exposure is high, signaling progress becomes safer than producing it.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/when-signaling-becomes-safer-than-progress-5fc63d26af65",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-03-15-01",
     title: "Authority determines who gets to frame the decision",
     date: "2026-03-15",
