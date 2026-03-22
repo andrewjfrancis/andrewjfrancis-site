@@ -24,6 +24,23 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-22-01",
+    title: "When commitment makes validation costly",
+    date: "2026-03-22",
+    year: 2026,
+    excerpt:
+      "As work becomes visible and commitment forms around it, the cost of questioning it increases, making validation less likely to alter direction.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/when-commitment-makes-validation-costly-6958269e99c0",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-03-20-01",
     title: "When signaling becomes safer than progress",
     date: "2026-03-20",
