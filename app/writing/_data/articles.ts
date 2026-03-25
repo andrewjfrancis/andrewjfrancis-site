@@ -24,6 +24,23 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-24-01",
+    title: "When work gets questioned",
+    date: "2026-03-24",
+    year: 2026,
+    excerpt:
+      "Work is not questioned when it is most uncertain. It is questioned when continuing it becomes more costly than challenging it.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/when-work-gets-questioned-d5d8f2705355",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-03-22-01",
     title: "When commitment makes validation costly",
     date: "2026-03-22",
