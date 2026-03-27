@@ -24,6 +24,23 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-27-01",
+    title: "When work becomes real when it is visible",
+    date: "2026-03-27",
+    year: 2026,
+    excerpt:
+      "Work is not treated as real when it begins. It becomes real when it becomes visible.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/when-work-becomes-real-when-it-is-visible-9327957d73ee",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-03-24-01",
     title: "When work gets questioned",
     date: "2026-03-24",
