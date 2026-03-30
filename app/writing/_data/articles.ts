@@ -24,6 +24,23 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-29-01",
+    title: "When work becomes harder to stop once it is visible",
+    date: "2026-03-29",
+    year: 2026,
+    excerpt:
+      "Work does not persist because it is correct. It persists because stopping it becomes more costly than continuing it.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/when-work-becomes-harder-to-stop-once-it-is-visible-9eb428c13d90",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-03-27-01",
     title: "When work becomes real when it is visible",
     date: "2026-03-27",
