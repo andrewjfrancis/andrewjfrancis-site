@@ -24,6 +24,23 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-03-31-01",
+    title: "When validation follows commitment",
+    date: "2026-03-31",
+    year: 2026,
+    excerpt:
+      "Validation does not always determine direction. When commitment forms first, validation becomes constrained by what is already in motion.",
+    source: "medium",
+    externalUrl:
+      "https://medium.com/@andrewjfrancis/when-validation-follows-commitment-298474796c45",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-03-29-01",
     title: "When work becomes harder to stop once it is visible",
     date: "2026-03-29",
