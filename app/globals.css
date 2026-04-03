@@ -215,6 +215,11 @@
       @apply mt-8 text-xl font-semibold tracking-tight;
     }
 
+    /* paragraphs */
+    .essay p {
+      @apply text-base/6;
+    }
+
     /* links */
     .essay a {
       @apply underline underline-offset-4;

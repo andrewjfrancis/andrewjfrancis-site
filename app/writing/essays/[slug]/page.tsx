@@ -8,6 +8,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { readEssaySource } from "../../_lib/essays";
 import { ArrowLeft } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 import { pageMetadata } from "../../../_lib/pageMetadata";
 import { ARTICLES } from "../../_data/articles";
 
@@ -106,12 +107,23 @@ export default async function EssayPage({ params, searchParams }: Props) {
     },
   });
 
-  const backLabel = from === "/writing" ? "Back to Writing" : "Back to results";
+  const backLabel =
+    from === "/"
+      ? "Back to Home"
+      : from === "/writing" || from.startsWith("/writing/page/")
+        ? "Back to Writing"
+        : from.startsWith("/writing/tags/")
+          ? "Back to tag"
+          : from.startsWith("/writing/series/")
+            ? "Back to series"
+            : /^\/writing\/\d{4}(\/page\/\d+)?$/.test(from)
+              ? "Back to year"
+              : "Back";
 
   return (
     <PageShell>
       {/* Back link (top) */}
-      <div className="mb-8">
+      <div className="mb-10">
         <Link
           href={from}
           className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
@@ -121,12 +133,14 @@ export default async function EssayPage({ params, searchParams }: Props) {
         </Link>
       </div>
 
+      <Separator />
+
       {/* Header */}
-      <header className="space-y-3 mb-4">
+      <header className="space-y-3 mb-10">
         {(() => {
           const label = formatDate(frontmatter.date);
           return label ? (
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground mt-8 mb-6">
               {label} · {pieceLabel}
             </p>
           ) : null;

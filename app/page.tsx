@@ -95,6 +95,8 @@ export default function HomePage() {
           </Card>
         </section>
 
+        <Separator />
+
         {/* WRITING */}
         <section className="space-y-4">
           <div className="space-y-1">
@@ -130,7 +132,7 @@ export default function HomePage() {
                         </a>
                       ) : (
                         <Link
-                          href={href}
+                          href={`${href}?from=${encodeURIComponent("/")}`}
                           className="block font-semibold underline underline-offset-4"
                         >
                           {latest.title}

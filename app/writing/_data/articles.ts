@@ -26,6 +26,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-04-03-01",
+    title: "When work is easiest before it is visible",
+    date: "2026-04-03",
+    year: 2026,
+    excerpt:
+      "Work feels easier before it becomes visible, not because it is simpler, but because it carries less exposure.",
+    source: "local",
+    slug: "when-work-is-easiest-before-it-is-visible",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-03-31-01",
     title: "When validation follows commitment",
     date: "2026-03-31",
