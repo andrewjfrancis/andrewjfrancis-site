@@ -3,6 +3,7 @@
 import { TAGS, type Tag, type TagSlug } from "./tags";
 
 export type ArticleSource = "medium" | "local";
+export type ArticleKind = "orientation";
 
 export type Article = {
   id: string;
@@ -11,6 +12,7 @@ export type Article = {
   year: number;
   excerpt: string;
   source: ArticleSource;
+  kind?: ArticleKind;
 
   externalUrl?: string;
   slug?: string;
@@ -467,6 +469,7 @@ export const ARTICLES_REAL: Article[] = [
     excerpt:
       "A short orientation to how this writing works — and what it avoids.",
     source: "local",
+    kind: "orientation",
     slug: "this-site-is-an-archive-not-a-feed",
     pinned: true,
     pinOrder: 0,

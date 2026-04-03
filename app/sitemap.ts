@@ -55,10 +55,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: toUTCDate(STATIC_LASTMOD.about),
   });
   routes.push({
-    url: `${SITE}/work`,
-    lastModified: toUTCDate(STATIC_LASTMOD.work),
+    url: `${SITE}/engagements`,
+    lastModified: toUTCDate(STATIC_LASTMOD.engagements),
   });
-
   // ---------- Writing index ----------
   // /writing (page 1)
   routes.push({

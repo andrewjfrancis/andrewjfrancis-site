@@ -114,7 +114,11 @@ export function ArticlesList({
               {/* Meta row */}
               <p className="mt-2 text-sm text-foreground/70">
                 {formatDate(a.date)} ·{" "}
-                {a.source === "medium" ? "Medium" : "Essay"}
+                {a.kind === "orientation"
+                  ? "Orientation"
+                  : a.source === "medium"
+                    ? "Medium"
+                    : "Essay"}
               </p>
 
               {/* Excerpt */}

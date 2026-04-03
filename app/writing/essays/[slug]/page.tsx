@@ -9,6 +9,7 @@ import remarkGfm from "remark-gfm";
 import { readEssaySource } from "../../_lib/essays";
 import { ArrowLeft } from "lucide-react";
 import { pageMetadata } from "../../../_lib/pageMetadata";
+import { ARTICLES } from "../../_data/articles";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -88,6 +89,10 @@ export default async function EssayPage({ params, searchParams }: Props) {
 
   const { frontmatter, content } = data;
 
+  const article = ARTICLES.find((a) => a.source === "local" && a.slug === slug);
+
+  const pieceLabel = article?.kind === "orientation" ? "Orientation" : "Essay";
+
   const { content: rendered } = await compileMDX({
     source: content,
     options: {
@@ -117,7 +122,16 @@ export default async function EssayPage({ params, searchParams }: Props) {
       </div>
 
       {/* Header */}
-      <header className="space-y-3">
+      <header className="space-y-3 mb-4">
+        {(() => {
+          const label = formatDate(frontmatter.date);
+          return label ? (
+            <p className="text-sm text-muted-foreground">
+              {label} · {pieceLabel}
+            </p>
+          ) : null;
+        })()}
+
         <h1 className="text-4xl font-semibold tracking-tight leading-tight">
           {frontmatter.title}
         </h1>
@@ -127,16 +141,7 @@ export default async function EssayPage({ params, searchParams }: Props) {
             {frontmatter.excerpt}
           </p>
         ) : null}
-
-        {(() => {
-          const label = formatDate(frontmatter.date);
-          return label ? (
-            <p className="text-sm text-muted-foreground">{label} · Essay</p>
-          ) : null;
-        })()}
       </header>
-
-      <hr className="my-8" />
 
       {/* MDX body */}
       <article className="essay">{rendered}</article>

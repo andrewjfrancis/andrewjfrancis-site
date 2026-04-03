@@ -85,8 +85,8 @@ export const metadata: Metadata = {
 
 const NAV = [
   { href: "/", label: "Home" },
+  { href: "/now", label: "Now" },
   { href: "/writing", label: "Writing" },
-  { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
 ];
 
@@ -167,10 +167,10 @@ export default function RootLayout({
             <div className="container">
               <div className="footerLinks">
                 <Link
-                  href="/now"
+                  href="/engagements"
                   className="inline-flex items-center gap-1 no-underline hover:opacity-90"
                 >
-                  <span className="text-foreground">Now</span>
+                  <span className="text-foreground">Engagements</span>
                 </Link>
                 <ExternalLink href="https://www.linkedin.com/in/andrewjfrancis">
                   LinkedIn
