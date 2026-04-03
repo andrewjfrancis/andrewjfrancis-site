@@ -78,8 +78,8 @@ export default function AboutPage() {
         </p>
 
         <p>
-          This site documents structural analysis. In some cases, that work
-          continues through advisory engagements.
+          I also build systems that apply this lens directly. If you want to
+          discuss the work, reach out.
         </p>
 
         <p>

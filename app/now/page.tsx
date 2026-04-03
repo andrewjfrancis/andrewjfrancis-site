@@ -20,9 +20,13 @@ export default function NowPage() {
           Now
         </h1>
         <p className="text-base font-medium leading-8 text-muted-foreground">
-          Right now I’m building a durable writing practice and the simplest
-          systems around it. The goal is steady output under constraint —
-          correct, low-maintenance and repeatable.
+          Right now I’m building Aira — a system for interpreting communication
+          and clarifying response.
+        </p>
+
+        <p className="text-base font-medium leading-8 text-muted-foreground">
+          The focus is not generation, but correctness: outputs that identify
+          signal, intent, and appropriate action in a way that holds.
         </p>
       </header>
 
@@ -34,16 +38,18 @@ export default function NowPage() {
             What I’m doing now
           </h2>
           <p className="text-sm text-muted-foreground">
-            The current focus of the work and what I’m building toward.
+            Current focus and direction.
           </p>
         </header>
 
         <Card className="p-6">
           <h3 className="text-base font-semibold">Current focus</h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-7">
-            <li>Writing regularly and expanding the archive.</li>
-            <li>Building simple systems that support that pace.</li>
-            <li>Keeping scope small and shipping what holds up.</li>
+            <li>Tuning interpretation outputs for reliability</li>
+            <li>Defining constraints that prevent overreach</li>
+            <li>
+              Building a system that can be used repeatedly without correction
+            </li>
           </ul>
         </Card>
       </section>
@@ -56,27 +62,28 @@ export default function NowPage() {
             How I’m working
           </h2>
           <p className="text-sm text-muted-foreground">
-            The operating principles I’m keeping stable as the work compounds.
+            Constraints guiding the work.
           </p>
         </header>
 
         <Card className="p-6">
           <h3 className="text-base font-semibold">Constraints I’m honoring</h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-7">
-            <li>Clarity over novelty.</li>
-            <li>Small surface area.</li>
-            <li>Durability over speed.</li>
-            <li>Simple defaults; fewer knobs.</li>
-            <li>No strategy ceremony.</li>
+            <li>Clarity over novelty</li>
+            <li>Small surface area</li>
+            <li>Durability over speed</li>
+            <li>Simple defaults; fewer knobs</li>
+            <li>No interpretation beyond what can be supported</li>
           </ul>
         </Card>
 
         <Card className="p-6">
           <h3 className="text-base font-semibold">Non-goals</h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-7">
-            <li>Performative optimization.</li>
-            <li>Complexity disguised as sophistication.</li>
-            <li>Anything that can’t be maintained quietly.</li>
+            <li>Performative intelligence</li>
+            <li>Overconfident outputs</li>
+            <li>Systems that require constant correction</li>
+            <li>Complexity without improved accuracy</li>
           </ul>
         </Card>
       </section>

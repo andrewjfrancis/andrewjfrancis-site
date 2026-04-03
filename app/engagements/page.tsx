@@ -24,7 +24,7 @@ export default function EngagementsPage() {
           This is applied structural analysis of decision flow.
         </p>
         <p className="text-base font-medium leading-8 text-muted-foreground">
-          The same lens used in the essays is available in direct engagements.
+          The same lens used in the essays can be applied in direct engagements.
         </p>
       </header>
 

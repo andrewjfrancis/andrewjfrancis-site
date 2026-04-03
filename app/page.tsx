@@ -68,15 +68,39 @@ export default function HomePage() {
       <div className="mt-10 space-y-10 sm:mt-12">
         <Separator />
 
+        {/* NOW */}
+        <section className="space-y-4">
+          <div className="space-y-1">
+            <h2 className="text-xl font-semibold tracking-tight">Now</h2>
+            <p className="text-sm text-muted-foreground">Current focus.</p>
+          </div>
+
+          <Card className="p-6">
+            <p className="text-base leading-7">
+              Building Aira — a system for interpreting communication.
+            </p>
+            <p className="text-base leading-7">
+              Focused on outputs that hold: signal, intent, and suggested
+              action.
+            </p>
+
+            <div className="mt-4">
+              <Link
+                href="/now"
+                className="text-sm font-medium underline underline-offset-4"
+              >
+                Read the Now page
+              </Link>
+            </div>
+          </Card>
+        </section>
+
         {/* WRITING */}
         <section className="space-y-4">
           <div className="space-y-1">
             <h2 className="text-xl font-semibold tracking-tight">Writing</h2>
             <p className="text-sm text-muted-foreground">
-              Writing lives here. Most essays link out to Medium.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              This is the core work.
+              Essays live here. Core work.
             </p>
           </div>
 
@@ -163,42 +187,12 @@ export default function HomePage() {
 
         <Separator />
 
-        {/* WORK */}
-        <section className="space-y-4">
-          <div className="space-y-1">
-            <h2 className="text-xl font-semibold tracking-tight">Work</h2>
-            <p className="text-sm text-muted-foreground">
-              Advisory work centered on decision order, durable constraints and
-              execution flow.
-            </p>
-          </div>
-
-          <Card className="p-6">
-            <p className="text-base leading-7">
-              Applied structural analysis for organizations experiencing slow
-              execution, coordination overload or unstable decision flow.
-            </p>
-
-            <div className="mt-4">
-              <Link
-                href="/work"
-                className="text-sm font-medium underline underline-offset-4"
-              >
-                Read the Work page
-              </Link>
-            </div>
-          </Card>
-        </section>
-
-        <Separator />
-
         {/* ABOUT */}
         <section className="space-y-4">
           <div className="space-y-1">
             <h2 className="text-xl font-semibold tracking-tight">About</h2>
             <p className="text-sm text-muted-foreground">
-              A brief orientation to how I think about organizations, structure
-              and why this writing exists.
+              Why this writing exists.
             </p>
           </div>
 
