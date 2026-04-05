@@ -26,6 +26,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-04-05-01",
+    title: "When measurement replaces judgment",
+    date: "2026-04-05",
+    year: 2026,
+    excerpt:
+      "When measurement becomes the primary way work is evaluated, judgment narrows to what can be counted, and behavior adapts accordingly.",
+    source: "local",
+    slug: "when-measurement-replaces-judgment",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-04-03-01",
     title: "When work is easiest before it is visible",
     date: "2026-04-03",
