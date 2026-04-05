@@ -329,6 +329,8 @@ export const ARTICLES_REAL: Article[] = [
       "Organizational Design",
       "Work",
     ],
+    pinned: true,
+    pinOrder: 1,
   },
   {
     id: "2026-02-18-01",
