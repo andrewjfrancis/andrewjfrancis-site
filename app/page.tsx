@@ -169,19 +169,7 @@ export default function HomePage() {
                   className="text-sm font-medium underline underline-offset-4"
                 >
                   Browse all writing
-                </Link>{" "}
-                <a
-                  href="https://medium.com/@andrewjfrancis"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-medium inline-flex items-center gap-1 underline underline-offset-4"
-                >
-                  Medium
-                  <ArrowUpRight
-                    className="relative top-[1px] h-4 w-4 opacity-60"
-                    aria-hidden="true"
-                  />
-                </a>
+                </Link>
               </div>
             </div>
           </Card>
