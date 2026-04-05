@@ -24,11 +24,20 @@ export const SERIES: Series[] = [
     title: "Upcoming",
     slug: "upcoming",
     description:
-      "Future series — not yet on the horizon. What Systems Train is still unfolding.",
+      "Future series — not yet on the horizon. What Systems Train is still unfolding. The next direction is emerging, but not yet defined.",
     status: "upcoming",
     showPill: true,
     essayIds: [],
   },
+  // {
+  //   title: "Upcoming",
+  //   slug: "upcoming",
+  //   description:
+  //     "Future series — not yet on the horizon. What Systems Train is still unfolding.",
+  //   status: "upcoming",
+  //   showPill: true,
+  //   essayIds: [],
+  // },
   // {
   //   title: "Upcoming",
   //   slug: "upcoming",
