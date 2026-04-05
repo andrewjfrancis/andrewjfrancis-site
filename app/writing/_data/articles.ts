@@ -48,9 +48,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Validation does not always determine direction. When commitment forms first, validation becomes constrained by what is already in motion.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/when-validation-follows-commitment-298474796c45",
+    source: "local",
+    slug: "when-validation-follows-commitment",
     tags: [
       "Authority & Accountability",
       "Governance",
@@ -65,9 +64,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Work does not persist because it is correct. It persists because stopping it becomes more costly than continuing it.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/when-work-becomes-harder-to-stop-once-it-is-visible-9eb428c13d90",
+    source: "local",
+    slug: "when-work-becomes-harder-to-stop-once-it-is-visible",
     tags: [
       "Authority & Accountability",
       "Governance",
@@ -82,9 +80,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Work is not treated as real when it begins. It becomes real when it becomes visible.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/when-work-becomes-real-when-it-is-visible-9327957d73ee",
+    source: "local",
+    slug: "when-work-becomes-real-when-it-is-visible",
     tags: [
       "Authority & Accountability",
       "Governance",
@@ -99,9 +96,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Work is not questioned when it is most uncertain. It is questioned when continuing it becomes more costly than challenging it.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/when-work-gets-questioned-d5d8f2705355",
+    source: "local",
+    slug: "when-work-gets-questioned",
     tags: [
       "Authority & Accountability",
       "Governance",
@@ -116,9 +112,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "As work becomes visible and commitment forms around it, the cost of questioning it increases, making validation less likely to alter direction.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/when-commitment-makes-validation-costly-6958269e99c0",
+    source: "local",
+    slug: "when-commitment-makes-validation-costly",
     tags: [
       "Authority & Accountability",
       "Governance",
@@ -133,9 +128,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "When outcomes are uncertain and exposure is high, signaling progress becomes safer than producing it.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/when-signaling-becomes-safer-than-progress-5fc63d26af65",
+    source: "local",
+    slug: "when-signaling-becomes-safer-than-progress",
     tags: [
       "Authority & Accountability",
       "Governance",
@@ -150,10 +144,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Organizations often assume that decisions form through the strength of an argument or the clarity of a proposal. In reality the ability to frame a decision early depends heavily on authority. The same framing attempt can create momentum when it comes from one group and resistance when it comes from another.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/authority-determines-who-gets-to-frame-the-decision-5888ef66055c",
-    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+    source: "local",
+    slug: "authority-determines-who-gets-to-frame-the-decision",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
   },
   {
     id: "2026-03-13-01",
@@ -162,10 +160,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "In many organizations disagreement does not disappear. It simply arrives too late. Decisions often begin forming before they are exposed to meaningful challenge. By the time critique appears the structural momentum of the decision already exists.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/decisions-form-before-disagreement-appears-27bf4acbc3d2",
-    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+    source: "local",
+    slug: "decisions-form-before-disagreement-appears",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
   },
   {
     id: "2026-03-10-01",
@@ -174,10 +176,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Organizations often interpret silence as agreement or alignment. In reality silence frequently emerges as a form of protection. When speaking up increases exposure without increasing influence individuals learn that withholding critique is safer than offering it.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/protection-produces-silence-d46953b372e5",
-    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+    source: "local",
+    slug: "protection-produces-silence",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
   },
   {
     id: "2026-03-08-01",
@@ -186,10 +192,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Organizations train behavior not only through authority and incentives but through what they protect. When a person, initiative or narrative becomes protected, enforcement weakens around it. That shift alters exposure and behavior adapts accordingly.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/protection-changes-exposure-7df5a4fe092d",
-    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+    source: "local",
+    slug: "protection-changes-exposure",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
   },
   {
     id: "2026-03-06-01",
@@ -198,10 +208,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Clear communication cannot substitute for structural authority. When decision rights are ambiguous, organizations often attempt to compensate with better messaging, documentation and alignment — but clarity does not alter exposure.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/clarity-does-not-create-authority-71466dac2da2",
-    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+    source: "local",
+    slug: "clarity-does-not-create-authority",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
   },
   {
     id: "2026-03-03-01",
@@ -210,14 +224,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Strategy alters behavior only when it changes boundaries. Without boundary change, strategy remains narrative.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/strategy-without-boundary-change-is-narrative-36fd9a20cab1",
+    source: "local",
+    slug: "strategy-without-boundary-change-is-narrative",
     tags: [
       "Authority & Accountability",
       "Governance",
       "Organizational Design",
       "Strategy",
+      "Work",
     ],
   },
   {
@@ -227,10 +241,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "When decision boundaries are unstable, alignment expands not as collaboration but as a mechanism for diffusing exposure.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/alignment-is-often-compensation-5984d1ca2f7a",
-    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+    source: "local",
+    slug: "alignment-is-often-compensation",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
   },
   {
     id: "2026-02-27-01",
@@ -239,10 +257,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "When escalation becomes the primary mechanism for resolving risk, organizations train people to transfer exposure upward rather than resolve uncertainty locally.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/escalation-trains-dependency-42facb9fd08d",
-    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+    source: "local",
+    slug: "escalation-trains-dependency",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
   },
   {
     id: "2026-02-24-01",
@@ -251,10 +273,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Culture does not stabilize around what is declared — it stabilizes around what is consistently enforced.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/what-survives-enforcement-becomes-culture-84e2eb11fb44",
-    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+    source: "local",
+    slug: "what-survives-enforcement-becomes-culture",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
   },
   {
     id: "2026-02-22-01",
@@ -263,10 +289,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Constraints do not limit behavior — they determine which behaviors are safe to repeat.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/constraints-determine-what-becomes-safe-cd9a36ebf044",
-    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+    source: "local",
+    slug: "constraints-determine-what-becomes-safe",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
   },
   {
     id: "2026-02-20-01",
@@ -275,10 +305,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Incentives are not tools for motivation — they are enforcement structures that shape behavior through consequence, regardless of stated values or intent.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/incentives-are-enforcement-not-motivation-6cbcdf0064e5",
-    tags: ["Authority & Accountability", "Governance", "Organizational Design"],
+    source: "local",
+    slug: "incentives-are-enforcement-not-motivation",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
   },
   {
     id: "2026-02-18-01",
@@ -287,14 +321,14 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "When authority is unstable and decisions do not hold, individuals rationally optimize for defensibility rather than correctness.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/when-authority-is-ambiguous-defensibility-becomes-the-skill-febf846fd9ce",
+    source: "local",
+    slug: "when-authority-is-ambiguous-defensibility-becomes-the-skill",
     tags: [
       "Authority & Accountability",
       "Governance",
       "Organizational Design",
       "Systems Thinking",
+      "Work",
     ],
   },
   {
@@ -304,9 +338,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Organizations appear slow when decisions reopen and reset accumulated work.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/organizations-dont-move-slowly-they-move-reversibly-4fdc2f89eb32",
+    source: "local",
+    slug: "organizations-dont-move-slowly-they-move-reversibly",
     tags: [
       "Authority & Accountability",
       "Decision Architecture",
@@ -320,9 +353,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Execution exposes whether decisions were resolved in the right order.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/execution-is-downstream-of-decision-order-f23c06214c2c",
+    source: "local",
+    slug: "execution-is-downstream-of-decision-order",
     tags: [
       "Authority & Accountability",
       "Decision Architecture",
@@ -336,9 +368,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Autonomy is not freedom from constraint — it is the downstream effect of constraints that are stable enough to act within without seeking permission.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/stable-constraints-create-autonomy-af1307187918",
+    source: "local",
+    slug: "stable-constraints-create-autonomy",
     tags: [
       "Authority & Accountability",
       "Decision Architecture",
@@ -352,9 +383,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Decision rights are not a leadership trait — they are upstream infrastructure that determines whether execution can safely proceed.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/decision-rights-are-upstream-infrastructure-de610a0c0178",
+    source: "local",
+    slug: "decision-rights-are-upstream-infrastructure",
     tags: [
       "Authority & Accountability",
       "Decision Architecture",
@@ -368,9 +398,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Coordination is not a sign of alignment — it is the structural compensation that emerges when decisions do not hold and authority cannot enforce closure.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/coordination-is-what-happens-when-decision-flow-breaks-a7cf3e603723",
+    source: "local",
+    slug: "coordination-is-what-happens-when-decision-flow-breaks",
     tags: [
       "Authority & Accountability",
       "Decision Architecture",
@@ -384,9 +413,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Momentum is not effort or urgency — it is the downstream result of authority that holds and decisions that do not reopen.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/momentum-is-a-system-property-9d21dee959f4",
+    source: "local",
+    slug: "momentum-is-a-system-property",
     tags: [
       "Authority & Accountability",
       "Decision Architecture",
@@ -400,9 +428,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "People adapt to what the system punishes and protects, so an organization’s real values are revealed through consequences, not messaging.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/incentives-train-behavior-more-than-intent-38086b9fe7e6",
+    source: "local",
+    slug: "incentives-train-behavior-more-than-intent",
     tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
@@ -412,9 +439,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Alignment work expands when authority is unclear because coordination becomes the substitute for decision rights and closure.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/alignment-is-a-tax-on-missing-authority-7089fa64ee71",
+    source: "local",
+    slug: "alignment-is-a-tax-on-missing-authority",
     tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
@@ -424,9 +450,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Decisions are not real because they were discussed — they are real because they hold, creating constraints other work can reliably build on.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/closure-is-a-system-property-3c7d2757928e",
+    source: "local",
+    slug: "closure-is-a-system-property",
     tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
@@ -436,9 +461,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Approval looks like governance, but it arrives too late to prevent decision conflict, so teams learn that movement is unsafe without permission.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/approval-is-not-decision-making-a2d62fd6a9de",
+    source: "local",
+    slug: "approval-is-not-decision-making",
     tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
@@ -448,9 +472,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Governance often becomes visible only after failure, when decisions collide and authority has to be clarified retroactively.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/the-rule-only-existed-after-someone-broke-it-9c6408ba7de1",
+    source: "local",
+    slug: "the-rule-only-existed-after-someone-broke-it",
     tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
@@ -460,9 +483,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Escalation is rarely a people problem — it is the predictable behavior of a system where decision authority is unclear, unstable or unsafe to use.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/escalation-is-how-unclear-authority-reveals-itself-754ec45bd3ab",
+    source: "local",
+    slug: "escalation-is-how-unclear-authority-reveals-itself",
     tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
@@ -472,9 +494,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Governance is not oversight or bureaucracy — it is the system that determines who has authority to decide and what happens when decisions collide.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/governance-is-how-organizations-decide-who-decides-50f81fb8cb62",
+    source: "local",
+    slug: "governance-is-how-organizations-decide-who-decides",
     tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
@@ -497,9 +518,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Organizations routinely assign responsibility without granting authority, creating accountability that appears rigorous but is structurally impossible to fulfill.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/when-responsibility-is-assigned-without-authority-bc716b305531",
+    source: "local",
+    slug: "when-responsibility-is-assigned-without-authority",
     tags: ["Authority & Accountability", "Governance", "Organizational Design"],
   },
   {
@@ -509,9 +529,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Organizational urgency often substitutes for clarity, rewarding visible motion while quietly degrading decision quality.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/urgency-is-not-a-strategy-95671798f0ac",
+    source: "local",
+    slug: "urgency-is-not-a-strategy",
     tags: ["Complexity", "Organizational Design", "Systems Thinking"],
   },
   {
@@ -521,9 +540,8 @@ export const ARTICLES_REAL: Article[] = [
     year: 2026,
     excerpt:
       "Most organizational failures blamed on execution are actually caused by decisions being made in the wrong order.",
-    source: "medium",
-    externalUrl:
-      "https://medium.com/@andrewjfrancis/most-strategy-fails-before-execution-even-starts-1033992be80e",
+    source: "local",
+    slug: "most-strategy-fails-before-execution-even-starts",
     tags: ["Decision Architecture", "Strategy", "Systems Thinking"],
   },
 ];

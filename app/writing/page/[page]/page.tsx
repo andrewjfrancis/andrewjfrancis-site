@@ -1,6 +1,7 @@
 // app/writing/page/[page]/page.tsx
 
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import PageShell from "../../../_components/PageShell";
 import YearsNav from "../../_components/YearsNav";
@@ -67,11 +68,47 @@ export default async function WritingPagedIndex({ params }: Props) {
         <h1 className="text-4xl font-semibold tracking-tight leading-tight">
           Writing
         </h1>
+        <p className="text-base font-medium leading-8 text-muted-foreground">
+          These essays examine how organizations function under pressure — how
+          decisions are ordered, authority is assigned and responsibility is
+          distributed. The focus is structural rather than personal: systems,
+          incentives and design choices that shape behavior regardless of
+          intent. The goal is not to offer solutions or frameworks, but to make
+          patterns visible so they can be recognized for what they are.
+        </p>
       </header>
 
       <hr className="my-6" />
 
       <section className="space-y-5">
+        {/* Indexes */}
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Indexes
+          </p>
+
+          <div className="flex flex-wrap items-center gap-3 text-base">
+            <Link
+              href="/writing/series"
+              className="underline underline-offset-4 text-foreground/80 hover:text-foreground"
+            >
+              Series
+            </Link>
+
+            <span className="text-muted-foreground/60" aria-hidden="true">
+              •
+            </span>
+
+            <Link
+              href="/writing/tags"
+              className="underline underline-offset-4 text-foreground/80 hover:text-foreground"
+            >
+              Tags
+            </Link>
+          </div>
+        </div>
+
+        {/* Browse by tag */}
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Browse by tag
@@ -83,6 +120,7 @@ export default async function WritingPagedIndex({ params }: Props) {
           />
         </div>
 
+        {/* Browse by year */}
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Browse by year
