@@ -26,6 +26,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-04-07-01",
+    title: "When measurement defines what can be judged",
+    date: "2026-04-07",
+    year: 2026,
+    excerpt:
+      "When measurement defines what is visible, it shapes what can be judged, making judgment more reliable where work is measured and less reliable where it is not.",
+    source: "local",
+    slug: "when-measurement-defines-what-can-be-judged",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-04-05-01",
     title: "When measurement replaces judgment",
     date: "2026-04-05",
