@@ -10,6 +10,7 @@ export type EssayFrontmatter = {
   date: string; // YYYY-MM-DD
   year: number;
   excerpt?: string;
+  description?: string;
   tags?: string[];
   source?: "local"; // keep tight for now
   pinned?: boolean;

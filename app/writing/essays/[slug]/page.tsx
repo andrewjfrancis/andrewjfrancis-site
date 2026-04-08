@@ -62,9 +62,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : "Essay";
 
   const description =
-    typeof frontmatter.excerpt === "string" && frontmatter.excerpt.trim()
-      ? frontmatter.excerpt.trim()
-      : "Essay in the writing archive.";
+    typeof frontmatter.description === "string" &&
+    frontmatter.description.trim()
+      ? frontmatter.description.trim()
+      : typeof frontmatter.excerpt === "string" && frontmatter.excerpt.trim()
+        ? frontmatter.excerpt.trim()
+        : "Essay in the writing archive.";
 
   const url = `/writing/essays/${slug}`;
 
