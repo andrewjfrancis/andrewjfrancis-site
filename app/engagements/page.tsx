@@ -37,6 +37,11 @@ export default function EngagementsPage() {
           </h2>
           <p>I work with organizations where execution slows despite effort.</p>
           <p>
+            If execution slows despite effort, or coordination continues to
+            expand without resolving issues, the underlying cause is often
+            structural.
+          </p>
+          <p>
             Not because people lack urgency, but because decisions do not hold.
           </p>
           <p>

@@ -6,8 +6,8 @@
  * Format: YYYY-MM-DD
  */
 export const STATIC_LASTMOD = {
-  home: "2026-04-07",
-  engagements: "2026-04-03",
+  home: "2026-04-10",
+  engagements: "2026-04-10",
   about: "2026-04-03",
   now: "2026-04-03",
 } as const;

@@ -26,6 +26,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-04-10-01",
+    title: "When unmeasured work becomes harder to recognize",
+    date: "2026-04-10",
+    year: 2026,
+    excerpt:
+      "When measurement determines what is visible, work that is not measured becomes harder to recognize, shaping what is acknowledged and acted upon.",
+    source: "local",
+    slug: "when-unmeasured-work-becomes-harder-to-recognize",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-04-07-01",
     title: "When measurement defines what can be judged",
     date: "2026-04-07",
