@@ -26,6 +26,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-04-14-01",
+    title: "What systems make recognizable",
+    date: "2026-04-14",
+    year: 2026,
+    excerpt:
+      "Systems shape what is visible and how evaluation occurs, determining what can be reliably recognized over time.",
+    source: "local",
+    slug: "what-systems-make-recognizable",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-04-10-01",
     title: "When unmeasured work becomes harder to recognize",
     date: "2026-04-10",
