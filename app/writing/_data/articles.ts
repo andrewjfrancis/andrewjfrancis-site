@@ -26,6 +26,22 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-04-17-01",
+    title: "What systems make safe",
+    date: "2026-04-17",
+    year: 2026,
+    excerpt:
+      "Systems determine what behavior is safe, shaping action not through intent but through exposure and protection.",
+    source: "local",
+    slug: "what-systems-make-safe",
+    tags: [
+      "Authority & Accountability",
+      "Governance",
+      "Organizational Design",
+      "Work",
+    ],
+  },
+  {
     id: "2026-04-14-01",
     title: "What systems make recognizable",
     date: "2026-04-14",

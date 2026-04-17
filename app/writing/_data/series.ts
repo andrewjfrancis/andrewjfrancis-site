@@ -20,15 +20,6 @@ export type Series = {
 };
 
 export const SERIES: Series[] = [
-  {
-    title: "Upcoming",
-    slug: "upcoming",
-    description:
-      "Future series — not yet on the horizon. What Systems Train is still unfolding. The next direction is emerging, but not yet defined.",
-    status: "upcoming",
-    showPill: true,
-    essayIds: [],
-  },
   // {
   //   title: "Upcoming",
   //   slug: "upcoming",
@@ -46,13 +37,33 @@ export const SERIES: Series[] = [
   //   showPill: true,
   //   essayIds: [],
   // },
+
+  {
+    title: "What Systems Make",
+    slug: "what-systems-make",
+    description:
+      "Systems shape what can be seen, judged, recognized, and acted on, defining the conditions that make behavior repeatable in some domains while leaving others unstable, constrained, or absent over time.",
+    status: "upcoming",
+    showPill: true,
+    essayIds: [],
+  },
+
+  // {
+  //   title: "What Systems Make",
+  //   slug: "what-systems-make",
+  //   description:
+  //     "Systems shape what can be seen, judged, recognized, and acted on, defining the conditions that make behavior repeatable in some domains while leaving others unstable, constrained, or absent over time.",
+  //   status: "in-progress",
+  //   showPill: true,
+  //   essayIds: [],
+  // },
+
   {
     title: "What Systems Train",
     slug: "what-systems-train",
     description:
       "How organizational structures shape behavior over time through constraints, incentives, and enforcement — independent of intent or culture.",
-    status: "in-progress",
-    showPill: true,
+    status: "complete",
     essayIds: [
       "2026-02-18-01",
       "2026-02-20-01",
@@ -77,6 +88,7 @@ export const SERIES: Series[] = [
       "2026-04-07-01",
       "2026-04-10-01",
       "2026-04-14-01",
+      "2026-04-17-01",
     ],
   },
   {
