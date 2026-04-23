@@ -87,6 +87,26 @@ export default function NowPage() {
           </ul>
         </Card>
       </section>
+
+      <hr className="my-10" />
+
+      <section className="space-y-3">
+        <header>
+          <h2 className="text-xl font-semibold tracking-tight">
+            Adjacent exploration
+          </h2>
+          <p className="text-sm text-muted-foreground">Non-system work.</p>
+        </header>
+
+        <Card className="p-6">
+          <h3 className="text-base font-semibold">Current focus</h3>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-7">
+            <li>Exploring sound without requiring output</li>
+            <li>Capturing ideas without obligation to develop them</li>
+            <li>Developing intuition through repetition and listening</li>
+          </ul>
+        </Card>
+      </section>
     </PageShell>
   );
 }

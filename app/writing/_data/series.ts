@@ -42,7 +42,7 @@ export const SERIES: Series[] = [
     title: "What Systems Make",
     slug: "what-systems-make",
     description:
-      "Systems shape what can be seen, judged, recognized, and acted on, defining the conditions that make behavior repeatable in some domains while leaving others unstable, constrained, or absent over time.",
+      "Systems shape what can be seen, judged, recognized, and acted on — defining the conditions under which behavior becomes repeatable, or remains unstable, constrained or absent over time.",
     status: "upcoming",
     showPill: true,
     essayIds: [],
@@ -52,7 +52,7 @@ export const SERIES: Series[] = [
   //   title: "What Systems Make",
   //   slug: "what-systems-make",
   //   description:
-  //     "Systems shape what can be seen, judged, recognized, and acted on, defining the conditions that make behavior repeatable in some domains while leaving others unstable, constrained, or absent over time.",
+  //     "Systems shape what can be seen, judged, recognized, and acted on — defining the conditions under which behavior becomes repeatable, or remains unstable, constrained, or absent over time.",
   //   status: "in-progress",
   //   showPill: true,
   //   essayIds: [],

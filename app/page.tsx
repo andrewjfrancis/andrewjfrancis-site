@@ -79,9 +79,9 @@ export default function HomePage() {
             <p className="text-base leading-7">
               Building Aira — a system for interpreting communication.
             </p>
-            <p className="text-base leading-7">
-              Focused on outputs that hold: signal, intent, and suggested
-              action.
+            <p className="text-base leading-7 mt-4">
+              Focused on outputs that hold: signal, intent and suggested action
+              — while maintaining adjacent exploration outside the system.
             </p>
 
             <div className="mt-4">
