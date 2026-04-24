@@ -26,6 +26,17 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-04-24-01",
+    title: "What systems make visible",
+    date: "2026-04-24",
+    year: 2026,
+    excerpt:
+      "Systems shape what becomes visible, determining what can be consistently seen, evaluated and acted on over time.",
+    source: "local",
+    slug: "what-systems-make-visible",
+    tags: ["Organizational Design", "Systems Thinking", "Work"],
+  },
+  {
     id: "2026-04-17-01",
     title: "What systems make safe",
     date: "2026-04-17",
@@ -393,8 +404,6 @@ export const ARTICLES_REAL: Article[] = [
       "Organizational Design",
       "Work",
     ],
-    pinned: true,
-    pinOrder: 1,
   },
   {
     id: "2026-02-18-01",

@@ -20,15 +20,15 @@ export type Series = {
 };
 
 export const SERIES: Series[] = [
-  // {
-  //   title: "Upcoming",
-  //   slug: "upcoming",
-  //   description:
-  //     "Future series — not yet on the horizon. What Systems Train is still unfolding.",
-  //   status: "upcoming",
-  //   showPill: true,
-  //   essayIds: [],
-  // },
+  {
+    title: "Upcoming",
+    slug: "upcoming",
+    description:
+      "Future series — not yet on the horizon. What Systems Make is still unfolding.",
+    status: "upcoming",
+    showPill: true,
+    essayIds: [],
+  },
   // {
   //   title: "Upcoming",
   //   slug: "upcoming",
@@ -37,27 +37,15 @@ export const SERIES: Series[] = [
   //   showPill: true,
   //   essayIds: [],
   // },
-
   {
     title: "What Systems Make",
     slug: "what-systems-make",
     description:
       "Systems shape what can be seen, judged, recognized, and acted on — defining the conditions under which behavior becomes repeatable, or remains unstable, constrained or absent over time.",
-    status: "upcoming",
+    status: "in-progress",
     showPill: true,
-    essayIds: [],
+    essayIds: ["2026-04-24-01"],
   },
-
-  // {
-  //   title: "What Systems Make",
-  //   slug: "what-systems-make",
-  //   description:
-  //     "Systems shape what can be seen, judged, recognized, and acted on — defining the conditions under which behavior becomes repeatable, or remains unstable, constrained, or absent over time.",
-  //   status: "in-progress",
-  //   showPill: true,
-  //   essayIds: [],
-  // },
-
   {
     title: "What Systems Train",
     slug: "what-systems-train",
