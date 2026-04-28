@@ -26,6 +26,17 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-04-28-01",
+    title: "What systems make measurable",
+    date: "2026-04-28",
+    year: 2026,
+    excerpt:
+      "Systems determine what can be measured, shaping what becomes legible enough to evaluate, compare and act on over time.",
+    source: "local",
+    slug: "what-systems-make-measurable",
+    tags: ["Organizational Design", "Systems Thinking", "Work"],
+  },
+  {
     id: "2026-04-24-01",
     title: "What systems make visible",
     date: "2026-04-24",
