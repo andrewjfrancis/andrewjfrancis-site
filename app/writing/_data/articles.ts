@@ -26,6 +26,17 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-05-03-01",
+    title: "What systems make comparable",
+    date: "2026-05-03",
+    year: 2026,
+    excerpt:
+      "Systems determine what can be compared, shaping what becomes evaluable across contexts rather than remaining isolated within them.",
+    source: "local",
+    slug: "what-systems-make-comparable",
+    tags: ["Organizational Design", "Systems Thinking", "Work"],
+  },
+  {
     id: "2026-04-28-01",
     title: "What systems make measurable",
     date: "2026-04-28",
