@@ -44,7 +44,12 @@ export const SERIES: Series[] = [
       "Systems shape what can be seen, judged, recognized, and acted on — defining the conditions under which behavior becomes repeatable, or remains unstable, constrained or absent over time.",
     status: "in-progress",
     showPill: true,
-    essayIds: ["2026-04-24-01", "2026-04-28-01", "2026-05-03-01"],
+    essayIds: [
+      "2026-04-24-01",
+      "2026-04-28-01",
+      "2026-05-03-01",
+      "2026-05-05-01",
+    ],
   },
   {
     title: "What Systems Train",

@@ -26,6 +26,17 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-05-05-01",
+    title: "What systems make evaluable",
+    date: "2026-05-05",
+    year: 2026,
+    excerpt:
+      "Systems determine what can be evaluated, shaping whether judgment can stabilize across contexts or remains inconsistent and local.",
+    source: "local",
+    slug: "what-systems-make-evaluable",
+    tags: ["Organizational Design", "Systems Thinking", "Work"],
+  },
+  {
     id: "2026-05-03-01",
     title: "What systems make comparable",
     date: "2026-05-03",
