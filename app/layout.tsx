@@ -178,6 +178,9 @@ export default function RootLayout({
                 <ExternalLink href="https://medium.com/@andrewjfrancis">
                   Medium
                 </ExternalLink>
+                <ExternalLink href="https://soundcloud.com/andrewjfrancis">
+                  SoundCloud
+                </ExternalLink>
                 <ExternalLink href="https://github.com/andrewjfrancis">
                   GitHub
                 </ExternalLink>
