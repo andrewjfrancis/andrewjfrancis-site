@@ -26,6 +26,17 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-05-19-01",
+    title: "What systems make legible",
+    date: "2026-05-19",
+    year: 2026,
+    excerpt:
+      "Systems determine what becomes legible, shaping whether understanding can transfer across contexts or remains dependent on local interpretation.",
+    source: "local",
+    slug: "what-systems-make-legible",
+    tags: ["Organizational Design", "Systems Thinking", "Work"],
+  },
+  {
     id: "2026-05-05-01",
     title: "What systems make evaluable",
     date: "2026-05-05",
