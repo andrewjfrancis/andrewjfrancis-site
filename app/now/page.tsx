@@ -101,9 +101,14 @@ export default function NowPage() {
         <Card className="p-6">
           <h3 className="text-base font-semibold">Current focus</h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-7">
-            <li>Exploring sound without requiring output</li>
-            <li>Capturing ideas without obligation to develop them</li>
-            <li>Developing intuition through repetition and listening</li>
+            <li>Exploring ambient and atmospheric composition</li>
+            <li>
+              Developing intuition through repetition, timing and listening
+            </li>
+            <li>
+              Studying how small structural changes alter emotional movement
+            </li>
+            <li>Capturing and evolving ideas without pressure toward output</li>
           </ul>
         </Card>
       </section>
