@@ -26,6 +26,17 @@ export const PAGE_SIZE = 10;
 
 export const ARTICLES_REAL: Article[] = [
   {
+    id: "2026-05-22-01",
+    title: "What systems make actionable",
+    date: "2026-05-22",
+    year: 2026,
+    excerpt:
+      "Systems determine what can become actionable, shaping whether understanding can reliably produce response or remains observational without consequence.",
+    source: "local",
+    slug: "what-systems-make-actionable",
+    tags: ["Organizational Design", "Systems Thinking", "Work"],
+  },
+  {
     id: "2026-05-19-01",
     title: "What systems make legible",
     date: "2026-05-19",
