@@ -166,21 +166,40 @@ export default function RootLayout({
           <footer className="footer">
             <div className="container">
               <div className="footerLinks">
-                <Link
-                  href="/engagements"
-                  className="inline-flex items-center gap-1 no-underline hover:opacity-90"
-                >
-                  <span className="text-foreground">Engagements</span>
-                </Link>
-                <ExternalLink href="https://www.linkedin.com/in/andrewjfrancis">
-                  LinkedIn
-                </ExternalLink>
-                <ExternalLink href="https://medium.com/@andrewjfrancis">
-                  Medium
-                </ExternalLink>
-                <ExternalLink href="https://github.com/andrewjfrancis">
-                  GitHub
-                </ExternalLink>
+                <div className="footerRow">
+                  <Link
+                    href="/engagements"
+                    className="inline-flex items-center gap-1 no-underline hover:opacity-90"
+                  >
+                    <span className="text-foreground">Engagements</span>
+                  </Link>
+
+                  <ExternalLink href="https://www.linkedin.com/in/andrewjfrancis">
+                    LinkedIn
+                  </ExternalLink>
+
+                  <ExternalLink href="https://medium.com/@andrewjfrancis">
+                    Medium
+                  </ExternalLink>
+
+                  <ExternalLink href="https://github.com/andrewjfrancis">
+                    GitHub
+                  </ExternalLink>
+                </div>
+
+                <div className="footerRow">
+                  <ExternalLink href="https://music.apple.com/us/artist/andrew-j-francis/6772827567">
+                    Apple Music
+                  </ExternalLink>
+
+                  <ExternalLink href="https://open.spotify.com/artist/4zd7rJDs08ulLi45fAddjR">
+                    Spotify
+                  </ExternalLink>
+
+                  <ExternalLink href="https://soundcloud.com/andrewjfrancis">
+                    SoundCloud
+                  </ExternalLink>
+                </div>
               </div>
 
               <div className="small">

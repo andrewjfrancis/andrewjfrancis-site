@@ -165,7 +165,11 @@
   }
 
   .footerLinks {
-    @apply flex flex-wrap gap-4 text-sm;
+    @apply flex flex-col gap-2 text-sm;
+  }
+
+  .footerRow {
+    @apply flex flex-wrap gap-4;
   }
 
   .small {
