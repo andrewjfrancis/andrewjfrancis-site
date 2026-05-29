@@ -84,9 +84,9 @@ export const metadata: Metadata = {
 };
 
 const NAV = [
-  { href: "/", label: "Home" },
   { href: "/now", label: "Now" },
   { href: "/writing", label: "Writing" },
+  { href: "/sound", label: "Sound" },
   { href: "/about", label: "About" },
 ];
 
@@ -177,9 +177,6 @@ export default function RootLayout({
                 </ExternalLink>
                 <ExternalLink href="https://medium.com/@andrewjfrancis">
                   Medium
-                </ExternalLink>
-                <ExternalLink href="https://soundcloud.com/andrewjfrancis">
-                  SoundCloud
                 </ExternalLink>
                 <ExternalLink href="https://github.com/andrewjfrancis">
                   GitHub

@@ -51,6 +51,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: toUTCDate(STATIC_LASTMOD.now),
   });
   routes.push({
+    url: `${SITE}/sound`,
+    lastModified: toUTCDate(STATIC_LASTMOD.sound),
+  });
+  routes.push({
     url: `${SITE}/about`,
     lastModified: toUTCDate(STATIC_LASTMOD.about),
   });

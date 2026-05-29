@@ -64,8 +64,19 @@ export default async function SeriesDetailPage({
 
   const fromRaw = sp.from ?? "";
   const backHref = fromRaw.startsWith("/") ? fromRaw : "/writing/series";
+
   const backLabel =
-    backHref === "/writing/series" ? "Back to all series" : "Back";
+    backHref === "/"
+      ? "Back to Home"
+      : backHref === "/writing/series"
+        ? "Back to all series"
+        : backHref === "/writing" || backHref.startsWith("/writing/page/")
+          ? "Back to Writing"
+          : backHref.startsWith("/writing/tags/")
+            ? "Back to tag"
+            : /^\/writing\/\d{4}(\/page\/\d+)?$/.test(backHref)
+              ? "Back to year"
+              : "Back";
 
   const s = getSeriesBySlug(slug);
   if (!s || s.status === "upcoming") notFound();

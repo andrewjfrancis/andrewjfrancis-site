@@ -25,7 +25,7 @@ export default function TagsIndexPage() {
           className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-          Writing
+          Back to Writing
         </Link>
       </div>
       <header className="space-y-4">
@@ -78,7 +78,7 @@ export default function TagsIndexPage() {
           className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-          Writing
+          Back to Writing
         </Link>
       </div>
     </PageShell>

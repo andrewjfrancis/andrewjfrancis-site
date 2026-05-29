@@ -27,7 +27,7 @@ export default function SeriesIndexPage() {
           className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-          Writing
+          Back to Writing
         </Link>
       </div>
       <header className="space-y-4">
@@ -76,7 +76,7 @@ export default function SeriesIndexPage() {
                   <li key={s.slug} className="space-y-1">
                     <div className="flex items-center gap-2">
                       <Link
-                        href={`/writing/series/${s.slug}`}
+                        href={`/writing/series/${s.slug}?from=${encodeURIComponent("/writing/series")}`}
                         className="text-base font-semibold underline underline-offset-4"
                       >
                         {s.title}
@@ -113,7 +113,7 @@ export default function SeriesIndexPage() {
                   <li key={s.slug} className="space-y-1">
                     <div className="flex items-center gap-2">
                       <Link
-                        href={`/writing/series/${s.slug}`}
+                        href={`/writing/series/${s.slug}?from=${encodeURIComponent("/writing/series")}`}
                         className="text-base font-semibold underline underline-offset-4"
                       >
                         {s.title}
@@ -143,7 +143,7 @@ export default function SeriesIndexPage() {
           className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-          Writing
+          Back to Writing
         </Link>
       </div>
     </PageShell>

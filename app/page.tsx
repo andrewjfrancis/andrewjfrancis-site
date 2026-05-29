@@ -1,3 +1,5 @@
+// app/page.tsx
+
 import Link from "next/link";
 import { getLatestArticle, getArticleHref } from "./writing/_data/articles";
 import { getSeriesForArticleId } from "./writing/_data/series";
