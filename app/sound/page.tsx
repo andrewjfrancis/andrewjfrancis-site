@@ -96,6 +96,19 @@ export default function SoundPage() {
           </div>
         </CardContent>
       </Card>
+
+      <hr className="my-8" />
+
+      <section className="space-y-4">
+        <div>
+          <p className="mt-4 text-muted-foreground">
+            Also available on Deezer and other streaming services. Search for{" "}
+            <strong>Andrew J. Francis</strong> if your preferred platform is not
+            listed above.
+          </p>
+        </div>
+      </section>
+
       <hr className="my-8" />
 
       <section className="space-y-4">
