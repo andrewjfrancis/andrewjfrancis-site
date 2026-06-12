@@ -36,31 +36,26 @@ export default function SoundPage() {
             texture, tension, movement and release instead of language.
           </p>
         </div>
-
-        <Image
-          src="/sound/traffic-begins-cover.png"
-          alt="Album artwork for Traffic Begins"
-          width={1200}
-          height={1200}
-          className="w-full max-w-md rounded-xl"
-          loading="eager"
-        />
       </header>
 
       <hr className="my-10" />
 
       <Card>
         <CardHeader>
-          <CardTitle>Traffic Begins</CardTitle>
-          <CardDescription>Released May 29, 2026</CardDescription>
+          <CardTitle>Before Eight — Single</CardTitle>
+          <CardDescription>Released June 12, 2026</CardDescription>
         </CardHeader>
         <CardContent>
-          <p>
-            Atmospheric downtempo instrumental exploring movement, tension and
-            release.
-          </p>
+          <Image
+            src="/sound/before-eight-cover.png"
+            alt="Album artwork for Before Eight"
+            width={1200}
+            height={1200}
+            className="w-1/3 rounded-xl"
+            loading="eager"
+          />
 
-          <div className="mt-6 space-y-2">
+          <div className="mt-6 space-y-4">
             <h3 className="text-sm font-medium text-muted-foreground">
               Listen
             </h3>
@@ -69,17 +64,17 @@ export default function SoundPage() {
               {[
                 [
                   "Apple Music",
-                  "https://music.apple.com/us/album/traffic-begins/6772880292?i=6772880293",
+                  "https://music.apple.com/us/album/before-eight/6779465148?i=6779465149",
                 ],
                 [
                   "Spotify",
-                  "https://open.spotify.com/track/2dIUYExmWLAkEWewdgPlUP",
+                  "https://open.spotify.com/track/4cV8B1DYJM3B1qbvCx9JAX",
                 ],
                 [
                   "YouTube Music",
-                  "https://music.youtube.com/playlist?list=OLAK5uy_niy5td4eK2DqQhnjDD6KIStgtPIVXt3sk&si=oOJwVdxlGVpEsHou",
+                  "https://music.youtube.com/watch?v=_gOOP59Tzcs&si=Vra8ZZS4sBkY2XdW",
                 ],
-                ["Amazon Music", "https://music.amazon.com/tracks/B0H2TVC337"],
+                ["Amazon Music", "https://music.amazon.com/albums/B0H4DP72JD"],
               ].map(([label, href]) => (
                 <li key={label}>
                   <a
@@ -108,6 +103,60 @@ export default function SoundPage() {
           </p>
         </div>
       </section>
+
+      <hr className="my-10" />
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Traffic Begins — Single</CardTitle>
+          <CardDescription>Released May 29, 2026</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Image
+            src="/sound/traffic-begins-cover.png"
+            alt="Album artwork for Traffic Begins"
+            width={1200}
+            height={1200}
+            className="w-1/3 rounded-xl"
+            loading="eager"
+          />
+
+          <div className="mt-6 space-y-4">
+            <h3 className="text-sm font-medium text-muted-foreground">
+              Listen
+            </h3>
+
+            <ul className="space-y-1">
+              {[
+                [
+                  "Apple Music",
+                  "https://music.apple.com/us/album/traffic-begins/6772880292?i=6772880293",
+                ],
+                [
+                  "Spotify",
+                  "https://open.spotify.com/track/2dIUYExmWLAkEWewdgPlUP",
+                ],
+                [
+                  "YouTube Music",
+                  "https://music.youtube.com/watch?v=6PvmfhBL-6A&si=xezAmN2aR6nOX8ys",
+                ],
+                ["Amazon Music", "https://music.amazon.com/albums/B0H2TV5WVN"],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 hover:underline"
+                  >
+                    {label} <ArrowUpRight className="h-3 w-3" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </CardContent>
+      </Card>
 
       <hr className="my-8" />
 
